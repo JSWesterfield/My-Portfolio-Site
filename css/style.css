@@ -117,6 +117,11 @@ a:focus {
   background: rgb(240,240,240);
 }
 
+/* resized images in Our Story Section */
+.img-resize {
+  width:200px;
+  height:40px;
+}
 
 
 /* section title */
@@ -378,7 +383,7 @@ a:focus {
 }
 
 
-/* Influence */
+/* Influence - Muse */
 #muse h3 {
   padding-bottom: 0px;
 }
