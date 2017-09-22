@@ -426,7 +426,7 @@ http://www.tooplate.com/view/2083-steak-house
                 <h4>Always ready to serve you!</h4>
             </div>
 				<div class="contact-form wow fadeInUp" data-wow-delay="0.7s">
-					<form id="contact-form" method="post" action="#">
+					<form id="comment-form" method="post" action="#">
 						<input name="name" type="text" class="form-control" id="formName" placeholder="Your Name" required>
 						<input name="email" type="email" class="form-control" id="formEmail" placeholder="Your Email" required>
 						<textarea name="message" class="form-control" id="formContent" placeholder="Message" rows="5" required></textarea>
@@ -526,10 +526,9 @@ http://www.tooplate.com/view/2083-steak-house
   jake.page.handlers.commentsCreate = function(event) {
       event.preventDefault();
       var commentPageData = {
-        //PostId: $("PostId").val() what is a PostId? Is it what the users name is? Do I need it to track in the database? or do I attach it with a id number outside of this form data?
-        Name: $("formName").val()
-        , Email: $("formEmail").val()
-        , Content: $("formContent").val()
+        name: $("formName").val()
+        , email: $("formEmail").val()
+        , content: $("formContent").val()
       }
 
       if(jake.page.commentId) {
@@ -542,6 +541,56 @@ http://www.tooplate.com/view/2083-steak-house
           jake.services.comments.create(commentPageData, jake.page.handlers.submitNewComment, jake.page.handlers.ajaxError);
       }
   }; 
+
+  jake.page.handlers.tempResponseHold = function(response) {
+      jake.page.lastSavedForm = response.item;
+      $("#formName").val(response.item.name);
+      $("formEmail").val(response.item.email);
+      $("formContent").val(response.item.content);
+  };
+
+  jake.page.clientSideValidation = function() {
+      jQuery.validator.setDefaults({  //will need to add the validate.js script to folder
+          debug: true
+      });
+
+      $('#comment-form').validate({
+          rules: {
+            "formName": {
+                required: true
+                , maxlength: 50
+            },
+            "formEmail": {
+                required: true
+                , maxlength: 100
+                , type: email
+            },
+            "formContent": {
+                required: true
+                , maxlength: 250
+            },  
+          },
+
+          messages: {
+            "formName": {
+                required: "Name is required"
+                , maxlength: "Please enter no more than 50 characters."
+            
+            },
+            "formEmail": {
+                required: "Email is required"
+                , maxlength: "Please enter no more than 100 characters."
+                , type: "Email must contain proper email syntax, did you forget an @ symbol or .com?"
+            
+            },
+
+            "formContent": {
+                required: "A message is required before you press send"
+                , maxlength: "Please enter no more than 250 characters."
+            },
+          },
+      })
+  };
 
 
 
