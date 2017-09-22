@@ -429,7 +429,7 @@ http://www.tooplate.com/view/2083-steak-house
 					<form id="contact-form" method="post" action="#">
 						<input name="name" type="text" class="form-control" id="formName" placeholder="Your Name" required>
 						<input name="email" type="email" class="form-control" id="formEmail" placeholder="Your Email" required>
-						<textarea name="message" class="form-control" id="formMessage" placeholder="Message" rows="5" required></textarea>
+						<textarea name="message" class="form-control" id="formContent" placeholder="Message" rows="5" required></textarea>
 						<input type="submit" class="form-control submit" value="SEND MESSAGE">
 					</form>
 				</div>
@@ -503,24 +503,46 @@ http://www.tooplate.com/view/2083-steak-house
 <script src="js/wow.min.js"></script>
 
 <script src="js/custom.js"></script>
+<script src"js/jake.js"></script>
+<!--<script src="js/validate.js"> Add this js library later for validation--> 
 
 </body>
 </html>
 
 
 <script type="text/javascript">
-//on page load run script
-$(document).ready (function() {
-  $("#getFormData").on('click', parseData);
-})
+  //on page load run script
+  jake.page.startUp = function() {
+    if(jake.page.config.item){
+      jake.page.commentId = jake.page.config.item;
+      jake.services.comments.selectCommentById(jake.page.commentId, jake.page.handlers.tempResponseHold);
+    }
 
-var parseData = function() {
-  var formData = {
-    Name: $formName
-    , Email: $formEmail
-    , Message: $formMessage
-  }
-})
+    $("#btn").on('click', jake.page.handlers.commentsCreate);
+    //$("#resetBtn").on('click', jake.page.handlers.resetForm); create reset button later, possibly
+    jake.page.clientSideValidation();
+  };
 
-var sendData = 
+  jake.page.handlers.commentsCreate = function(event) {
+      event.preventDefault();
+      var commentPageData = {
+        //PostId: $("PostId").val() what is a PostId? Is it what the users name is? Do I need it to track in the database? or do I attach it with a id number outside of this form data?
+        Name: $("formName").val()
+        , Email: $("formEmail").val()
+        , Content: $("formContent").val()
+      }
+
+      if(jake.page.commentId) {
+          commentPageData.id = jake.page.commentId;
+          jake.services.comments.update(commentPageData, jake.page.handlers.submitNewComment, jake.page.handlers.ajaxError);
+          jake.page.pendingForm = commentPageData;
+      }
+
+      else {
+          jake.services.comments.create(commentPageData, jake.page.handlers.submitNewComment, jake.page.handlers.ajaxError);
+      }
+  }; 
+
+
+
 </script>
