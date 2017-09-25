@@ -333,18 +333,18 @@ http://www.tooplate.com/view/2083-steak-house
                           <h3>VideoChat App</h3> <!--Replace with ArtFind link-->
                         </div>
 
-                        <div class="iso-box breakfast lunch dinner col-md-4 col-sm-6">
+                        <div class="iso-box lunch col-md-4 col-sm-6">
                           <div class="gallery-thumb">
-                            <a href="images/rkPpSr.jpg" data-lightbox-gallery="food-gallery">
-                              <img src="images/rkPpSr.jpg" class="fluid-img" alt="Gallery">
+                            <a href="http://art-find.azurewebsites.net/" data-lightbox-gallery="food-gallery">
+                              <img src="images/artFind2.jpg" class="fluid-img" alt="Gallery">
                                 <div class="gallery-overlay">
                                   <div class="gallery-item">
-                                    <i class="fa fa-scissors"></i>
+                                    <i class="fa fa-paint-brush"></i>
                                   </div>
                                 </div>
                             </a>
                           </div>
-                          <h3>Rock. Paper. Scissors.</h3>
+                          <h3>ArtFind</h3>
                         </div>
 
                         <div class="iso-box dinner col-md-4 col-sm-6">
@@ -375,32 +375,32 @@ http://www.tooplate.com/view/2083-steak-house
                           <h3>Temperature Convertor</h3>
                         </div>
 
-                        <div class="iso-box lunch col-md-4 col-sm-6">
+                        <div class="iso-box breakfast lunch dinner col-md-4 col-sm-6">
                           <div class="gallery-thumb">
-                            <a href="images/GOTSearch.jpg" data-lightbox-gallery="food-gallery">
-                              <img src="images/GOTSearch.jpg" class="fluid-img" alt="Gallery">
+                            <a href="images/rkPpSr.jpg" data-lightbox-gallery="food-gallery">
+                              <img src="images/rkPpSr.jpg" class="fluid-img" alt="Gallery">
                                 <div class="gallery-overlay">
                                   <div class="gallery-item">
-                                    <i class="fa fa-shield"></i>
+                                    <i class="fa fa-scissors"></i>
                                   </div>
                                 </div>
                             </a>
                           </div>
-                          <h3>Game of Thrones Character Search</h3>
+                          <h3>Rock. Paper. Scissors.</h3>
                         </div>
 
                         <div class="iso-box pizza lunch col-md-4 col-sm-6">
                           <div class="gallery-thumb">
-                            <a href="images/madlibs.jpg" data-lightbox-gallery="food-gallery">
-                              <img src="images/madlibs.jpg" class="fluid-img" alt="Gallery">
+                            <a href="https://facta-app./herokuapp.com" data-lightbox-gallery="food-gallery">
+                              <img src="images/Facta.jpg" class="fluid-img" alt="Gallery">
                                 <div class="gallery-overlay">
                                   <div class="gallery-item">
-                                    <i class="fa fa-commenting-o"></i>
+                                    <i class="fa fa-paper-plane-0"></i>
                                   </div>
                                 </div>
                             </a>
                           </div>
-                          <h3>Simple MadLibs Game</h3>
+                          <h3>Facta</h3>
                         </div>
 
                        </div>
@@ -430,7 +430,7 @@ http://www.tooplate.com/view/2083-steak-house
 						<input name="name" type="text" class="form-control" id="formName" placeholder="Your Name" required>
 						<input name="email" type="email" class="form-control" id="formEmail" placeholder="Your Email" required>
 						<textarea name="message" class="form-control" id="formContent" placeholder="Message" rows="5" required></textarea>
-						<input type="submit" class="form-control submit" value="SEND MESSAGE">
+						<input type="submit" class="form-control submit" id="submitBtn" value="SEND MESSAGE">
 					</form>
 				</div>
 			</div>
@@ -445,7 +445,7 @@ http://www.tooplate.com/view/2083-steak-house
 		<div class="row">
 
               <div class="wow fadeInUp col-md-4 col-sm-4" data-wow-delay="1.3s">
-                <h3>About the Jake</h3>
+                <h3>About Jake</h3>
                 <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod
                 	tincidunt ut laoreet. Dolore magna aliquam erat volutpat ipsum.</p>
               </div>
@@ -502,13 +502,21 @@ http://www.tooplate.com/view/2083-steak-house
 <script src="js/smoothscroll.js"></script>
 <script src="js/wow.min.js"></script>
 
+<!--<script src="js/validate.js"> Add this js library later for validation-->
+
 <script src="js/custom.js"></script>
 <script src"js/jake.js"></script>
-<!--<script src="js/validate.js"> Add this js library later for validation--> 
+ 
 
 </body>
 </html>
 
+<script type="text/javascript">
+//Onpage load, show console message
+$( document ).ready(function() {
+    console.log( "ready!" );
+});
+</script>
 
 <script type="text/javascript">
   //on page load run script
@@ -518,11 +526,12 @@ http://www.tooplate.com/view/2083-steak-house
       jake.services.comments.selectCommentById(jake.page.commentId, jake.page.handlers.tempResponseHold);
     }
 
-    $("#btn").on('click', jake.page.handlers.commentsCreate);
+    $("#submitBtn").on('click', jake.page.handlers.commentsCreate);
     //$("#resetBtn").on('click', jake.page.handlers.resetForm); create reset button later, possibly
     jake.page.clientSideValidation();
   };
 
+  //create comment function
   jake.page.handlers.commentsCreate = function(event) {
       event.preventDefault();
       var commentPageData = {
@@ -541,57 +550,85 @@ http://www.tooplate.com/view/2083-steak-house
           jake.services.comments.create(commentPageData, jake.page.handlers.submitNewComment, jake.page.handlers.ajaxError);
       }
   }; 
+      //temporary Response Hold
+      jake.page.handlers.tempResponseHold = function(response) {
+          jake.page.lastSavedForm = response.item;
+          $("#formName").val(response.item.name);
+          $("formEmail").val(response.item.email);
+          $("formContent").val(response.item.content);
+      };
 
-  jake.page.handlers.tempResponseHold = function(response) {
-      jake.page.lastSavedForm = response.item;
-      $("#formName").val(response.item.name);
-      $("formEmail").val(response.item.email);
-      $("formContent").val(response.item.content);
-  };
 
-  jake.page.clientSideValidation = function() {
-      jQuery.validator.setDefaults({  //will need to add the validate.js script to folder
-          debug: true
-      });
+      //Client side validation w/ Validate.js
+      jake.page.clientSideValidation = function() {
+          jQuery.validator.setDefaults({  //will need to add the validate.js script to folder
+              debug: true
+          });
 
-      $('#comment-form').validate({
-          rules: {
-            "formName": {
-                required: true
-                , maxlength: 50
-            },
-            "formEmail": {
-                required: true
-                , maxlength: 100
-                , type: email
-            },
-            "formContent": {
-                required: true
-                , maxlength: 250
-            },  
-          },
+          $('#comment-form').validate({
+              rules: {
+                "formName": {
+                    required: true
+                    , maxlength: 50
+                },
+                "formEmail": {
+                    required: true
+                    , maxlength: 100
+                    , type: email
+                },
+                "formContent": {
+                    required: true
+                    , maxlength: 250
+                },  
+              },
 
-          messages: {
-            "formName": {
-                required: "Name is required"
-                , maxlength: "Please enter no more than 50 characters."
-            
-            },
-            "formEmail": {
-                required: "Email is required"
-                , maxlength: "Please enter no more than 100 characters."
-                , type: "Email must contain proper email syntax, did you forget an @ symbol or .com?"
-            
-            },
+              messages: {
+                "formName": {
+                    required: "Name is required"
+                    , maxlength: "Please enter no more than 50 characters."
+                
+                },
+                "formEmail": {
+                    required: "Email is required"
+                    , maxlength: "Please enter no more than 100 characters."
+                    , type: "Email must contain proper email syntax, did you forget an @ symbol or .com?"
+                
+                },
 
-            "formContent": {
-                required: "A message is required before you press send"
-                , maxlength: "Please enter no more than 250 characters."
-            },
-          },
-      })
-  };
+                "formContent": {
+                    required: "A message is required before you press send"
+                    , maxlength: "Please enter no more than 250 characters."
+                },
+              },
+          })
+      };
 
+      //submit form function
+      jake.page.handlers.submitNewComment = function(response) {
+          jake.page.commentId = response.item;
+          jake.services.notifications.success("Comments Submitted");
+          jake.page.lastSavedForm = jake.page.pendingForm;
+          $("#submitBtn").text("Update Form");
+
+      };
+
+      //reset form function, will add reset button later.
+      // jake.page.handlers.resetForm = function() {
+      //     if(jake.page.config.item) {
+      //         $("#formName").val(jake.page.lastSavedForm.name);
+      //         $("#formEmail").val(jake.page.lastSavedForm.email);
+      //         $("#formContent").val(jake.page.lastSavedForm.content);
+      //     }
+      //     else {
+      //         $("comment-form")[0].reset(); //resets form
+      //     }
+      // }; 
+
+      //Ajax Error function
+      jake.page.handlers.ajaxError = function(response) {
+          jake.services.notifications.error("Form failed to Submit");
+      }
 
 
 </script>
+
