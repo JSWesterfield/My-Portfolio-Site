@@ -23,6 +23,9 @@ http://www.tooplate.com/view/2083-steak-house
 
 <link rel="stylesheet" href="css/animate.min.css">
 <link rel="stylesheet" href="css/font-awesome.min.css">
+<!-- Add icon library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 
 <link rel="stylesheet" href="css/nivo-lightbox.css">
 <link rel="stylesheet" href="css/nivo_themes/default/default.css">
@@ -46,13 +49,13 @@ http://www.tooplate.com/view/2083-steak-house
 
 <!-- Home section -->
 <section id="home" class="parallax-section">
-  <div class="gradient-overlay"></div>
+  <div class="gradient-overlay"><canvas class='connecting-dots'></canvas></div>
     <div class="container">
       <div class="row">
 
           <div class="col-md-offset-2 col-md-8 col-sm-12">
-              <h1 class="wow fadeInUp" data-wow-delay="0.6s">Jake Westerfield</h1>
-              <p class="wow fadeInUp" data-wow-delay="1.0s">Born and raised in Chicago, living in Los Angeles, military veteran, software developer, innovator, strategist, and overall problem solver.</p>
+              <h1 class="wow fadeInUp" data-wow-delay="0.6s" id="title_text">Jake Westerfield</h1>
+              <p class="wow fadeInUp" data-wow-delay="1.0s" id="subtitle_text">Born and raised in Chicago, living in Los Angeles, military veteran, software developer, innovator, strategist, and overall problem solver.</p>
               <a href="#feature" class="wow fadeInUp btn btn-default hvr-bounce-to-top smoothScroll" data-wow-delay="1.3s">Learn More</a>
           </div>
 
@@ -268,8 +271,8 @@ http://www.tooplate.com/view/2083-steak-house
           <div class="join-muse">
             <i class="fa fa-plus"></i>
             <p>Want to know more about me?</p>
-            <a href="https://github.com/JSWesterfield" class="btn btn-default hvr-bounce-to-bottom">VIEW WORK</a>
-            <a href="https://llinkedin.com/in/jakewesterfield1/" class="btn btn-default hvr-bounce-to-bottom">WORK HISTORY</a>
+            <a href="https://github.com/JSWesterfield" target="_blank" class="btn btn-default hvr-bounce-to-bottom">VIEW WORK</a>
+            <a href="https://llinkedin.com/in/jakewesterfield1/" target="_blank" class="btn btn-default hvr-bounce-to-bottom">WORK HISTORY</a>
           </div>
       </div>
       			
@@ -391,7 +394,7 @@ http://www.tooplate.com/view/2083-steak-house
 
                         <div class="iso-box pizza lunch col-md-4 col-sm-6">
                           <div class="gallery-thumb">
-                            <a href="https://facta-app./herokuapp.com" data-lightbox-gallery="food-gallery">
+                            <a href="https://facta-app.herokuapp.com/" data-lightbox-gallery="food-gallery">
                               <img src="images/Facta.jpg" class="fluid-img" alt="Gallery">
                                 <div class="gallery-overlay">
                                   <div class="gallery-item">
@@ -455,7 +458,6 @@ http://www.tooplate.com/view/2083-steak-house
                 <p>400 South Venice Blvd., Venice, CA 90291</p>
                 <p>(424)702-7450</p>
                 <p>jecobwesterfield@gmail.com</p>
-								<a href="https://github.com/JSWesterfield/" target="_blank"><p>Github: JSWesterfield</p></a>
               </div>
 
               <div class="wow fadeInUp col-md-4 col-sm-4" data-wow-delay="1.9s">
@@ -472,7 +474,11 @@ http://www.tooplate.com/view/2083-steak-house
     <div class="row">
 
       <div class="col-md-8 col-sm-8 col-xs-8">
-        <p>Copyright© 2017 - Designed and Built by <a class="designed-by" href="https://github.com/JSWesterfield" target="_blank">Jacob Westerfield</a></p>
+        <p>Copyright© 2017 - Designed and Built by Jacob Westerfield
+          <a href="https://twitter.com/silv3rsnakejake" target="_blank" class="fa fa-twitter"></a>
+          <a href="https://www.linkedin.com/in/jakewesterfield1/" target="_blank" class="fa fa-linkedin"></a>
+          <a href="https://github.com/JSWesterfield" target="_blank" class="fa fa-github"></a>
+        </p>
       </div>
 
       <div class="col-md-4 col-sm-4 text-right">
@@ -515,6 +521,115 @@ http://www.tooplate.com/view/2083-steak-house
 //Onpage load, show console message
 $( document ).ready(function() {
     console.log( "ready!" );
+
+          //Added Canvas here, w/ MouseOver functionality
+          var canvasDots = function() {
+          var canvas = document.querySelector('canvas'),
+              ctx = canvas.getContext('2d'),
+              colorDot = '#CECECE',
+              color = '#CECECE';
+          canvas.width = window.innerWidth;
+          canvas.height = window.innerHeight;
+          canvas.style.display = 'block';
+          ctx.fillStyle = colorDot;
+          ctx.lineWidth = .1;
+          ctx.strokeStyle = color;
+
+          var mousePosition = {
+              x: 30 * canvas.width / 100,
+              y: 30 * canvas.height / 100
+          };
+
+          var dots = {
+              nb: 600,
+              distance: 60,
+              d_radius: 100,
+              array: []
+          };
+
+          function Dot(){
+              this.x = Math.random() * canvas.width;
+              this.y = Math.random() * canvas.height;
+
+              this.vx = -.5 + Math.random();
+              this.vy = -.5 + Math.random();
+
+              this.radius = Math.random();
+          }
+
+          Dot.prototype = {
+              create: function(){
+                  ctx.beginPath();
+                  ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
+                  ctx.fill();
+              },
+
+              animate: function(){
+                  for(i = 0; i < dots.nb; i++){
+
+                      var dot = dots.array[i];
+
+                      if(dot.y < 0 || dot.y > canvas.height){
+                          dot.vx = dot.vx;
+                          dot.vy = - dot.vy;
+                      }
+                      else if(dot.x < 0 || dot.x > canvas.width){
+                          dot.vx = - dot.vx;
+                          dot.vy = dot.vy;
+                      }
+                      dot.x += dot.vx;
+                      dot.y += dot.vy;
+                  }
+              },
+
+              line: function(){
+                  for(i = 0; i < dots.nb; i++){
+                      for(j = 0; j < dots.nb; j++){
+                          i_dot = dots.array[i];
+                          j_dot = dots.array[j];
+
+                          if((i_dot.x - j_dot.x) < dots.distance && (i_dot.y - j_dot.y) < dots.distance && (i_dot.x - j_dot.x) > - dots.distance && (i_dot.y - j_dot.y) > - dots.distance){
+                              if((i_dot.x - mousePosition.x) < dots.d_radius && (i_dot.y - mousePosition.y) < dots.d_radius && (i_dot.x - mousePosition.x) > - dots.d_radius && (i_dot.y - mousePosition.y) > - dots.d_radius){
+                                  ctx.beginPath();
+                                  ctx.moveTo(i_dot.x, i_dot.y);
+                                  ctx.lineTo(j_dot.x, j_dot.y);
+                                  ctx.stroke();
+                                  ctx.closePath();
+                              }
+                          }
+                      }
+                  }
+              }
+          };
+
+          function createDots(){
+              ctx.clearRect(0, 0, canvas.width, canvas.height);
+              for(i = 0; i < dots.nb; i++){
+                  dots.array.push(new Dot());
+                  dot = dots.array[i];
+
+                  dot.create();
+              }
+
+              dot.line();
+              dot.animate();
+          }
+
+          window.onmousemove = function(parameter) {
+              mousePosition.x = parameter.pageX;
+              mousePosition.y = parameter.pageY;
+          }
+
+          mousePosition.x = window.innerWidth / 2;
+          mousePosition.y = window.innerHeight / 2;
+
+          setInterval(createDots, 1000/30);
+      };
+
+      window.onload = function() {
+          canvasDots();
+      };
+
 });
 </script>
 
