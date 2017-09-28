@@ -217,6 +217,7 @@ a:focus {
 #home .btn:hover,
 #home .btn:focus {
   color: orange;
+  opacity: 0.5;
 }
 
 
