@@ -1,23 +1,6 @@
 //adding this node.js express 'module', using the require function/method
 var express = require('express');
 
-//javascript libraries for portfolio page
-var jquery = require('./js/jquery.js');
-//var bootstrap = require('./js/bootstrap.min.js');
-//var custom = require('./js/custom.js');
-//var imagesLoaded = require('./js/imagesloaded.min.js');
-//var isotope = require('./js/isotope.js');
-//var isotopeMin = require('./js/isotope.min.js');
-//var jqueryBackstretch = require('./js/jquery.backstretch.min.js');
-//var jqueryFlex = require('./js/jquery.flexslider-min.js');
-//var jqueryMagnific = require('./js/jquery.magnific-popup.min.js');
-//var jqueryParallax = require('./js/jquery.parallax.js');
-//var jquerySticky = require('./js/jquery.sticky.js');
-//var nivoLightbox = require('./js/nivo-lightbox.min.js');
-//var smoothScroll = require('./js/smoothscroll.js');
-//var wow = require('./js/wow.min.js');
-//var jake = require('./js/jake.js');
-//var services = require('./js/services/jake.services.form.js'); //Do I initialize a service here? or somewhere else? 
 
 
 
