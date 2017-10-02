@@ -408,6 +408,17 @@ a:focus {
   margin-top: 22px;
 }
 
+#video:hover {
+  background: url('../images/video-bg.jpg') 50% 0 repeat-y fixed;
+  -webkit-background-size: cover;
+  background-size: cover;
+  background-position: center center;
+  position: relative;
+  color: #999;
+
+  /*Adde a glass shimmer effect over the video overlay*/
+}
+
 
 /* Influence - Muse */
 #muse h3 {
