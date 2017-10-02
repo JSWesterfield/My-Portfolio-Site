@@ -168,7 +168,7 @@ http://www.tooplate.com/view/2083-steak-house
           <ul class="slides">
 
             <li>
-              <img src="images/slide-img1.jpg" class="img-responsive" alt="Flexslider" style="width:405px;height:260px">
+              <img class="img-responsive" src="images/slide-img1.jpg"  alt="Flexslider" style="width:405px;height:260px">
             </li>
             <li>
               <img class="img-responsive" src="images/slide-img2.jpg" alt="Flexslider" style="width:405px;height:260px">
@@ -177,7 +177,7 @@ http://www.tooplate.com/view/2083-steak-house
               <img class="img-responsive" src="images/slide-img3.jpg" alt="Flexslider" style="width:405px;height:260px">
             </li>
             <li>
-              <img src="images/slide-img4.jpg" class="img-responsive" alt="Flexslider" style="width:405px;height:260px">
+              <img class="img-responsive" src="images/slide-img4.jpg"  alt="Flexslider" style="width:405px;height:260px">
             </li>
 
           </ul>
@@ -311,10 +311,10 @@ http://www.tooplate.com/view/2083-steak-house
 
             		<ul class="filter-wrapper clearfix">
                         <li><a href="#" data-filter="*" class="selected opc-main-bg">All</a></li>
-                        <li><a href="#" class="opc-main-bg" data-filter=".breakfast">Fun</a></li>
-                        <li><a href="#" class="opc-main-bg" data-filter=".pizza">Educational</a></li>
-                        <li><a href="#" class="opc-main-bg" data-filter=".lunch">Best</a></li>
-                        <li><a href="#" class="opc-main-bg" data-filter=".dinner">Newest</a></li>
+                        <li><a href="#" class="opc-main-bg" data-filter=".breakfast">Fun</a></li><!--Breakfast == Fun-->
+                        <li><a href="#" class="opc-main-bg" data-filter=".pizza">Educational</a></li><!--pizza == Educational-->
+                        <li><a href="#" class="opc-main-bg" data-filter=".lunch">Best</a></li><!--lunch == Best-->
+                        <li><a href="#" class="opc-main-bg" data-filter=".dinner">Newest</a></li><!--dinner == Newest-->
                     </ul>
 
                     <!-- iso box section -->
@@ -377,15 +377,18 @@ http://www.tooplate.com/view/2083-steak-house
                           <h3>Temperature Convertor</h3>
                         </div>
                             
+
                         <!-- Implement Shooter game here. -->    
+
                         <div class="iso-box breakfast lunch dinner col-md-4 col-sm-6">
                           <div class="gallery-thumb">
                             <a href="images/rkPpSr.jpg" data-lightbox-gallery="food-gallery">
                               <img src="images/rkPpSr.jpg" class="fluid-img" alt="Gallery">
                                 <div class="gallery-overlay">
                                   <div class="gallery-item">
+
                                     <!--Initiate Shooter game on click of icon, change game icon to -->
-                                    <i class="fa fa-scissors" onClick="initShooter();"></i>
+                                    <i class="fa fa-scissors" id="startShooter" onClick="initShooter();"></i>
                                   </div>
                                 </div>
                             </a>
@@ -537,6 +540,16 @@ http://www.tooplate.com/view/2083-steak-house
 //Onpage load, show console message
 $( document ).ready(function() {
     console.log( "ready!" );
+    //On Button Click, id="startShooter", execute initShooter function
+    $('#startShooter').on('click', jake.page.handlers.initShooter);
+
+    jake.page.handlers.initShooter = function() {
+        //render start shooter game code
+        $('#shooterLanding').on
+        console.log('Shooter begins in 3...2...1'); 
+        alert('Shooter begins in 3...2...1'); 
+    });
+
           //Added Canvas here, w/ MouseOver functionality
           var canvasDots = function() {
           var canvas = document.querySelector('canvas'),
@@ -627,103 +640,109 @@ $( document ).ready(function() {
           canvasDots();
       };
 });
+
+
 </script>
 
+/*
 <script type="text/javascript">
-  //on page load run script
-  jake.page.startUp = function() {
-    if(jake.page.config.item){
-      jake.page.commentId = jake.page.config.item;
-      jake.services.comments.selectCommentById(jake.page.commentId, jake.page.handlers.tempResponseHold);
-    }
-    $("#submitBtn").on('click', jake.page.handlers.commentsCreate);
-    //$("#resetBtn").on('click', jake.page.handlers.resetForm); create reset button later, possibly
-    jake.page.clientSideValidation();
-  };
-  //create comment function
-  jake.page.handlers.commentsCreate = function(event) {
-      event.preventDefault();
-      var commentPageData = {
-        name: $("formName").val()
-        , email: $("formEmail").val()
-        , content: $("formContent").val()
+    //on page load run script
+    jake.page.startUp = function() {
+      if(jake.page.config.item){
+        jake.page.commentId = jake.page.config.item;
+        jake.services.comments.selectCommentById(jake.page.commentId, jake.page.handlers.tempResponseHold);
       }
-      if(jake.page.commentId) {
-          commentPageData.id = jake.page.commentId;
-          jake.services.comments.update(commentPageData, jake.page.handlers.submitNewComment, jake.page.handlers.ajaxError);
-          jake.page.pendingForm = commentPageData;
-      }
-      else {
-          jake.services.comments.create(commentPageData, jake.page.handlers.submitNewComment, jake.page.handlers.ajaxError);
-      }
-  }; 
-      //temporary Response Hold
-      jake.page.handlers.tempResponseHold = function(response) {
-          jake.page.lastSavedForm = response.item;
-          $("#formName").val(response.item.name);
-          $("formEmail").val(response.item.email);
-          $("formContent").val(response.item.content);
-      };
-      //Client side validation w/ Validate.js
-      jake.page.clientSideValidation = function() {
-          jQuery.validator.setDefaults({  //will need to add the validate.js script to folder
-              debug: true
-          });
-          $('#comment-form').validate({
-              rules: {
-                "formName": {
-                    required: true
-                    , maxlength: 50
+      $("#submitBtn").on('click', jake.page.handlers.commentsCreate);
+      //$("#resetBtn").on('click', jake.page.handlers.resetForm); create reset button later, possibly
+      jake.page.clientSideValidation(); //initialize validation on form
+    };
+    //create comment function
+    jake.page.handlers.commentsCreate = function(event) {
+        event.preventDefault();
+        var commentPageData = {
+          name: $("formName").val()
+          , email: $("formEmail").val()
+          , content: $("formContent").val()
+        } 
+        if(jake.page.commentId) {
+            commentPageData.id = jake.page.commentId;
+            jake.services.comments.update(commentPageData, jake.page.handlers.submitNewComment, jake.page.handlers.ajaxError);
+            jake.page.pendingForm = commentPageData;
+        }
+        else {
+            jake.services.comments.create(commentPageData, jake.page.handlers.submitNewComment, jake.page.handlers.ajaxError);
+        }
+    }; 
+        //temporary Response Hold
+        jake.page.handlers.tempResponseHold = function(response) {
+            jake.page.lastSavedForm = response.item;
+            $("#formName").val(response.item.name);
+            $("formEmail").val(response.item.email);
+            $("formContent").val(response.item.content);
+        };
+        //Client side validation w/ Validate.js
+        jake.page.clientSideValidation = function() {
+            console.log('validation started');
+            jQuery.validator.setDefaults({  //will need to add the validate.js script to folder
+                debug: true
+            });
+            $('#comment-form').validate({
+                rules: {
+                  "formName": {
+                      required: true
+                      , maxlength: 50
+                  },
+                  "formEmail": {
+                      required: true
+                      , maxlength: 100
+                      , type: email
+                  },
+                  "formContent": {
+                      required: true
+                      , maxlength: 250
+                  },  
                 },
-                "formEmail": {
-                    required: true
-                    , maxlength: 100
-                    , type: email
+                messages: {
+                  "formName": {
+                      required: "Name is required"
+                      , maxlength: "Please enter no more than 50 characters."
+                  
+                  },
+                  "formEmail": {
+                      required: "Email is required"
+                      , maxlength: "Please enter no more than 100 characters."
+                      , type: "Email must contain proper email syntax, did you forget an @ symbol or .com?"
+                  
+                  },
+                  "formContent": {
+                      required: "A message is required before you press send"
+                      , maxlength: "Please enter no more than 250 characters."
+                  },
                 },
-                "formContent": {
-                    required: true
-                    , maxlength: 250
-                },  
-              },
-              messages: {
-                "formName": {
-                    required: "Name is required"
-                    , maxlength: "Please enter no more than 50 characters."
-                
-                },
-                "formEmail": {
-                    required: "Email is required"
-                    , maxlength: "Please enter no more than 100 characters."
-                    , type: "Email must contain proper email syntax, did you forget an @ symbol or .com?"
-                
-                },
-                "formContent": {
-                    required: "A message is required before you press send"
-                    , maxlength: "Please enter no more than 250 characters."
-                },
-              },
-          })
-      };
-      //submit form function
-      jake.page.handlers.submitNewComment = function(response) {
-          jake.page.commentId = response.item;
-          jake.services.notifications.success("Comments Submitted");
-          jake.page.lastSavedForm = jake.page.pendingForm;
-          $("#submitBtn").text("Update Form");
-      };
-      //reset form function, will add reset button later.
-      // jake.page.handlers.resetForm = function() {
-      //     if(jake.page.config.item) {
-      //         $("#formName").val(jake.page.lastSavedForm.name);
-      //         $("#formEmail").val(jake.page.lastSavedForm.email);
-      //         $("#formContent").val(jake.page.lastSavedForm.content);
-      //     }
-      //     else {
-      //         $("comment-form")[0].reset(); //resets form
-      //     }
-      // }; 
-      //Ajax Error function
-      jake.page.handlers.ajaxError = function(response) {
-          jake.services.notifications.error("Form failed to Submit");
-      }
+            })
+        };
+        //submit form function
+        jake.page.handlers.submitNewComment = function(response) {
+            jake.page.commentId = response.item;
+            jake.services.notifications.success("Comments Submitted");
+            jake.page.lastSavedForm = jake.page.pendingForm;
+            $("#submitBtn").text("Update Form");
+        };
+        //reset form function, will add reset button later.
+        // jake.page.handlers.resetForm = function() {
+        //     if(jake.page.config.item) {
+        //         $("#formName").val(jake.page.lastSavedForm.name);
+        //         $("#formEmail").val(jake.page.lastSavedForm.email);
+        //         $("#formContent").val(jake.page.lastSavedForm.content);
+        //     }
+        //     else {
+        //         $("comment-form")[0].reset(); //resets form
+        //     }
+        // }; 
+        //Ajax Error function
+        jake.page.handlers.ajaxError = function(response) {
+            jake.services.notifications.error("Form failed to Submit");
+        }
 </script>
+COMMENTED OUT for portfolio page building purposes.
+*/
