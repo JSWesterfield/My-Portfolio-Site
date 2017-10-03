@@ -8,11 +8,20 @@ Template 2083 Steak House
 Credit:
 http://www.tooplate.com/view/2083-steak-house
 -->
-  	<meta charset="utf-8">
+  <meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="keywords" content="">
   <meta name="description" content="">
+  <!--Added shooter canvas css styles-->
+    <style>
+			canvas {
+				position: absolute;
+				top: 0px;
+				left: 0px;
+				background: transparent;
+			}
+		</style>
 
 	<!-- stylesheets css -->
 <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -183,7 +192,7 @@ http://www.tooplate.com/view/2083-steak-house
           </ul>
         </div>
 
-         <p>I've served in the U.S. Navy, as well as have travelled to over 14+ countries, and seen over 100+ cities. Rode camels in the deserts of Dubai, eaten Gelato and Panini's in Italy, parasailed on beaches and rode elephants in Thailand, climbed coconut trees and swam under waterfalls in Puerto Rico, visited Shrines in Japan. Seeing every new place, has taught me that the world is an extremely diverse place. A place that is more amazing when we come together and learn from each other.</p>
+         <p>I've served in the U.S. Navy, as well as have travelled to over 14+ countries, and seen over 100+ cities. Rode camels in the deserts of Dubai, eaten Gelato and Panini's in Italy, parasailed on beaches and rode elephants in Thailand, climbed coconut trees and swam under waterfalls in Puerto Rico, visited Shrines in Japan. Seeing every new place, has taught me that the world is an extremely diverse place. A place that is more amazing when we come together and learn from each other. Software Development seems to be my favorite travel destination, but with new lines of code and problems. </p>
       </div>
 
       
@@ -384,16 +393,22 @@ http://www.tooplate.com/view/2083-steak-house
                           <div class="gallery-thumb">
 
                             <!--Initiate Shooter game on click of icon, change game icon to -->
-                            <a href="images/rkPpSr.jpg" onClick="jake.page.handlers.initGame()"  data-lightbox-gallery="food-gallery">
-                              <img src="images/rkPpSr.jpg"  class="fluid-img" alt="Gallery">
-                                <div class="gallery-overlay">
-                                  <div class="gallery-item">
+                            <span onload="init()">
+                              
+                              <!--the secondary image, that pops up, silversurfer-->
+                              <a href="images/bg.jpg" onClick="jake.page.handlers.initGame()"  data-lightbox-gallery="food-gallery">
+                                
+                                <!--The initial image of the rock paper scissors-->
+                                <img src="images/rkPpSr.jpg"  class="fluid-img" alt="Gallery">
+                                  <div class="gallery-overlay">
+                                    <div class="gallery-item">
 
 
-                                    <i class="fa fa-scissors" ></i>
+                                      <i class="fa fa-scissors" ></i>
+                                    </div>
                                   </div>
-                                </div>
-                            </a>
+                              </a>
+                             </span> 
                           </div>
                           <h3>Rock. Paper. Scissors.</h3>
                         </div>
@@ -544,10 +559,14 @@ $( document ).ready(function() {
     console.log( "ready!" );
     
         
-          //initiate shooter game
-          jake.page.handlers.initGame = function() {      
-                console.log('game initiated!');
-          }
+        //initiate shooter game
+        jake.page.handlers.initGame = function() {      
+              console.log('game initiated!');
+              //execute html script    
+
+              
+                       
+        }
 
         //Added Canvas here, w/ MouseOver functionality
         var canvasDots = function() {
@@ -642,6 +661,7 @@ $( document ).ready(function() {
 
 
 </script>
+
 
 
 <!--

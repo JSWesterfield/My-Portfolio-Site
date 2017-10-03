@@ -417,6 +417,7 @@ a:focus {
   color: #999;
 
   /*Adde a glass shimmer effect over the video overlay*/
+  
 }
 
 
@@ -932,5 +933,12 @@ canvas {
   top: 0;
   right: 0;
   left: 0;
-  bottom: 0; }
+  bottom: 0; 
+}
 
+canvas#shooterBackground {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  background: transparent;
+}
