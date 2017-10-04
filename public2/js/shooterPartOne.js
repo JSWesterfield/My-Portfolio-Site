@@ -72,7 +72,7 @@ function Game() {
 	this.init = function() {
 		//Get the canvas element 
 		console.log('this.init started');
-		this.bgCanvas = document.getElementById('backgrounds');
+		this.bgCanvas = document.getElementById('background');
 		// Test to see if canvas is supported
 		if (this.bgCanvas.getContext) {
 			console.log('got getContext!');

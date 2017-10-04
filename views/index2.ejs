@@ -62,7 +62,7 @@ http://www.tooplate.com/view/2083-steak-house
 
           <div class="col-md-offset-2 col-md-8 col-sm-12">
               <h1 class="wow fadeInUp" data-wow-delay="0.6s" id="title_text">Jake Westerfield</h1>
-              <p class="wow fadeInUp" data-wow-delay="1.0s" id="subtitle_text">Born and raised in Chicago, living in Los Angeles, military veteran, software developer, innovator, strategist, and overall problem solver.</p>
+              <p class="wow fadeInUp" data-wow-delay="1.0s" id="subtitle_text">Military veteran, software developer, innovator, strategist, and overall problem solver.</p>
               <a href="#feature" class="wow fadeInUp btn btn-default hvr-bounce-to-top smoothScroll" data-wow-delay="1.3s">Learn More</a>
           </div>
 
@@ -128,7 +128,7 @@ http://www.tooplate.com/view/2083-steak-house
             <span><i class="fa fa-rocket" id="startShooter"></i></span>
           </div>
           <h3>Software Engineer - Current</h3>
-          <p>Love of code and building new software currently describes my life. I have developed software in a multitude of platforms, frameworks and languages. Currently working at ArtFind, a social gaming web application as a software developer, building a crytocurrency with solidity/etheruem, or developing a streaming content provider platform with Reality Junkie.</p>
+          <p>Love of code and building new software currently describes my life. I have developed software in a multitude of frameworks and languages. Currently working at ArtFind, a social gaming web application as a software developer, building a crytocurrency with solidity/etheruem, or developing a streaming content provider platform with Reality Junkie.</p>
 				<br>
 				<br>
 				<br>
@@ -212,7 +212,7 @@ http://www.tooplate.com/view/2083-steak-house
               <span>
                 <a class="popup-youtube" href="https://www.youtube.com/watch?v=5MgBikgcWnY" target="_blank"><i class="fa fa-play"></i></a>
               </span>
-              <h2 class="wow fadeInUp" data-wow-delay="0.5s">Watch the video</h2>
+              <h2 class="wow fadeInUp" data-wow-delay="0.5s"><a class="popup-youtube" href="https://www.youtube.com/watch?v=5MgBikgcWnY" target="_blank">Watch the video</a></h2>
               <p class="wow fadeInUp" data-wow-delay="0.8s">This video sums up something that I believe about learning new things, and how I go about trying to approach learning new languages, algorithms, and data structures. Anything is possible, you can learn anything with enough hardwork and effort. Hours are the key!</p>
           </div>
 
@@ -312,8 +312,8 @@ http://www.tooplate.com/view/2083-steak-house
          <div class="wow fadeInUp section-title" data-wow-delay="0.3s">
             <h2>My Portfolio</h2>
             <h4>Fun Applications For Everyone</h4>
-        </div>
-      </div>
+         </div>
+       </div>
 
           <!-- iso section -->
           <div class="iso-section wow fadeInUp" data-wow-delay="0.6s">
@@ -330,7 +330,7 @@ http://www.tooplate.com/view/2083-steak-house
                     <div class="iso-box-section wow fadeInUp" data-wow-delay="0.9s">
                       <div class="iso-box-wrapper col4-iso-box">
 
-                        <div class="iso-box breakfast pizza lunch col-md-4 col-sm-6">
+                        <div class="iso-box pizza col-md-4 col-sm-6">
                           <div class="gallery-thumb">
                             <a href="images/videoChatApp.jpg" data-lightbox-gallery="food-gallery">
                               <img src="images/videoChatApp.jpg" class="fluid-img" alt="Gallery">
@@ -344,7 +344,7 @@ http://www.tooplate.com/view/2083-steak-house
                           <h3>VideoChat App</h3> <!--Replace with ArtFind link-->
                         </div>
 
-                        <div class="iso-box lunch col-md-4 col-sm-6">
+                        <div class="iso-box lunch breakfast pizza dinner col-md-4 col-sm-6">
                           <div class="gallery-thumb">
                             <a href="http://art-find.azurewebsites.net/" data-lightbox-gallery="food-gallery">
                               <img src="images/artFind2.jpg" class="fluid-img" alt="Gallery">
@@ -358,7 +358,7 @@ http://www.tooplate.com/view/2083-steak-house
                           <h3>ArtFind</h3>
                         </div>
 
-                        <div class="iso-box dinner col-md-4 col-sm-6">
+                        <div class="iso-box col-md-4 col-sm-6">
                           <div class="gallery-thumb">
                             <a href="images/curseReplace.jpg" data-lightbox-gallery="food-gallery">
                               <img src="images/curseReplace.jpg" class="fluid-img" alt="Gallery">
@@ -372,7 +372,7 @@ http://www.tooplate.com/view/2083-steak-house
                           <h3>Curse Replace</h3>
                         </div>
 
-                        <div class="iso-box breakfast col-md-4 col-sm-6">
+                        <div class="iso-box pizza col-md-4 col-sm-6">
                           <div class="gallery-thumb">
                             <a href="images/Thermo.jpg" data-lightbox-gallery="food-gallery">
                               <img src="images/Thermo.jpg" class="fluid-img" alt="Gallery">
@@ -386,32 +386,28 @@ http://www.tooplate.com/view/2083-steak-house
                           <h3>Temperature Convertor</h3>
                         </div>
                             
-
+                        
                         <!-- Implement Shooter game here. -->    
-
+                       
                         <div class="iso-box breakfast lunch dinner col-md-4 col-sm-6">
                           <div class="gallery-thumb">
-
                             <!--Initiate Shooter game on click of icon, change game icon to -->
-                            <span onload="init()">
-                              
+                            <span onload="init()">                      
                               <!--the secondary image, that pops up, silversurfer-->
-                              <a href="images/bg.jpg" onClick="jake.page.handlers.initGame()"  data-lightbox-gallery="food-gallery">
-                                
+                              <a href="images/bg.jpg" onClick="jake.page.handlers.initGame()"  data-lightbox-gallery="food-gallery">                         
                                 <!--The initial image of the rock paper scissors-->
-                                <img src="images/rkPpSr.jpg"  class="fluid-img" alt="Gallery">
+                                <img src="images/bg.jpg"  class="fluid-img" alt="Gallery">
                                   <div class="gallery-overlay">
                                     <div class="gallery-item">
-
-
-                                      <i class="fa fa-scissors" ></i>
+                                      <i class="fa fa-fighter-jet" ></i>
                                     </div>
                                   </div>
                               </a>
                              </span> 
                           </div>
-                          <h3>Rock. Paper. Scissors.</h3>
+                          <h3>Space Shooter</h3>
                         </div>
+                      
 
                         <div class="iso-box pizza lunch col-md-4 col-sm-6">
                           <div class="gallery-thumb">

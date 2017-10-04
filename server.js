@@ -1,11 +1,23 @@
 //adding this node.js express 'module', using the require function/method
 var express = require('express');
 
-
-
-
 //declare and initialize an 'app' variable to use the new 'express' method.
 var app = express();
+
+//Mongoose is a MongoDB object modeling tool(ORM) designed to work in an asynchronous environment.
+// var mongoose = require('mongoose');
+
+// var mongoDB = 'mongodb://insert_your_database_url_here';
+// mongoose.connect(mongoDB, {
+//     useMongoClient: true
+//  });
+//  var db = mongoose.connection;
+//  db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+
+//require the routes on the page from routes.js
+// var routes = require('./routes')(app);
+// var routes = require('/routes');
+// app.use('/routes', routes);
 
 // set the port of our application
 // process.env.PORT lets the port be set by Heroku
