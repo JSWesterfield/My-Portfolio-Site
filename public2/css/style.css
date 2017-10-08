@@ -190,7 +190,6 @@ a:focus {
   height: 100vh;
   overflow: hidden;
   position: relative;
-
 }
 
 #home .gradient-overlay {
@@ -368,7 +367,31 @@ a:focus {
   padding-bottom: 2px;
 }
 
+/* My Story Section */
+.project-slider {
+  width: 300px;
+  height: 50px;
+  padding-top: 10px;
+  padding-left: 2px;
+  background: #ffffff;
+  -webkit-transition: width 2s; /*For Safari 3.1 to 6.0 */
+  transition: width 2s;
+}
 
+.project-slider:hover {
+  color: #ffffff;
+  background: -webkit-linear-gradient(left, blue , purple); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(right, blue, purple); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(right, blue, purple); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to right,blue , purple); /* Standard syntax */;
+  width: 300px;
+  height: 50px;
+  padding-top: 4px;
+  padding-left: 5px;
+  box-shadow: 0 14px 20px rgba(0,0,0,0.25), 0 10px 8px rgba(0,0,0,0.22);
+  border-radius: 2.5px;
+  transition: width 2s;
+}
 
 /* Video section  */
 #video {
@@ -400,7 +423,6 @@ a:focus {
   text-align: center;
   vertical-align: middle;
   margin-top: 22px;
-
 }
 
 #video .fa-play:hover {
