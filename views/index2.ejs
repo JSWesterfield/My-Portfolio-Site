@@ -75,7 +75,7 @@ http://www.tooplate.com/view/2083-steak-house
 <div class="navbar transparent navbar-default navbar-static-top" role="navigation">
   <div class="container">
 
-    <div class="navbar-header">
+    <div class="navbar-header" >
       <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
         <span class="icon icon-bar"></span>
         <span class="icon icon-bar"></span>
@@ -85,7 +85,7 @@ http://www.tooplate.com/view/2083-steak-house
     </div>
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#top" class="smoothScroll">Home</a></li>
+        <li><a href="#top" id="home2"  class="smoothScroll">Home</a></li>
         <li><a href="#feature" class="smoothScroll">Features</a></li>
         <li><a href="#about" class="smoothScroll">About</a></li>
         <li><a href="#muse" class="smoothScroll">Influences</a></li>
@@ -129,8 +129,6 @@ http://www.tooplate.com/view/2083-steak-house
             </div>
             <h3>Software Engineer - Current</h3>
             <p>Love of code and building new software currently describes my life. I have developed software in a multitude of frameworks and languages. Currently working at ArtFind, a social gaming web application as a software developer, as well as building a crytocurrency with solidity/etheruem, and developing a streaming content provider platform with Reality Junkie.</p>
-        
-
           </div>
         </div>
 
@@ -178,16 +176,14 @@ http://www.tooplate.com/view/2083-steak-house
             <ul class="slides">
 
               <li>
-                <img class="img-responsive" src="images/slide-img1.jpg"  alt="Flexslider" style="width:405px;height:260px">
+                <!--Added the width portion later, do I need?-->
+                <img class="img-responsive" src="images/slide-img1.jpg"  alt="Flexslider" width="200px" height="160px">
               </li>
               <li>
-                <img class="img-responsive" src="images/slide-img2.jpg" alt="Flexslider" style="width:405px;height:260px">
+                <img class="img-responsive" src="images/slide-img2.jpg" alt="Flexslider" width="200px" height="160px">
               </li>
               <li>
-                <img class="img-responsive" src="images/slide-img3.jpg" alt="Flexslider" style="width:405px;height:260px">
-              </li>
-              <li>
-                <img class="img-responsive" src="images/slide-img4.jpg"  alt="Flexslider" style="width:405px;height:260px">
+                <img class="img-responsive" src="images/slide-img3.jpg" alt="Flexslider" width="200px" height="160px">
               </li>
 
             </ul>
@@ -205,28 +201,28 @@ http://www.tooplate.com/view/2083-steak-house
                   <li>
                     <div class="wow fadeInUp project-slider" data-wow-delay="0.2s">
                       <div>
-                        <a href="http://art-find.azurewebsites.net/" target="_blank">ArtFind - .NET, AngularJS, ADO.NET(Entity), SQL Server</a>
+                        <a class="project-text" href="http://art-find.azurewebsites.net/" target="_blank">ArtFind - .NET, AngularJS, ADO.NET(Entity), SQL Server</a>
                       </div>
                     </div>
                   </li></br>
                   <li>
                     <div class="wow fadeInUp project-slider" data-wow-delay="0.2s">
                       <div>
-                        <a href="https://facta-app.herokuapp.com/" target="_blank">Facta - Ruby, Rails, Html/.erb, Active Record, MySQL</a>
+                        <a class="project-text" href="https://facta-app.herokuapp.com/" target="_blank">Facta - Ruby, Rails, Html/.erb, Active Record, MySQL</a>
                       </div>
                     </div>
                   </li></br>
                   <li>
                     <div class="wow fadeInUp project-slider" data-wow-delay="0.2s">
                       <div>
-                        <a href="" target="_blank">Reality Junkie - PHP, Laravel, Swift(iOS - Future)</a>
+                        <a class="project-text" href="" target="_blank">Reality Junkie - PHP, Laravel, Swift(iOS - Future)</a>
                       </div>
                     </div>
                   </li></br>
                   <li>
                     <div class="wow fadeInUp project-slider" data-wow-delay="0.2s">
                       <div>
-                        <a href="https://github.com/JSWesterfield/TRUX3" target="_blank">TruX - .NET, Javascript, Linq, SQL Server</a>
+                        <a class="project-text" href="https://github.com/JSWesterfield/TRUX3" target="_blank">TruX - .NET, Javascript, Linq, SQL Server</a>
                       </div>
                     </div>
                   </li></br>
@@ -234,7 +230,7 @@ http://www.tooplate.com/view/2083-steak-house
                     <!--Added a different class 'slider' vs 'project-slider', so I can change it slightly differently-->
                     <div class="wow fadeInUp slider" data-wow-delay="0.2s">
                       <div>
-                        <a href="" target="_blank">Urban Connect - NodeJS, ReactJS, ExpressJS, Mongoose, MongoDB</a>
+                        <a class="project-text" href="" target="_blank">Urban Connect - NodeJS, ReactJS, ExpressJS, Mongoose, MongoDB</a>
                       </div>
                     </div>
                   </li></br>
@@ -376,6 +372,7 @@ http://www.tooplate.com/view/2083-steak-house
 
                         <div class="iso-box pizza col-md-4 col-sm-6">
                           <div class="gallery-thumb">
+                            <!--Add url for videochat application-->
                             <a href="images/videoChatApp.jpg" data-lightbox-gallery="food-gallery">
                               <img src="images/videoChatApp.jpg" class="fluid-img" alt="Gallery">
                                 <div class="gallery-overlay">
@@ -401,9 +398,10 @@ http://www.tooplate.com/view/2083-steak-house
                           </div>
                           <h3>ArtFind</h3>
                         </div>
-
+                        
                         <div class="iso-box col-md-4 col-sm-6">
                           <div class="gallery-thumb">
+                            <!--Add url for curseReplace Chrome Extension application-->
                             <a href="images/curseReplace.jpg" data-lightbox-gallery="food-gallery">
                               <img src="images/curseReplace.jpg" class="fluid-img" alt="Gallery">
                                 <div class="gallery-overlay">
@@ -437,7 +435,7 @@ http://www.tooplate.com/view/2083-steak-house
                           <div class="gallery-thumb">
                             <!--Initiate Shooter game on click of icon, change game icon to -->
                             <span onload="init()">                      
-                              <!--the secondary image, that pops up, silversurfer-->
+                              <!--Add url for seperate spaceshooter application, hosted on heroku, figure out how to route this to a different route via ExpressJS-->
                               <a href="images/bg.jpg" onClick="jake.page.handlers.initGame()"  data-lightbox-gallery="food-gallery">                         
                                 <!--The initial image of the rock paper scissors-->
                                 <img src="images/bg.jpg"  class="fluid-img" alt="Gallery">
@@ -452,6 +450,7 @@ http://www.tooplate.com/view/2083-steak-house
                           <h3>Space Shooter</h3>
                         </div>
                       
+
                         <div class="iso-box pizza lunch col-md-4 col-sm-6">
                           <div class="gallery-thumb">
                             <a href="https://facta-app.herokuapp.com/" data-lightbox-gallery="food-gallery">
@@ -508,7 +507,8 @@ http://www.tooplate.com/view/2083-steak-house
 
               <!--Adding Google Maps feature-->
               <div class="wow fadeInUp col-md-4 col-sm-4" data-wow-delay="1.3s">
-                <img width="320" src="https://maps.googleapis.com/maps/api/staticmap?center=400+South+Venice+Blvd.,+Venice,+CA+90291&zoom=13&scale=1&size=320x300&maptype=roadmap&format=png&visual_refresh=true&markers=size:mid%7Ccolor:0x992cff%7Clabel:1%7C400+South+Venice+Blvd.,+Venice,+CA+90291" alt="Google Map of 400 South Venice Blvd., Venice, CA 90291">
+                <!--<img width="320" src="images/googlemaps.jpg"" alt="Google_Map_Of_VeniceCA">-->
+                <img width="320" src="https://maps.googleapis.com/maps/api/staticmap?center=400+South+Venice+Blvd.,+Venice,+CA+90291&zoom=13&scale=1&size=320x300&maptype=roadmap&format=png&visual_refresh=true&markers=size:mid%7Ccolor:0x992cff%7Clabel:1%7C400+South+Venice+Blvd.,+Venice,+CA+90291" alt="Google_Map_Of_VeniceCA">
               </div>
 
               <div class="wow fadeInUp col-md-4 col-sm-4" data-wow-delay="1.6s">
@@ -540,8 +540,7 @@ http://www.tooplate.com/view/2083-steak-house
       </div>
 
       <div class="col-md-4 col-sm-4 text-right">
-        <!--Previous href="#home", fix to have smoothscroll -->
-        <a href="#" class="fa fa-angle-up smoothScroll gototop"></a>
+        <a href="#home2" class="fa fa-angle-up smoothScroll gototop"></a>
       </div>
 
     </div>
