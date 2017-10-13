@@ -383,7 +383,7 @@ a:focus {
 .slider {
   width: 300px;
   height: 50px;
-  padding-top: 10px;
+  padding-top: 8px;
   padding-left: 2px;
   background: #ffffff;
   color: #ffffff;
@@ -416,7 +416,7 @@ a:focus {
   background: linear-gradient(to right,blue , purple); /* Standard syntax */;
   width: 300px;
   height: 50px;
-  padding-top: 6px; /* THE DIFFERENCE, less padding because urban connect has an additional row of words */
+  padding-top: 2px; /* THE DIFFERENCE, less padding because urban connect has an additional row of words */
   padding-left: 5px;
   box-shadow: 0 14px 20px rgba(0,0,0,0.25), 0 10px 8px rgba(0,0,0,0.22);
   border-radius: 4px;
@@ -429,13 +429,13 @@ a:focus {
 /*Projects should have a white lettering w/ text shadow, now sure how to create a transition with the gradient*/
 a.project-text {
   color:#ffffff;
-  text-shadow: 1px 1px #808080;
+  text-shadow: 2px 2px black;
 }
 
 /*Onhover of projects stay white lettering*/
 a.project-text:hover {
   color:#ffffff;
-  text-shadow: 1px 1px #808080;
+  text-shadow: 1px 1px black;
 }
 
 /* Video section  */
