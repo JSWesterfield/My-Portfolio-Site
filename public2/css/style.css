@@ -289,8 +289,7 @@ a:focus {
   background-color: transparent;
 }
 
-
-/*Start 'hamburger' icon to 'X' icon transition*/
+/*Hamburger to X icon Transition*/
 .navbar-toggle {
   border: none;
   background: transparent !important;
@@ -322,7 +321,6 @@ a:focus {
 .navbar-toggle.collapsed .bottom-bar {
   transform: rotate(0);
 }
-
 
 
 
