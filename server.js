@@ -5,19 +5,19 @@ var express = require('express');
 var app = express();
 
 //Mongoose is a MongoDB object modeling tool(ORM) designed to work in an asynchronous environment.
-// var mongoose = require('mongoose');
+var mongoose = require('mongoose');
 
-// var mongoDB = 'mongodb://insert_your_database_url_here';
-// mongoose.connect(mongoDB, {
-//     useMongoClient: true
-//  });
-//  var db = mongoose.connection;
-//  db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+var mongoDB = 'mongodb://insert_your_database_url_here';
+mongoose.connect(mongoDB, {
+    useMongoClient: true
+ });
+ var db = mongoose.connection;
+ db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 //require the routes on the page from routes.js
-// var routes = require('./routes')(app);
-// var routes = require('/routes');
-// app.use('/routes', routes);
+var routes = require('./routes')(app);
+var routes = require('/routes');
+app.use('/routes', routes);
 
 // set the port of our application
 // process.env.PORT lets the port be set by Heroku
