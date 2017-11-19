@@ -15,7 +15,7 @@ mongoose.connect(mongoDB, {
  db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 //require the routes on the page from routes.js
-var routes = require('./routes')(app);
+//var routes = require('./routes')(app);
 var routes = require('/routes');
 app.use('/routes', routes);
 
