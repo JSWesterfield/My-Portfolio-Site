@@ -513,13 +513,15 @@ http://www.tooplate.com/view/2083-steak-house
               <!--Adding Google Maps feature-->
               <div class="wow fadeInUp col-md-4 col-sm-4" data-wow-delay="1.3s">
                 <!--<img width="320" src="images/googlemaps.jpg"" alt="Google_Map_Of_VeniceCA">-->
-                <img width="320" src="https://maps.googleapis.com/maps/api/staticmap?center=400+South+Venice+Blvd.,+Venice,+CA+90291&zoom=13&scale=1&size=320x300&maptype=roadmap&format=png&visual_refresh=true&markers=size:mid%7Ccolor:0x992cff%7Clabel:1%7C400+South+Venice+Blvd.,+Venice,+CA+90291" alt="Map_Of_Venice">
+                <!--Add a function here that executes when http exists but if not connection is made it will then display a .jpg image of the same map.-->
+                <script src='https://maps.googleapis.com/maps/api/js?v=3.exp'></script><div style='overflow:hidden;height:320px;width:320px;'><div id='gmap_canvas' style='height:320px;width:320px;'></div><style>#gmap_canvas img{max-width:none!important;background:none!important}</style></div><script type='text/javascript'>function init_map(){var myOptions = {zoom:14,center:new google.maps.LatLng(39.75421768574746,-104.98875318518064),mapTypeId: google.maps.MapTypeId.ROADMAP};map = new google.maps.Map(document.getElementById('gmap_canvas'), myOptions);marker = new google.maps.Marker({map: map, icon: 'http://maps.google.com/mapfiles/ms/icons/purple-dot.png', animation: google.maps.Animation.DROP, position: new google.maps.LatLng(39.75421768574746,-104.98875318518064)});google.maps.event.addListener(marker, 'click', function(){infowindow.open(map,marker);});infowindow.open(map,marker);}google.maps.event.addDomListener(window, 'load', init_map);</script>
               </div>
-
+              
               <div class="wow fadeInUp col-md-4 col-sm-4" data-wow-delay="1.6s">
                 <h3>Contact Detail</h3>
-                <p>400 South Venice Blvd., Venice, CA 90291</p>
-                <p>(424)702-7450</p>
+                <p>2345 Walnut St, Denver, CO</p>
+                <p>(424)341-2236</p>
+                <p>(720)546-8697</p>
                 <p>jecobwesterfield@gmail.com</p>
               </div>
 
@@ -527,6 +529,11 @@ http://www.tooplate.com/view/2083-steak-house
                 <h3>Working Hours</h3>
                 <strong>Monday - Friday</strong>
                 <p>8:00 AM - 4:30 PM PST</p>
+
+                <br>
+                <strong>Current Time</strong>
+                <!-- container for Moment.js output -->
+                <p id="displayMoment"></p>
 		</div>
 	</div>
 </footer>
@@ -578,7 +585,9 @@ http://www.tooplate.com/view/2083-steak-house
 <script src="js/jake.js"></script>
 <!--Add in my Google Map of Venice, CA-->
 <script src="js/map.js"></script>
- 
+
+<!--Moment.JS for displaying current time-->
+<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.7.0/moment.min.js" type="text/javascript"></script>
 
 </body>
 </html>
@@ -587,7 +596,6 @@ http://www.tooplate.com/view/2083-steak-house
 //Onpage load, show console message
 $( document ).ready(function() {
     console.log( "ready!" );
-    
         
         //initiate shooter game
         jake.page.handlers.initGame = function() {      
@@ -687,13 +695,13 @@ $( document ).ready(function() {
     };
 });
 
-
 </script>
-
 
 <script type="text/javascript">
     //on page load run script
     jake.page.startUp = function() {
+      
+      console.log("I am currently executing the page start up");
       //Failed to figure out what the config.item object was. Need more detailed information on how to create a config.item object on Google.
     //   if(jake.page.config.item){
     //     jake.page.commentId = jake.page.config.item;
@@ -702,15 +710,17 @@ $( document ).ready(function() {
     //   $("#submitBtn").on('click', jake.page.handlers.commentsCreate);
     //   //$("#resetBtn").on('click', jake.page.handlers.resetForm); create reset button later, possibly
     //   jake.page.clientSideValidation(); //initialize validation on form
-    // };
+    };
     //create comment function
     jake.page.handlers.commentsCreate = function(event) {
         event.preventDefault();
+        
         var commentPageData = {
           name: $("formName").val()
           , email: $("formEmail").val()
           , content: $("formContent").val()
         } 
+        
         if(jake.page.commentId) {
             commentPageData.id = jake.page.commentId;
             jake.services.comments.update(commentPageData, jake.page.handlers.submitNewComment, jake.page.handlers.ajaxError);
@@ -728,53 +738,55 @@ $( document ).ready(function() {
             $("formContent").val(response.item.content);
         };
         //Client side validation w/ Validate.js
-        jake.page.clientSideValidation = function() {
-            console.log('validation started');
-            jQuery.validator.setDefaults({  //will need to add the validate.js script to folder
-                debug: true
-            });
-            $('#comment-form').validate({
-                rules: {
-                  "formName": {
-                      required: true
-                      , maxlength: 50
-                  },
-                  "formEmail": {
-                      required: true
-                      , maxlength: 100
-                      , type: email
-                  },
-                  "formContent": {
-                      required: true
-                      , maxlength: 250
-                  },  
-                },
-                messages: {
-                  "formName": {
-                      required: "Name is required"
-                      , maxlength: "Please enter no more than 50 characters."
+        // jake.page.clientSideValidation = function() {
+        //     console.log('validation started');
+        //     jQuery.validator.setDefaults({  //will need to add the validate.js script to folder
+        //         debug: true
+        //     });
+        //     $('#comment-form').validate({
+        //         rules: {
+        //           "formName": {
+        //               required: true
+        //               , maxlength: 50
+        //           },
+        //           "formEmail": {
+        //               required: true
+        //               , maxlength: 100
+        //               , type: email
+        //           },
+        //           "formContent": {
+        //               required: true
+        //               , maxlength: 250
+        //           },  
+        //         },
+        //         messages: {
+        //           "formName": {
+        //               required: "Name is required"
+        //               , maxlength: "Please enter no more than 50 characters."
                   
-                  },
-                  "formEmail": {
-                      required: "Email is required"
-                      , maxlength: "Please enter no more than 100 characters."
-                      , type: "Email must contain proper email syntax, did you forget an @ symbol or .com?"
+        //           },
+        //           "formEmail": {
+        //               required: "Email is required"
+        //               , maxlength: "Please enter no more than 100 characters."
+        //               , type: "Email must contain proper email syntax, did you forget an @ symbol or .com?"
                   
-                  },
-                  "formContent": {
-                      required: "A message is required before you press send"
-                      , maxlength: "Please enter no more than 250 characters."
-                  },
-                },
-            })
-        };
+        //           },
+        //           "formContent": {
+        //               required: "A message is required before you press send"
+        //               , maxlength: "Please enter no more than 250 characters."
+        //           },
+        //         },
+        //     })
+        // };
+        
         //submit form function
-        jake.page.handlers.submitNewComment = function(response) {
-            jake.page.commentId = response.item;
-            jake.services.notifications.success("Comments Submitted");
-            jake.page.lastSavedForm = jake.page.pendingForm;
-            $("#submitBtn").text("Update Form");
-        };
+        // jake.page.handlers.submitNewComment = function(response) {
+        //     jake.page.commentId = response.item;
+        //     jake.services.notifications.success("Comments Submitted");
+        //     jake.page.lastSavedForm = jake.page.pendingForm;
+        //     $("#submitBtn").text("Update Form");
+        // };
+
         //reset form function, will add reset button later.
         // jake.page.handlers.resetForm = function() {
         //     if(jake.page.config.item) {
@@ -790,4 +802,21 @@ $( document ).ready(function() {
         // jake.page.handlers.ajaxError = function(response) {
         //     jake.services.notifications.error("Form failed to Submit");
         // }
+</script>
+
+<!-- Moment.JS script for the page-->
+<script type="text/javascript">
+(function()
+{
+  // instantiate a moment object
+  var NowMoment = moment();
+  
+  // instantiate a JavaScript Date object
+  var NowDate = new Date();
+  
+  // display value of moment object in #displayMoment div
+  var eDisplayMoment = document.getElementById('displayMoment');
+  eDisplayMoment.innerHTML = NowMoment;
+  
+})();
 </script>
