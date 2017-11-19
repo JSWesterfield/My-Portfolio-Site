@@ -7,6 +7,7 @@ var app = express();
 //Mongoose is a MongoDB object modeling tool(ORM) designed to work in an asynchronous environment.
 var mongoose = require('mongoose');
 
+// when I uncomment mongoDB will not render page via heroku.
 // var mongoDB = 'mongodb://insert_your_database_url_here';
 // mongoose.connect(mongoDB, {
 //     useMongoClient: true
