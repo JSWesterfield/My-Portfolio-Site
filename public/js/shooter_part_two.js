@@ -21,20 +21,17 @@ var imageRepository = new function() {
 	this.background.onload = function() {
 		imageLoaded();
 	}
-
 	this.spaceship.onload = function() {
 		imageLoaded();
 	}
-
 	this.bullet.onload = function() {
 		imageLoaded(); 
 	} 
 
-
 	// Set images src 
 	this.background.src = "images/bg.jpg";
 	this.spaceship.src = "images/ship.jpg";
-	this.bullet.src = "imags/bullet.jpg";
+	this.bullet.src = "images/bullet.jpg";
 }
 
 /** 
@@ -147,7 +144,7 @@ function Pool(maxSize) {
 		for(var i = 0; i < size; i++) {
 			//Iniitalize the bullet object
 			var bullet = new bullet();
-			bullet.init(0,0 imageRepository.bullet.width,
+			bullet.init(0,0, imageRepository.bullet.width,
 				imageRepository.bullet.height);
 			pool[i] = bullet;
 		}
@@ -158,7 +155,7 @@ function Pool(maxSize) {
 	 */
 	this.get = function(x, y, speed) {
 		if(!pool[size - 1].alive) {
-			pool[size -1].spawn(x, y, speed);
+			pool[size - 1].spawn(x, y, speed);
 			pool.unshift(pool.pop());
 		}
 	};
