@@ -273,7 +273,17 @@ function Ship() {
 					this.y -= this.speed
 					if ( this.y <= this.canvasHeight/4*3)
 						this.y = this.canvasHeigth/4*3;
+				} else if (KEY_STATUS.down) {
+					this.y += this.speed
+					if (this.y >= this.canvasHeight - this.height)
+						this.y = this.canvasHeight - this.height;
 				}
+				//Finish by redrawing the ship
+				this.draw();				
+			}
+			if (KEY_STATUS.space && counter >= fireRate) {
+				this.fire();
+				counter = 0;
 			}
 	}
 }
