@@ -95,7 +95,7 @@ function Game() {
 	 */
 	this.init = function() {
 		//Get the canvas element 
-		this.BgCanvas = document.getElementById('background');
+		this.bgCanvas = document.getElementById('background');
 		// Test to see if canvas is supported
 		if (this.bgCanvas.getContext) {
 			this.bgContext = this.bgCanvas.getContext('2d');
@@ -285,9 +285,16 @@ function Ship() {
 				this.fire();
 				counter = 0;
 			}
-	}
+	};
+	/*
+	 * Fires two bullets 
+	 */
+	this.fire = function() {
+		this.bulletPool.getTwo(this.x+6, this.y, 3,
+								this.x+33, this.y, 3);
+	};
 }
-
+Ship.prototype = new Drawable();
 
 /**
  * requestAnim shim layer by Paul Irish
