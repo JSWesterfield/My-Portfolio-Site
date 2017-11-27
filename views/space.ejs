@@ -8,16 +8,39 @@
 				top: 0px;
 				left: 0px;
 				background: transparent;
-        width: 100%;
-        height: 100%;
+        		width: 100%;
+       			height: 100%;
+			}
+			#background {
+				z-index: -2;
+			}
+			#main {
+				z-index: -1;
+			}
+			#ship {
+				z-index: 0;
 			}
 		</style>
 	</head>
-	<body onload="init()">
+	<!--<body onload="init()"> old body tag w/ onload="init()"-->
+	<body>
 		<!-- The canvas for the panning background -->
-		<canvas id="background" >
+		<canvas id="background" width="600" height="360">
 			Your browser does not support canvas. Please try again with a different browser.
 		</canvas>
-		<script src="js/shooterPartOne.js"></script>
+		
+		<!-- The canvas for all enemy ships and bullets -->
+		<canvas id="main" width="600" height="360">
+		</canvas>
+
+		<!--The canvas the ship uses (can only move up one forth the screen)-->
+		<canva id="ship" width="600" height="360">
+		</canvas>
+
+
+			<!--<script src="js/shooterPartOne.js"></script> -->
+			<script src="js/shooterPartOne.js"></script>
+			<script src="js/shooter_part_two.js"></script>
+
 	</body>
 </html>

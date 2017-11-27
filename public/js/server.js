@@ -1,7 +1,6 @@
 var express = require('express');
 var app = express();
 
-console.log('1st statement ran first');
 
 // set the port of our application
 // process.env.PORT lets the port be set by Heroku
@@ -18,8 +17,6 @@ app.get('/', function(req, res) {
 
     // ejs render automatically looks in the views folder
     res.render('space');
-    //res.render('index');
-    res.render('index2');
 });
 
 app.listen(port, function() {

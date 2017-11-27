@@ -35,7 +35,7 @@ app.get('/', function(req, res) {
 
     // ejs render automatically looks in the views folder
     //res.render('index'); //alternative view, my initial view to test out the express server
-    res.render('index2'); //actual portfolio page I want to render
+    res.render('space'); //actual portfolio page I want to render
 });
 
 app.listen(port, function() {
