@@ -1,0 +1,81 @@
+
+<!--The form-->
+<section id="contact" class="parallax-section">
+  <div class="overlay"></div>
+	<div class="container">
+		<div class="row">
+
+            <div class="col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10">
+                    <div class="wow fadeInUp section-title" data-wow-delay="0.3s">
+                        <h2>Say hello</h2>
+                        <h4>Always ready to serve you!</h4>
+                    </div>
+                <div class="contact-form wow fadeInUp" data-wow-delay="0.7s">
+                    <form id="comment-form" method="post" action="#">
+                        <input name="name" type="text" class="form-control" id="formName" placeholder="Your Name" required>
+                        <input name="email" type="email" class="form-control" id="formEmail" placeholder="Your Email" required>
+                        <textarea name="message" class="form-control" id="formContent" placeholder="Message" rows="5" required></textarea>
+                        <input type="submit" class="form-control submit" id="submitBtn"  value="SEND MESSAGE">
+                    </form>
+                </div>
+            </div>
+
+		</div>
+	</div>
+</section>
+
+<!--The FORM TEMPLATE for applying the data we submit-->
+<!--Bootstrap has a class called "hidden" and thats why this div is not showing. Hidden is located withing the div class below--> 
+<div class="blog-post col-md-6 hidden" id="postContainer">
+    <h2 class="blog-post-name">Form Name</h2>
+    <p class="blog-post-meta">by <a href="#" class="blog-post-email">Author Email</a></p>
+
+    <p class="blog-post-body">This is the body of the blog post</p>
+    <button type="button" id="cmdBack" class="btn btn-default">Back</button>
+</div>
+
+<script type="text/javascript">
+    //on page load run script
+    jake.page.startUp = function() {
+      
+      console.log("I am currently executing the page start up");
+
+      //event handler when submit button is clicked
+      jake.page.handlers.submitBlogPost = function(event) {
+          event.preventDefault();
+
+          //create a blog object, that grabs value from the form input
+          var blog = {
+              name: $("#formName").val();
+              email: $("#formEmail").val();
+              content: $("#formContent").val();
+          }
+
+          //select the template css selector, and text in the blog object value for each form input
+          $(".blog-post-name").text(blog.name);
+          $(".blog-post-email").text(blog.email);
+          $(".blog-post-body").text(blog.content);
+
+          //Hide the form, after we add the values from the form into the template
+          $("#comment-form").hide();
+
+          //After we hide the form, show the template, that has the id 'postContainer'
+          $("#postContainer").removeClass("hidden");
+
+          //transform the submit button into a clear button, without resubmittal.
+          jake.page.handlers.clearAll = function(event) {
+              //pseudo code for if statement to look for user submittal id.
+              if (!userId) {
+                $()[0].reset();
+              }
+              else {
+                  //create error message with message API service(not sendgrid but??)
+              }
+          }
+
+          //should I pass in a success and error parameter? 
+          $("#reset1").on("click", jake.page.handlers.clearAll);
+            
+      }
+    };
+</script>
