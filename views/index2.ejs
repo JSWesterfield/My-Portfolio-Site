@@ -441,9 +441,9 @@ http://www.tooplate.com/view/2083-steak-house
                             <!--Initiate Shooter game on click of icon, change game icon to -->
                             <span onload="init()">                      
                               <!--Add url for seperate spaceshooter application, hosted on heroku, figure out how to route this to a different route via ExpressJS-->
-                              <a href="images/bg.jpg" onClick="jake.page.handlers.initGame()"  data-lightbox-gallery="food-gallery">                         
+                              <a href="/valerian"  data-lightbox-gallery="food-gallery">                         
                                 <!--The initial image of the rock paper scissors-->
-                                <img src="images/bg.jpg"  class="fluid-img" alt="Gallery"><iframe></iframe>
+                                <img src="images/bg1.jpg"  class="fluid-img" alt="Gallery">
                                   <div class="gallery-overlay">
                                     <div class="gallery-item">
                                       <i class="fa fa-fighter-jet" ></i>
@@ -512,7 +512,7 @@ http://www.tooplate.com/view/2083-steak-house
 
               <!--Adding Google Maps feature-->
               <div class="wow fadeInUp col-md-4 col-sm-4" data-wow-delay="1.3s">
-                <!--<img width="320" src="images/googlemaps.jpg"" alt="Google_Map_Of_VeniceCA">-->
+                <!--<img width="320" src="images/googlemaps.jpg"" alt="Google_Map_Of_Denver, CO">-->
                 <!--Add a function here that executes when http exists but if not connection is made it will then display a .jpg image of the same map.-->
                 <script src='https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyDBpbYW2whIMMv3fu5oML-gSpPSCZxKt4I'></script><div style='overflow:hidden;height:300px;width:320px;'><div id='gmap_canvas' style='height:300px;width:320px;'></div><style>#gmap_canvas img{max-width:none!important;background:none!important}</style></div><script type='text/javascript'>function init_map(){var myOptions = {zoom:14,center:new google.maps.LatLng(39.75421768574746,-104.98875318518064),mapTypeId: google.maps.MapTypeId.ROADMAP};map = new google.maps.Map(document.getElementById('gmap_canvas'), myOptions);marker = new google.maps.Marker({map: map, icon: 'http://maps.google.com/mapfiles/ms/icons/purple-dot.png', animation: google.maps.Animation.DROP, position: new google.maps.LatLng(39.75421768574746,-104.98875318518064)});google.maps.event.addListener(marker, 'click', function(){infowindow.open(map,marker);});infowindow.open(map,marker);}google.maps.event.addDomListener(window, 'load', init_map);</script>
               </div>
@@ -579,6 +579,9 @@ http://www.tooplate.com/view/2083-steak-house
 <script src="js/jquery.parallax.js"></script>
 <script src="js/smoothscroll.js"></script>
 <script src="js/wow.min.js"></script>
+
+<!--Add in shooter_part_two.js-->
+<script src="js/shooter_part_two.js"></script>
 
 <!--<script src="js/validate.js"> Add this js library later for validation-->
 
