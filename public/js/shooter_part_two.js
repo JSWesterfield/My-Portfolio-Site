@@ -167,13 +167,10 @@ function Pool(maxSize) {
 	this.getTwo = function(x1, y1, speed1, x2,y2, speed2) {
 		if(!pool[size - 1].alive &&
 			!pool[size - 2].alive) {
-				this.get(x1, y1, speed);
+				this.get(x1, y1, speed1);
 				this.get(x2, y2, speed2);
 			}
-		
 	};
-
-
 
 	/**
 	* Draws any in use Bullets. If a bullet goes off teh screen, 
