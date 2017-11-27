@@ -34,8 +34,16 @@ app.use(express.static(__dirname + '/public'));
 app.get('/', function(req, res) {
 
     // ejs render automatically looks in the views folder
-    //res.render('index'); //alternative view, my initial view to test out the express server
+    res.render('index2'); //actual portfolio page I want to render
+});
+
+// set the home page route
+app.get('/valerian', function(req, res) {
+
+    // ejs render automatically looks in the views folder
+    console.log('Got a GET request for /valerian');
     res.render('space'); //actual portfolio page I want to render
+    
 });
 
 app.listen(port, function() {
@@ -43,3 +51,30 @@ app.listen(port, function() {
 });
 
 var moment = require('moment');
+
+//Future add Event Loop/Event-Driven observer within server.js.
+//Import events module
+//var events = require('events');
+
+//Create an eventEmitter object 
+//var eventEmitter = new events.EventEmitter();
+
+// Create an event handler as follows
+//var connectHandler = function connect() {
+//  console.log('connection successful');
+
+//  //Fire the data_received event
+//  eventEmitter.emit('data_received');
+//}
+
+//Example event binding, but where do we place this? Looks like this goes within our regular JS file as a callback function
+//Bind event and even handler as follows
+//eventEmitter.on('click', connectHandler);
+
+
+
+//we can fire an event programmatically as follows: 
+//eventEmitter.emit('eventName');
+
+//'eventName' will be the the 'click'
+
