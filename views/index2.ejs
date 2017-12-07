@@ -828,5 +828,12 @@ $( document ).ready(function() {
   var eDisplayMoment = document.getElementById('displayMoment');
   eDisplayMoment.innerHTML = NowMoment;
   
+  //created a genius update function, that's an IIFE, invokes immediately, to help up date my time, in 1 second intervals.
+  var update;
+  (update = function() {
+      document.getElementById("displayMoment")
+      .innerHTML = moment().format('MMMM Do YYYY, h:mm:ss a');
+  })();
+  setInterval(update, 10000);
 })();
 </script>
