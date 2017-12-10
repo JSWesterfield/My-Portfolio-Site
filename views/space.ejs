@@ -3,12 +3,12 @@
 	<head>
 		<title>Space Shooter Demo</title>
 		<style>
-			canvas#background {
+			canvas {
 				position: absolute;
 				top: 0px;
 				left: 0px;
 				background: transparent;
-        		width: 100%;
+				width: 100%;
        			height: 100%;
 			}
 			#background {
@@ -22,24 +22,21 @@
 			}
 		</style>
 	</head>
-	<!--<body onload="init()"> old body tag w/ onload="init()"-->
 	<body>
 		<!-- The canvas for the panning background -->
 		<canvas id="background" width="600" height="360">
 			Your browser does not support canvas. Please try again with a different browser.
 		</canvas>
-		
+
 		<!-- The canvas for all enemy ships and bullets -->
 		<canvas id="main" width="600" height="360">
 		</canvas>
-
-		<!--The canvas the ship uses (can only move up one forth the screen)-->
-		<canva id="ship" width="600" height="360">
+		
+		<!-- The canvas the ship uses (can only move up
+         one forth the screen.) -->
+		<canvas id="ship" width="600" height="360">
 		</canvas>
-
-
-			<!--<script src="js/shooterPartOne.js"></script> -->
-			<script src="js/shooter_part_two.js"></script>
-
+		
+		<script src="js/shooter_part_two.js"></script>
 	</body>
 </html>

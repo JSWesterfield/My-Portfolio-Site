@@ -182,6 +182,7 @@ http://www.tooplate.com/view/2083-steak-house
 
               <li>
                 <!--Added the width portion later, do I need?-->
+                <!--photo orientation changed w/ https://www.befunky.com/create/-->
                 <img class="img-responsive" src="images/slide-img1.jpg"  alt="Flexslider" width="200px" height="160px">
               </li>
               <li>
@@ -412,6 +413,27 @@ http://www.tooplate.com/view/2083-steak-house
                           </div>
                           <h3>ArtFind</h3>
                         </div>
+
+                        <!-- Implement Shooter game here. -->    
+                       
+                        <div class="iso-box breakfast lunch dinner col-md-4 col-sm-6">
+                          <div class="gallery-thumb">
+                            <!--Initiate Shooter game on click of icon, change game icon to -->
+                            <span onload="init()" col-md-4 col-sm-6">                      
+                              <!--Add url for seperate spaceshooter application, hosted on heroku, figure out how to route this to a different route via ExpressJS-->
+                              <a href="/valerian"  data-lightbox-gallery="food-gallery">                         
+                                <img src="images/bg1.jpg"  class="fluid-img" alt="Gallery">
+                                  <div class="gallery-overlay">
+                                    <div class="gallery-item">
+                                      <i class="fa fa-fighter-jet"></i>
+                                    </div>
+                                  </div>
+                              </a>
+                             </span> 
+                          </div>
+                          <h3> Valerian Space Shooter</h3>
+                        </div>
+                      
                         
                         <div class="iso-box col-md-4 col-sm-6">
                           <div class="gallery-thumb">
@@ -442,28 +464,6 @@ http://www.tooplate.com/view/2083-steak-house
                           <h3>Temperature Convertor</h3>
                         </div>
                             
-                        
-                        <!-- Implement Shooter game here. -->    
-                       
-                        <div class="iso-box breakfast lunch dinner col-md-4 col-sm-6">
-                          <div class="gallery-thumb">
-                            <!--Initiate Shooter game on click of icon, change game icon to -->
-                            <span onload="init()">                      
-                              <!--Add url for seperate spaceshooter application, hosted on heroku, figure out how to route this to a different route via ExpressJS-->
-                              <a href="/valerian"  data-lightbox-gallery="food-gallery">                         
-                                <!--The initial image of the rock paper scissors-->
-                                <img src="images/bg1.jpg"  class="fluid-img" alt="Gallery">
-                                  <div class="gallery-overlay">
-                                    <div class="gallery-item">
-                                      <i class="fa fa-fighter-jet" ></i>
-                                    </div>
-                                  </div>
-                              </a>
-                             </span> 
-                          </div>
-                          <h3> Valerian Space Shooter</h3>
-                        </div>
-                      
 
                         <div class="iso-box pizza lunch col-md-4 col-sm-6">
                           <div class="gallery-thumb">
@@ -598,7 +598,7 @@ http://www.tooplate.com/view/2083-steak-house
 <script src="js/jake.js"></script>
 
 <!--Add in my Google Map of Denver, CO-->
-<script src="js/map.js"></script>
+<!--<script src="js/map.js"></script>-->
 
 <!--Moment.JS for displaying current time-->
 <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.7.0/moment.min.js" type="text/javascript"></script>
