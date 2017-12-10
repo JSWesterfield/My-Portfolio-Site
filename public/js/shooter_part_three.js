@@ -140,8 +140,8 @@ function Bullet(object) {
 	};
 
 	/*
-	 * Uses a "drity rectangle" to erase the bullet and moves it.
-	 * Returns true if the bullet moved of the screen, indicating that
+	 * Uses a "dirty rectangle" to erase the bullet and moves it.
+	 * Returns true if the bullet moved off of the screen, indicating that
 	 * the bullet is ready to be cleared by the pool, otherwise draws
 	 * the bullet.
 	 */
@@ -379,7 +379,7 @@ function Enemy() {
 			this.speedX = -this.speed;
 		}
 		else if (this.y >= this.bottomEdge) {
-			this.speed = 1.5;
+			this.speed = 1.1;
 			this.speedY = 0;
 			this.y -= 5;
 			this.speedX = -this.speed;
