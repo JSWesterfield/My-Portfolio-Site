@@ -148,8 +148,8 @@ function Bullet(object) {
 	};
 
 	/*
-	 * Uses a "drity rectangle" to erase the bullet and moves it.
-	 * Returns true if the bullet moved of the screen, indicating that
+	 * Uses a "dirty rectangle" to erase the bullet and moves it.
+	 * Returns true if the bullet moved off of the screen, indicating that
 	 * the bullet is ready to be cleared by the pool, otherwise draws
 	 * the bullet.
 	 */

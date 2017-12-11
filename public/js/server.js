@@ -17,6 +17,9 @@ app.get('/', function(req, res) {
 
     // ejs render automatically looks in the views folder
     res.render('space');
+
+    //ejs render this example form.
+    res.render('exampleform');
 });
 
 app.listen(port, function() {

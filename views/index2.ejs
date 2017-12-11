@@ -502,7 +502,8 @@ http://www.tooplate.com/view/2083-steak-house
                 <h4>Always ready to serve you!</h4>
             </div>
 				<div class="contact-form wow fadeInUp" data-wow-delay="0.7s">
-					<form id="comment-form" method="post" action="#">
+          <!--form will do a post call to the /sendmessage endpoint-->
+					<form id="comment-form" method="post" action="/sendmessage">
 						<input name="name" type="text" class="form-control" id="formName" placeholder="Your Name" required>
 						<input name="email" type="email" class="form-control" id="formEmail" placeholder="Your Email" required>
 						<textarea name="message" class="form-control" id="formContent" placeholder="Message" rows="5" required></textarea>
@@ -628,18 +629,13 @@ http://www.tooplate.com/view/2083-steak-house
 
 <script src="js/jquery.parallax.js"></script>
 <script src="js/smoothscroll.js"></script>
-<script src="js/wow.min.js"></script>
-
-<!--Add in shooter_part_two.js-->
-<script src="js/shooter_part_two.js"></script>
+<script src="js/wow.min.js"></script> 
 
 <!--<script src="js/validate.js"> Add this js library later for validation-->
 
 <script src="js/custom.js"></script>
 <script src="js/jake.js"></script>
 
-<!--Add in my Google Map of Denver, CO-->
-<!--<script src="js/map.js"></script>-->
 
 <!--Moment.JS for displaying current time-->
 <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.7.0/moment.min.js" type="text/javascript"></script>
@@ -765,9 +761,6 @@ $( document ).ready(function() {
     //   $("#submitBtn").on('click', jake.page.handlers.commentsCreate);
     //   //$("#resetBtn").on('click', jake.page.handlers.resetForm); create reset button later, possibly
     //   jake.page.clientSideValidation(); //initialize validation on form
-
-
-
 
 
     };
