@@ -3,9 +3,46 @@ var express = require('express');
 
 //declare and initialize an 'app' variable to use the new 'express' method.
 var app = express();
+var port = 3000;
+
+//install body-parser first.
+//npm install body-parser --save
+// then uncomment bodyParser variable, this configuration will allow us to pass data for firstname and lastName in the body to the server.
+// var bodyParser = require('body-parser');
+// app.use(bodyParser.json());
+// app.use(bodyParser.urlencoded({ extended: true }));
+
+var mongoose = require("mongoose");
+mongoose.Promise = global.Promise;mongoose.connect("mongodb://localhost:27017/node-demo");
+
+// app.get("/", (req, res) => {
+//     res.send("Hello World");
+// });
+
+app.use("/", (req, res) => {
+ res.sendFile(__dirname + "/index.html");
+});
+
+app.listen(port, () => {
+    console.log("Server listening on port " + port);
+});
+//var mongo = require('mongodb').MongoClient;
 
 //Mongoose is a MongoDB object modeling tool(ORM) designed to work in an asynchronous environment.
-var mongoose = require('mongoose');
+//MongoDB, by default, runs on port 27017
+//var mongoose = require("mongoose");
+//mongoose.Promise = global.Promise;mongoose.connect("mongodb://localhost:27017/Portfolio-Site"); //changed to custom endpoint
+//global.Promise;mongoose.connect("mongodb://localhost:27017/node-demo"); //original endpoint
+
+//the content data of the form input fields in this format.
+var nameSchema = new mongoose.Schema({
+ firstName: String,
+ lastNameName: String
+});
+
+//model for our data, we'll call this model "DataInput"
+var User = mongoose.model("User", nameSchema);
+
 
 // when I uncomment mongoDB will not render page via heroku.
 // var mongoDB = 'mongodb://insert_your_database_url_here';
@@ -22,35 +59,42 @@ var mongoose = require('mongoose');
 
 // set the port of our application
 // process.env.PORT lets the port be set by Heroku
-var port = process.env.PORT || 8080;
+//var port = process.env.PORT || 8080;
 
 // set the view engine to ejs
-app.set('view engine', 'ejs');
+//app.set('view engine', 'ejs');
 
 // make express look in the public directory for assets (css/js/img)
-app.use(express.static(__dirname + '/public'));
+//app.use(express.static(__dirname + '/public'));
 
 // set the home page route
-app.get('/', function(req, res) {
+// app.get('/', function(req, res) {
 
-    // ejs render automatically looks in the views folder
-    res.render('index2'); //actual portfolio page I want to render
-});
+//     // ejs render automatically looks in the views folder
+//     res.render('index2'); //actual portfolio page I want to render
+// });
 
-// set the home page route
-app.get('/valerian', function(req, res) {
+// set the valarian space shooter page route
+// app.get('/valerian', function(req, res) {
 
-    // ejs render automatically looks in the views folder
-    console.log('Got a GET request for /valerian');
-    res.render('space'); //actual portfolio page I want to render
-    
-});
+//     // ejs render automatically looks in the views folder
+//     console.log('Got a GET request for /valerian');
+//     res.render('space'); //actual portfolio page I want to render
+// });
 
-app.listen(port, function() {
-    console.log('Our app is running on http://localhost:' + port);
-});
+// set the form page route
+// app.get('/form', function(req, res) {
 
-var moment = require('moment');
+//     // ejs render automatically looks in the views folder
+//     console.log('ready to send a POST request for /form');
+//     res.render('form'); //actual portfolio page I want to render
+// });
+
+// app.listen(port, function() {
+//     console.log('Our app is running on http://localhost:' + port);
+// });
+
+//var moment = require('moment');
 
 //Future add Event Loop/Event-Driven observer within server.js.
 //Import events module

@@ -1,5 +1,10 @@
 var express = require('express');
 var router = express.Router();
+var mongo = require('mongodb').MongoClient;
+var assert = require('assert');
+
+//var url = 'mongodb://localhost:27017'; //mongodb is port number 27017 be default
+
 
 //middleware specific to this router
 router.use(function timeLog(req, res, next) {
