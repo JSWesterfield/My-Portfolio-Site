@@ -59,9 +59,15 @@ app.listen(port, () => {
 
 //the content data of the form input fields in this format.
 var nameSchema = new mongoose.Schema({
- firstName: String,
- lastNameName: String
-});
+    userName: String,
+    userEmail: String,
+    userMessage: String,
+    messageId: Schema.Types.ObjectId
+ //firstName: String,
+ //lastName: String,
+ //messageId used for specific instances of a model in the database
+ //messageId: Schema.Types.ObjectId
+}); 
 
 //model for our data, we'll call this model "DataInput"
 var User = mongoose.model("User", nameSchema);
