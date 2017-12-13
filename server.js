@@ -5,6 +5,13 @@ var express = require('express');
 var app = express();
 var port = 3000;
 
+/**
+ * install body-parser first.
+ *npm install body-parser --save
+ * then uncomment bodyParser variable, this configuration will allow us to pass data for firstname and lastName in the body to the server.
+ * mongoose will take a JSON obj & store it in the db. 
+ * Our body-parser middleware, will convert the user's input into JSON format for us. 
+ */
 //install body-parser first.
 //npm install body-parser --save
 // then uncomment bodyParser variable, this configuration will allow us to pass data for firstname and lastName in the body to the server.
@@ -13,7 +20,23 @@ var port = 3000;
 // app.use(bodyParser.urlencoded({ extended: true }));
 
 var mongoose = require("mongoose");
-mongoose.Promise = global.Promise;mongoose.connect("mongodb://localhost:27017/node-demo");
+mongoose.Promise = global.Promise;mongoose.createConnection("mongodb://localhost:27017/heroku-node");
+
+app.post("/addname", (req, res) => {
+    var myData = new User(req.body);
+    //verify the req.body content.
+    //console.log(JSON.stringify(req.body));
+    //console.log('req.body.name', req.body['name']);
+    myData.save()
+    //on success
+    .then(item => {
+        res.send("item saved to the database");
+    })
+    //on failure
+    .catch(err => {
+        res.status(400).send("unable to save to database");
+    });
+});
 
 // app.get("/", (req, res) => {
 //     res.send("Hello World");
