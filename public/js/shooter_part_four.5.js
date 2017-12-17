@@ -753,9 +753,9 @@ function Game() {
 		
 		// Game over
 		this.gameOver = function() {
-			//this.backgroundAudio.pause();
-			//this.gameOverAudio.currentTime = 0;
-			//this.gameOverAudio.play();
+			this.backgroundAudio.pause();
+			this.gameOverAudio.currentTime = 0;
+			this.gameOverAudio.play();
 			document.getElementById('game-over').style.display = "block";
 		};
 
@@ -822,11 +822,10 @@ function animate() {
 	game.quadTree.insert(game.ship.bulletPool.getPool());
 	game.quadTree.insert(game.enemyPool.getPool());
 	game.quadTree.insert(game.enemyBulletPool.getPool());
-
 	detectCollision();
 
-	// Animate game objects
-	requestAnimFrame( animate );
+	requestAnimFrame(animate);
+
 	game.background.draw();
 	game.ship.move();
 	game.ship.bulletPool.animate();
@@ -835,11 +834,25 @@ function animate() {
 
 	// No more enemies
 	if (game.enemyPool.getPool().length === 0) {
+		console.log("Who's next?");
 		game.spawnWave();
 	}
+
+	// Animate game objects
+	if (game.ship.alive) {
+		console.log("Ships alive");
+		
+	}
+			//if the ships bullets are equal zero and the enemys arent all dead.
+	else if (game.ship.bulletPool.getPool() == 0 && game.enemyPool.getPool().length !== 0) {
+		console.log("I'm in limbo right now, no ships completely dead and I've not alive?");
+		
+	}
+
 }
 
 
+/* yep, you guessed it, our collision detection algorithm */
 function detectCollision() {
 	var objects = [];
 	game.quadTree.getAllObjects(objects);
