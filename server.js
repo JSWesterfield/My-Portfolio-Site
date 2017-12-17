@@ -114,8 +114,9 @@ app.get('/valerian', function(req, res) {
     res.render('space'); //actual portfolio page I want to render
 });
 
-app.get('/passwordSpaceMeter', function(req, res) {
+app.get('/passwordStrengthMeter', function(req, res) {
     console.log('Got a GET request for /passwordSpaceMeter');
+    res.render('passwordStrengthMeter');
 })
 
 // set the form page route
