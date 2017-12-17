@@ -3,7 +3,7 @@ var express = require('express');
 
 //declare and initialize an 'app' variable to use the new 'express' method.
 var app = express();
-var port = 3000;
+// var port = 3000;
 
 /**
  * install body-parser first.
@@ -19,58 +19,61 @@ var port = 3000;
 // app.use(bodyParser.json());
 // app.use(bodyParser.urlencoded({ extended: true }));
 
-var mongoose = require("mongoose");
-mongoose.Promise = global.Promise;mongoose.createConnection("mongodb://localhost:27017/heroku-node");
+//update: added { useMongoClient: true}
+// var mongoose = require("mongoose");
+// mongoose.Promise = global.Promise;mongoose.createConnection("mongodb://localhost:27017/heroku-node", { useMongoClient: true});
 
-app.post("/addname", (req, res) => {
-    var myData = new User(req.body);
-    //verify the req.body content.
-    //console.log(JSON.stringify(req.body));
-    //console.log('req.body.name', req.body['name']);
-    myData.save()
-    //on success
-    .then(item => {
-        res.send("item saved to the database");
-    })
-    //on failure
-    .catch(err => {
-        res.status(400).send("unable to save to database");
-    });
-});
-
-// app.get("/", (req, res) => {
-//     res.send("Hello World");
+// app.post("/addname", (req, res) => {
+//     var myData = new User(req.body);
+//     //verify the req.body content.
+//     //console.log(JSON.stringify(req.body));
+//     //console.log('req.body.name', req.body['name']);
+//     myData.save()
+//     //on success
+//     .then(item => {
+//         res.send("item saved to the database");
+//     })
+//     //on failure
+//     .catch(err => {
+//         res.status(400).send("unable to save to database");
+//     });
 // });
 
-app.use("/", (req, res) => {
- res.sendFile(__dirname + "/index.html");
-});
+// // app.get("/", (req, res) => {
+// //     res.send("Hello World");
+// // });
 
-app.listen(port, () => {
-    console.log("Server listening on port " + port);
-});
-//var mongo = require('mongodb').MongoClient;
+// app.use("/", (req, res) => {
+//  res.sendFile(__dirname + "/index.html");
+// });
 
-//Mongoose is a MongoDB object modeling tool(ORM) designed to work in an asynchronous environment.
-//MongoDB, by default, runs on port 27017
-//var mongoose = require("mongoose");
-//mongoose.Promise = global.Promise;mongoose.connect("mongodb://localhost:27017/Portfolio-Site"); //changed to custom endpoint
-//global.Promise;mongoose.connect("mongodb://localhost:27017/node-demo"); //original endpoint
+// app.listen(port, () => {
+//     console.log("Server listening on port " + port);
+// });
+// //var mongo = require('mongodb').MongoClient;
 
-//the content data of the form input fields in this format.
-var nameSchema = new mongoose.Schema({
-    userName: String,
-    userEmail: String,
-    userMessage: String,
-    messageId: Schema.Types.ObjectId
- //firstName: String,
- //lastName: String,
- //messageId used for specific instances of a model in the database
- //messageId: Schema.Types.ObjectId
-}); 
+// //Mongoose is a MongoDB object modeling tool(ORM) designed to work in an asynchronous environment.
+// //MongoDB, by default, runs on port 27017
+// //var mongoose = require("mongoose");
+// //mongoose.Promise = global.Promise;mongoose.connect("mongodb://localhost:27017/Portfolio-Site"); //changed to custom endpoint
+// //global.Promise;mongoose.connect("mongodb://localhost:27017/node-demo"); //original endpoint
 
-//model for our data, we'll call this model "DataInput"
-var User = mongoose.model("User", nameSchema);
+// //the content data of the form input fields in this format.
+// var Scheme;
+
+// var nameSchema = new mongoose.Schema({
+//     userName: String,
+//     userEmail: String,
+//     userMessage: String,
+//     //messageId: Schema.Types.ObjectId
+//  //firstName: String,
+//  //lastName: String,
+//  //messageId used for specific instances of a model in the database
+//  //messageId: Schema.Types.ObjectId
+// }); 
+
+// //model for our data, we'll call this model "DataInput"
+// var User = mongoose.model("User", nameSchema);
 
 
 // when I uncomment mongoDB will not render page via heroku.
@@ -88,42 +91,46 @@ var User = mongoose.model("User", nameSchema);
 
 // set the port of our application
 // process.env.PORT lets the port be set by Heroku
-//var port = process.env.PORT || 8080;
+var port = process.env.PORT || 8080;
 
 // set the view engine to ejs
-//app.set('view engine', 'ejs');
+app.set('view engine', 'ejs');
 
 // make express look in the public directory for assets (css/js/img)
-//app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/public'));
 
 // set the home page route
-// app.get('/', function(req, res) {
+app.get('/', function(req, res) {
 
-//     // ejs render automatically looks in the views folder
-//     res.render('index2'); //actual portfolio page I want to render
-// });
+// ejs render automatically looks in the views folder
+    res.render('index2'); //actual portfolio page I want to render
+});
 
 // set the valarian space shooter page route
-// app.get('/valerian', function(req, res) {
+app.get('/valerian', function(req, res) {
 
-//     // ejs render automatically looks in the views folder
-//     console.log('Got a GET request for /valerian');
-//     res.render('space'); //actual portfolio page I want to render
-// });
+    // ejs render automatically looks in the views folder
+    console.log('Got a GET request for /valerian');
+    res.render('space'); //actual portfolio page I want to render
+});
+
+app.get('/passwordSpaceMeter', function(req, res) {
+    console.log('Got a GET request for /passwordSpaceMeter');
+})
 
 // set the form page route
-// app.get('/form', function(req, res) {
+app.get('/form', function(req, res) {
 
-//     // ejs render automatically looks in the views folder
-//     console.log('ready to send a POST request for /form');
-//     res.render('form'); //actual portfolio page I want to render
-// });
+    // ejs render automatically looks in the views folder
+    console.log('ready to send a POST request for /form');
+    res.render('form'); //actual portfolio page I want to render
+});
 
-// app.listen(port, function() {
-//     console.log('Our app is running on http://localhost:' + port);
-// });
+app.listen(port, function() {
+    console.log('Our app is running on http://localhost:' + port);
+});
 
-//var moment = require('moment');
+var moment = require('moment');
 
 //Future add Event Loop/Event-Driven observer within server.js.
 //Import events module
