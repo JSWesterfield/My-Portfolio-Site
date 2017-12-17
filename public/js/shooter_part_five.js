@@ -20,6 +20,7 @@
 var game = new Game();
 
 function init() {
+	//removed game.start(); to put this game.init() here
 	game.init();
 }
 
@@ -587,6 +588,7 @@ function Ship() {
 		game.laser.get();
 	};
 }
+
 Ship.prototype = new Drawable();
 
 
@@ -637,7 +639,7 @@ function Enemy() {
 
 		if (!this.isColliding) {
 			this.context.drawImage(imageRepository.enemy, this.x, this.y);
-
+			
 			// Enemy has a chance to shoot every movement
 			chance = Math.floor(Math.random()*101);
 			if (chance/100 < percentFire) {
@@ -676,6 +678,49 @@ function Enemy() {
 Enemy.prototype = new Drawable();
 
 
+/**
+ * A sound pool to use for the sound effects
+ */
+function SoundPool(maxSize) {
+	var size = maxSize; // Max sounds allowed in the pool
+	var pool = [];
+	this.pool = pool;
+	var currSound = 0;
+
+	/*
+	 * Populates the pool array with the given sound
+	 */
+	this.init = function(object) {
+		if (object == "laser") {
+			for (var i = 0; i < size; i++) {
+				// Initalize the sound
+				laser = new Audio("sounds/laser.wav");
+				laser.volume = .12;
+				laser.load();
+				pool[i] = laser;
+			}
+		}
+		else if (object == "explosion") {
+			for (var i = 0; i < size; i++) {
+				var explosion = new Audio("sounds/explosion.wav");
+				explosion.volume = .1;
+				explosion.load();
+				pool[i] = explosion;
+			}
+		}
+	};
+
+	/*
+	 * Plays a sound
+	 */
+	this.get = function() {
+		if(pool[currSound].currentTime == 0 || pool[currSound].ended) {
+			pool[currSound].play();
+		}
+		currSound = (currSound + 1) % size;
+	};
+}
+
  /**
  * Creates the Game object which will hold all objects and data for
  * the game.
@@ -693,6 +738,30 @@ function Game() {
 		this.bgCanvas = document.getElementById('background');
 		this.shipCanvas = document.getElementById('ship');
 		this.mainCanvas = document.getElementById('main');
+
+		// Initialize the enemy pool object
+		this.enemyPool = new Pool(30);
+		this.enemyPool.init("enemy");
+		this.spawnWave();
+
+		// Set the playerscore to 
+		this.playerscore = 0;
+
+		// Audio files
+		this.laser = new SoundPool(10);
+		this.laser.init("laser");
+		this.explosion = new SoundPool(20);
+		this.explosion.init("explosion");
+		this.backgroundAudio = new Audio("sounds/kick_shock.wav");
+		this.backgroundAudio.loop = true;
+		this.backgroundAudio.volume = .25;
+		this.backgroundAudio.load();
+		this.gameOverAudio = new Audio("sounds/game_over.wav");
+		this.gameOverAudio.loop = true;
+		this.gameOverAudio.volume = .25;
+		this.gameOverAudio.load();
+
+		this.checkAudio = window.setInterval(function(){checkReadyState()},1000);
 
 		// Test to see if canvas is supported. Only need to
 		// check one canvas
@@ -734,6 +803,7 @@ function Game() {
 			/// Initialize the enemy pool object
 			this.enemyPool = new Pool(30);
 			this.enemyPool.init("enemy");
+
 			var height = imageRepository.enemy.height;
 			var width = imageRepository.enemy.width;
 			var x = 100;
@@ -752,27 +822,6 @@ function Game() {
 			this.enemyBulletPool.init("enemyBullet");
 			// Start QuadTree
 			this.quadTree = new QuadTree({x:0,y:0,width:this.mainCanvas.width,height:this.mainCanvas.height});
-
-			this.playerScore = 0;
-
-			// Audio files
-			this.laser = new SoundPool(10);
-			this.laser.init("laser");
-
-			this.explosion = new SoundPool(20);
-			this.explosion.init("explosion");
-
-			this.backgroundAudio = new Audio("sounds/kick_shock.wav");
-			this.backgroundAudio.loop = true;
-			this.backgroundAudio.volume = .25;
-			this.backgroundAudio.load();
-
-			this.gameOverAudio = new Audio("sounds/game_over.wav");
-			this.gameOverAudio.loop = true;
-			this.gameOverAudio.volume = .25;
-			this.gameOverAudio.load();
-
-			this.checkAudio = window.setInterval(function(){checkReadyState()},1000);
 		}
 	};
 
@@ -792,39 +841,12 @@ function Game() {
 			}
 		}
 	}
-
+	
 	// Start the animation loop
 	this.start = function() {
 		this.ship.draw();
 		this.backgroundAudio.play();
 		animate();
-	};
-
-	// Restart the game
-	this.restart = function() {
-		this.gameOverAudio.pause();
-
-		document.getElementById('game-over').style.display = "none";
-		this.bgContext.clearRect(0, 0, this.bgCanvas.width, this.bgCanvas.height);
-		this.shipContext.clearRect(0, 0, this.shipCanvas.width, this.shipCanvas.height);
-		this.mainContext.clearRect(0, 0, this.mainCanvas.width, this.mainCanvas.height);
-
-		this.quadTree.clear();
-
-		this.background.init(0,0);
-		this.ship.init(this.shipStartX, this.shipStartY,
-		               imageRepository.spaceship.width, imageRepository.spaceship.height);
-
-		this.enemyPool.init("enemy");
-		this.spawnWave();
-		this.enemyBulletPool.init("enemyBullet");
-
-		this.playerScore = 0;
-
-		this.backgroundAudio.currentTime = 0;
-		this.backgroundAudio.play();
-
-		this.start();
 	};
 
 	// Game over
@@ -834,6 +856,35 @@ function Game() {
 		this.gameOverAudio.play();
 		document.getElementById('game-over').style.display = "block";
 	};
+
+	// Restart the game
+	this.restart = function() {
+		
+		this.gameOverAudio.pause();
+		
+		document.getElementById('game-over').style.display = "none";
+		this.bgContext.clearRect(0, 0, this.bgCanvas.width, this.bgCanvas.height);
+		this.shipContext.clearRect(0, 0, this.shipCanvas.width, this.shipCanvas.height);
+		this.mainContext.clearRect(0, 0, this.mainCanvas.width, this.mainCanvas.height);
+		
+		this.quadTree.clear();
+		
+		this.background.init(0,0);
+		this.ship.init(this.shipStartX, this.shipStartY,
+		               imageRepository.spaceship.width, imageRepository.spaceship.height);
+		
+		this.enemyPool.init("enemy");
+		this.spawnWave();
+		this.enemyBulletPool.init("enemyBullet");
+		
+		this.playerScore = 0;
+		
+		this.backgroundAudio.currentTime = 0;
+		this.backgroundAudio.play();
+		
+		this.start();
+	};
+
 }
 
 /**
@@ -843,51 +894,8 @@ function checkReadyState() {
 	if (game.gameOverAudio.readyState === 4 && game.backgroundAudio.readyState === 4) {
 		window.clearInterval(game.checkAudio);
 		document.getElementById('loading').style.display = "none";
-		game.start();
-	}
-}
-
-
-/**
- * A sound pool to use for the sound effects
- */
-function SoundPool(maxSize) {
-	var size = maxSize; // Max bullets allowed in the pool
-	var pool = [];
-	this.pool = pool;
-	var currSound = 0;
-
-	/*
-	 * Populates the pool array with the given object
-	 */
-	this.init = function(object) {
-		if (object == "laser") {
-			for (var i = 0; i < size; i++) {
-				// Initalize the object
-				laser = new Audio("sounds/laser.wav");
-				laser.volume = .12;
-				laser.load();
-				pool[i] = laser;
-			}
-		}
-		else if (object == "explosion") {
-			for (var i = 0; i < size; i++) {
-				var explosion = new Audio("sounds/explosion.wav");
-				explosion.volume = .1;
-				explosion.load();
-				pool[i] = explosion;
-			}
-		}
-	};
-
-	/*
-	 * Plays a sound
-	 */
-	this.get = function() {
-		if(pool[currSound].currentTime == 0 || pool[currSound].ended) {
-			pool[currSound].play();
-		}
-		currSound = (currSound + 1) % size;
+		//removed to call from the init() function
+		//game.start();
 	};
 }
 
@@ -899,7 +907,7 @@ function SoundPool(maxSize) {
  * object.
  */
 function animate() {
-	document.getElementById('score').innerHTML = game.playerScore;
+    document.getElementById('score').innerHTML = game.playerScore;
 
 	// Insert objects into quadtree
 	game.quadTree.clear();
@@ -910,7 +918,7 @@ function animate() {
 
 	detectCollision();
 
-	// No more enemies
+	// No more enemies, respawn enemies
 	if (game.enemyPool.getPool().length === 0) {
 		game.spawnWave();
 	}

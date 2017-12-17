@@ -630,6 +630,7 @@ function Enemy() {
 			return false;
 		}
 		else {
+			game.playerScore += 10;
 			return true;
 		}
 	};
@@ -674,6 +675,8 @@ function Game() {
 		this.bgCanvas = document.getElementById('background');
 		this.shipCanvas = document.getElementById('ship');
 		this.mainCanvas = document.getElementById('main');
+
+		this.playerScore = 0;
 
 		// Test to see if canvas is supported. Only need to
 		// check one canvas
