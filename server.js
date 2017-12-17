@@ -5,6 +5,10 @@ var express = require('express');
 var app = express();
 // var port = 3000;
 
+//Moment.JS for time/date keeping
+var moment = require('moment');
+
+
 /**
  * install body-parser first.
  *npm install body-parser --save
@@ -115,7 +119,7 @@ app.get('/valerian', function(req, res) {
 });
 
 app.get('/passwordStrengthMeter', function(req, res) {
-    console.log('Got a GET request for /passwordSpaceMeter');
+    console.log('Got a GET request for /passwordStrengthMeter');
     res.render('passwordStrengthMeter');
 })
 
@@ -130,8 +134,6 @@ app.get('/form', function(req, res) {
 app.listen(port, function() {
     console.log('Our app is running on http://localhost:' + port);
 });
-
-var moment = require('moment');
 
 //Future add Event Loop/Event-Driven observer within server.js.
 //Import events module

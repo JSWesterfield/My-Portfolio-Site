@@ -41,12 +41,12 @@ legend.form-label {
     color: #999;
 }
 
-/* To prevent the browser from showing out error messages while rendering.  */
+/* To prevent the browser from showing out error messages while rendering our view.  */
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
     display: none !important;
 }
 
-/* For our error feedback*/
+/* Error feedback */
 .form-control.error {
     border-color: red;
 }
@@ -57,7 +57,7 @@ legend.form-label {
     font-size: 8pt;
 }
 
-/* */
+/* style the password strength meter */
 .password-count {
     float: right;
     position: relative;
@@ -69,7 +69,8 @@ legend.form-label {
     position: relative;
     height: 3px;
     background: #DDD;
-    margin: 10px auto 20px;
+    /* top, right, bottom, left */
+    margin: 10px 15px 10px 15px;
     border-radius: 3px;
 }
 
@@ -101,6 +102,7 @@ legend.form-label {
     width: 0;
     border-radius: inherit;
     transition: width 0.5s ease-in-out, background 0.25s;
+    margin-left: -15px !important; /*Without this .strength-meter-fill has a small 15px margin to its left*/
 }
 
 .strength-meter-fill[data-strength='0'] {
@@ -127,3 +129,4 @@ legend.form-label {
     background: green;
     width: 100%;
 }
+
