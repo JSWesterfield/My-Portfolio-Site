@@ -678,6 +678,11 @@ function Game() {
 
 		this.playerScore = 0;
 
+		// Initialize the enemy pool object
+		this.enemyPool = new Pool(30);
+		this.enemyPool.init("enemy");
+		this.spawnWave();
+
 		// Test to see if canvas is supported. Only need to
 		// check one canvas
 		if (this.bgCanvas.getContext) {
@@ -745,7 +750,53 @@ function Game() {
 		} else {
 			return false;
 		}
+		
+		// Game over
+		this.gameOver = function() {
+			//this.backgroundAudio.pause();
+			//this.gameOverAudio.currentTime = 0;
+			//this.gameOverAudio.play();
+			document.getElementById('game-over').style.display = "block";
+		};
+
+		// Restart the game
+		this.restart = function() {
+			//this.gameOverAudio.pause();
+			document.getElementById('game-over').style.display = "none";
+			this.bgContext.clearRect(0, 0, this.bgCanvas.width, this.bgCanvas.height);
+			this.shipContext.clearRect(0, 0, this.shipCanvas.width, this.shipCanvas.height);
+			this.mainContext.clearRect(0, 0, this.mainCanvas.width, this.mainCanvas.height);
+			this.quadTree.clear();
+			this.background.init(0,0);
+			this.ship.init(this.shipStartX, this.shipStartY,
+						imageRepository.spaceship.width, imageRepository.spaceship.height);
+			this.enemyPool.init("enemy");
+			this.spawnWave();
+			this.enemyBulletPool.init("enemyBullet");
+			this.playerScore = 0;
+			//this.backgroundAudio.currentTime = 0;
+			//this.backgroundAudio.play();
+			this.start();
+		};
+
 	};
+
+	// Spawn a new wave of enemies
+	this.spawnWave = function() {
+		var height = imageRepository.enemy.height;
+		var width = imageRepository.enemy.width;
+		var x = 100;
+		var y = -height;
+		var spacer = y * 1.5;
+		for (var i = 1; i <= 18; i++) {
+			this.enemyPool.get(x,y,2);
+			x += width + 25;
+			if (i % 6 == 0) {
+				x = 100;
+				y += spacer
+			}
+		}
+	}
 
 	// Start the animation loop
 	this.start = function() {
@@ -781,7 +832,13 @@ function animate() {
 	game.ship.bulletPool.animate();
 	game.enemyPool.animate();
 	game.enemyBulletPool.animate();
+
+	// No more enemies
+	if (game.enemyPool.getPool().length === 0) {
+		game.spawnWave();
+	}
 }
+
 
 function detectCollision() {
 	var objects = [];
