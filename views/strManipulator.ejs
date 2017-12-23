@@ -28,6 +28,9 @@
 <link rel="stylesheet" href="css/flexslider.css">
 
 <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="js/bower_components/bootstrap/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="js/bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="css/main2.css">
 
 <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,600' rel='stylesheet' type='text/css'>
@@ -82,6 +85,47 @@
 
   </div>
 </div>
+        <div class="main-container2">
+        <div class="form-container">
+    
+            <!-- New reverse Section-->
+            <!--We define a Controller inside the app using the ng-controller directive-->
+            <form action="" method="POST" name="joinTeamForm" role="form" ng-controller="FormController">
+                <legend class="form-label">Join the Team</legend>
+
+                <div class="form-group">
+                    <label for="fullname">Full Name</label>
+
+                    <div class="error form-hint" ng-show="joinTeamForm.fullname.$dirty && joinTeamForm.fullname.$error.required" ng-cloak>{{"This field is required."}}</div>
+
+                    <input type="text" class="form-control" ng-class="(joinTeamForm.fullname.$dirty && joinTeamForm.fullname.$invalid) ? 'error' : ''" id="fullname" name="fullname" placeholder="Enter Full Name" ng-required="true" ng-model="fullname">
+                </div>
+
+                <div class="form-group">
+                    <label for="output">Output</label>
+
+                    <div class="error form-hint" ng-show="joinTeamForm.output.$dirty && joinTeamForm.output.$error.required" ng-cloak>{{"This field is required."}}</div>
+
+                    <div class="error form-hint" ng-show="joinTeamForm.email.$dirty && joinTeamForm.email.$error.email" ng-cloak>{{"Email is invalid."}}</div>
+
+                    <input type="text" class="form-control" ng-class="(joinTeamForm.email.$dirty && joinTeamForm.email.$invalid) ? 'error' : ''" id="email" name="email" placeholder="Enter Email Address" ng-required="true" ng-model="email">
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+
+                    <div class="form-hint">To conform with our Strong Password policy, you are required to use 
+                        a sufficiently strong password. Password must be more than 7 characters.</div>
+
+                    <input type="password" class="form-control ok-password" ng-class="(joinTeamForm.password.$dirty && joinTeamForm.password.$invalid) ? 'error' : ''" id="password" name="password" placeholder="Enter Password" ng-required="true" ng-model="password">
+                </div>
+                
+
+                <button type="submit" class="btn btn-primary" ng-disabled="joinTeamForm.$invalid">Submit</button>
+            </form>
+        </div>
+        </div>
+
 
 <!-- Reverse section -->
 <section id="contact" class="parallax-section">
@@ -94,10 +138,12 @@
                 <h2>Reverse a String</h2>
             </div>
 				<div class="contact-form wow fadeInUp" data-wow-delay="0.7s">
-					<form id="comment-form" method="post" action="/reverse">
-						<input name="prerevData" type="text" class="form-control" id="oldUserdata" placeholder="Reverse me!" required>
-                        <input name="revData" type="text" class="form-control" id="revUserdata" placeholder="">
-						<input type="submit" class="form-control submit" id="submitBtn" value="Reverse">
+					<form id="reverse-form">
+						<input name="preRevData" type="text" class="form-control" id="oldUserData" placeholder="Reverse me!" required>
+                        <input name="revData" type="text" class="form-control" id="revUserData" placeholder="">
+						<input type="submit" class="form-control" id="submitBtn" value="Reverse">
+                        <input type="button" class="form-control" id="submitBtn0" value="Reverse 2">
+
 					</form>
 				</div>
 			</div>
@@ -106,7 +152,7 @@
 	</div>
 </section>
 
-<!-- Validate Pandidrome section -->
+<!-- Validate Palidrome section -->
 <section id="contact" class="parallax-section">
   <div class="overlay"></div>
 	<div class="container">
@@ -116,10 +162,11 @@
             <div class="wow fadeInUp section-title" data-wow-delay="0.3s">
                 <h2>Validate if this is a palidrome</h2>
             </div>
-				<div class="contact-form wow fadeInUp" data-wow-delay="0.7s">
-					<form id="comment-form" method="post" action="/validate">
+				<div class="contact-form wow fadeInUp" data-wow-delay="0.8s">
+					<form id="palidrome-form" method="post" action="/validate">
 						<input name="name" type="text" class="form-control" id="palidromeUserData" placeholder="Palidrome?" required>
 						<input type="submit" class="form-control submit" id="submitBtn2" value="Validate Palidrome">
+                        
 					</form>
 				</div>
 			</div>
@@ -138,8 +185,8 @@
             <div class="wow fadeInUp section-title" data-wow-delay="0.3s">
                 <h2>Convert the Date</h2>
             </div>
-				<div class="contact-form wow fadeInUp" data-wow-delay="0.7s">
-					<form id="comment-form" method="post" action="/validate">
+				<div class="contact-form wow fadeInUp" data-wow-delay="0.9s">
+					<form id="convert-form" method="post" action="/validate">
 						<input name="date" type="text" class="form-control" id="userOldDateFormat" placeholder="Input date in 'mm/dd/yyyy' " required>
                         <input name="newDate" type="text" class="form-control" id="userNewDateFormat" placeholder="Output">
 						<input type="submit" class="form-control submit" id="submitBtn3" value="Convert Date">
@@ -290,25 +337,36 @@
     jake.page.startUp = function() {
       
       console.log("I am currently executing the page start up");
+      
       //Failed to figure out what the config.item object was. Need more detailed information on how to create a config.item object on Google.
+    }
 </script>
 
 <!--Reverse string script-->
 <script>
-$(".submitBtn").on("click", function() {
-    var convertDate = function(userData) {
-    //store user data
-    var UserData = $("userOldDateFormat").val();
-    //convert user data
-    var newFormatedDate = UserData.reverse();
-    //on click on button, put newFormatedDate in output
-        var changeOutput = $("#newDateFormat").val();
-    }
-})
+// $(".submitBtn").on("click", function(event) {
+//     event.preventDefault;
+    // var reverseString = function(userStrData) {
+    //     //store user data
+    //     var userStrData = $(".oldUserData").val();
+    //     //convert user data
+    //     var reversedString = userStrData.reverse();
+    //     //on click on button, put newFormatedDate in output
+    //     var changeOutput = $(".revUserData").val(reversedString);
+    //     console.log('String Reversed');
+    // }
+    console.log('Enter data to clear now.'); //console.logs for verification
+    $('.submitBtn0').on('click', function(event) {
+        event.preventDefault();
+        $('.oldUserData, .revUserData').val(" ");
+        $('.reverse-form')[0].reset(); //resets everything including dropdown menus.
+        console.log("Form all clear, Sir!");  
+    })
+// })
 </script>
-<input name="prerevData" type="text" class="form-control" id="oldUserdata" placeholder="Reverse me!" required>
-<input name="revData" type="text" class="form-control" id="revUserdata" placeholder="">
-<input type="submit" class="form-control submit" id="submitBtn" value="Reverse">
+
+
+
 
 <!--Convert string script-->
 <script>
