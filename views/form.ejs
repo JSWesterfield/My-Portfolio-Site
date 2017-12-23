@@ -32,6 +32,7 @@
 <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,600' rel='stylesheet' type='text/css'>
 
+
 </head>
 <body id="top" data-spy="scroll" data-target=".navbar-collapse" data-offset="50">
 
@@ -48,7 +49,7 @@
       <div class="row">
 
           <div class="col-md-offset-2 col-md-8 col-sm-12">
-              <h1 class="wow fadeInUp" data-wow-delay="0.6s" id="title_text">Noteable, my example note application</h1>
+              <h1 class="wow fadeInUp" data-wow-delay="0.6s" id="title_text">Noteable, my simple note application</h1>
               <p class="wow fadeInUp" data-wow-delay="1.0s" id="subtitle_text">Add a note below!</p>
               <a href="#feature" class="wow fadeInUp btn btn-default hvr-bounce-to-top smoothScroll" data-wow-delay="1.3s">Learn More</a>
           </div>
@@ -156,7 +157,7 @@
   </div>
 </section>
 
-<!-- javscript js -->
+!-- javscript js -->
 <script src="js/jquery.js"></script>
 <script src="js/bootstrap.min.js"></script>
 
@@ -175,246 +176,129 @@
 <script src="js/smoothscroll.js"></script>
 <script src="js/wow.min.js"></script>
 
+<script src="js/siteCanvas.js"></script>
 <!--<script src="js/validate.js"> Add this js library later for validation-->
 
 <script src="js/custom.js"></script>
 <script src="js/jake.js"></script>
  
+<!--The source of our Angular code-->
+<script src="js/bower_components/angular/angular.min.js"></script>
+
 
 </body>
 </html>
 
 <script type="text/javascript">
-//Onpage load, show console message
-$( document ).ready(function() {
-    console.log( "ready!" );
-
-          //Added Canvas here, w/ MouseOver functionality
-          var canvasDots = function() {
-          var canvas = document.querySelector('canvas'),
-              ctx = canvas.getContext('2d'),
-              //colorDot = '#CECECE',
-              //color = '#CECECE';
-              colorDot = '#ffffff';
-              colorDot = '#FFFFFF';
-              //color = '#FFFFFF';
-              //color = '#FF0000';
-              //colorDot = '#FF0000';
-          canvas.width = window.innerWidth;
-          canvas.height = window.innerHeight;
-          canvas.style.display = 'block';
-          ctx.fillStyle = colorDot;
-          ctx.lineWidth = 1;
-          ctx.strokeStyle = color;
-
-          var mousePosition = {
-              x: 30 * canvas.width / 100,
-              y: 30 * canvas.height / 100
-          };
-
-          var dots = {
-              nb: 600,
-              distance: 60,
-              d_radius: 100,
-              array: []
-          };
-
-          function Dot(){
-              this.x = Math.random() * canvas.width;
-              this.y = Math.random() * canvas.height;
-
-              this.vx = -.5 + Math.random();
-              this.vy = -.5 + Math.random();
-
-              this.radius = Math.random();
-          }
-
-          Dot.prototype = {
-              create: function(){
-                  ctx.beginPath();
-                  ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
-                  ctx.fill();
-              },
-
-              animate: function(){
-                  for(i = 0; i < dots.nb; i++){
-
-                      var dot = dots.array[i];
-
-                      if(dot.y < 0 || dot.y > canvas.height){
-                          dot.vx = dot.vx;
-                          dot.vy = - dot.vy;
-                      }
-                      else if(dot.x < 0 || dot.x > canvas.width){
-                          dot.vx = - dot.vx;
-                          dot.vy = dot.vy;
-                      }
-                      dot.x += dot.vx;
-                      dot.y += dot.vy;
-                  }
-              },
-
-              line: function(){
-                  for(i = 0; i < dots.nb; i++){
-                      for(j = 0; j < dots.nb; j++){
-                          i_dot = dots.array[i];
-                          j_dot = dots.array[j];
-
-                          if((i_dot.x - j_dot.x) < dots.distance && (i_dot.y - j_dot.y) < dots.distance && (i_dot.x - j_dot.x) > - dots.distance && (i_dot.y - j_dot.y) > - dots.distance){
-                              if((i_dot.x - mousePosition.x) < dots.d_radius && (i_dot.y - mousePosition.y) < dots.d_radius && (i_dot.x - mousePosition.x) > - dots.d_radius && (i_dot.y - mousePosition.y) > - dots.d_radius){
-                                  ctx.beginPath();
-                                  ctx.moveTo(i_dot.x, i_dot.y);
-                                  ctx.lineTo(j_dot.x, j_dot.y);
-                                  ctx.stroke();
-                                  ctx.closePath();
-                              }
-                          }
-                      }
-                  }
-              }
-          };
-
-          function createDots(){
-              ctx.clearRect(0, 0, canvas.width, canvas.height);
-              for(i = 0; i < dots.nb; i++){
-                  dots.array.push(new Dot());
-                  dot = dots.array[i];
-
-                  dot.create();
-              }
-
-              dot.line();
-              dot.animate();
-          }
-
-          window.onmousemove = function(parameter) {
-              mousePosition.x = parameter.pageX;
-              mousePosition.y = parameter.pageY;
-          }
-
-          mousePosition.x = window.innerWidth / 2;
-          mousePosition.y = window.innerHeight / 2;
-
-          setInterval(createDots, 1000/30);
-      };
-
-      window.onload = function() {
-          canvasDots();
-      };
-
-});
-</script>
-
-<script type="text/javascript">
   //on page load run script
-  jake.page.startUp = function() {
-    if(jake.page.config.item){
-      jake.page.commentId = jake.page.config.item;
-      jake.services.comments.selectCommentById(jake.page.commentId, jake.page.handlers.tempResponseHold);
-    }
+//   jake.page.startUp = function() {
+//     if(jake.page.config.item){
+//       jake.page.commentId = jake.page.config.item;
+//       jake.services.comments.selectCommentById(jake.page.commentId, jake.page.handlers.tempResponseHold);
+//     }
 
-    $("#submitBtn").on('click', jake.page.handlers.commentsCreate);
-    //$("#resetBtn").on('click', jake.page.handlers.resetForm); create reset button later, possibly
-    jake.page.clientSideValidation();
-  };
+//     $("#submitBtn").on('click', jake.page.handlers.commentsCreate);
+//     //$("#resetBtn").on('click', jake.page.handlers.resetForm); create reset button later, possibly
+//     jake.page.clientSideValidation();
+//   };
 
-  //create comment function
-  jake.page.handlers.commentsCreate = function(event) {
-      event.preventDefault();
-      var commentPageData = {
-        name: $("formName").val()
-        , email: $("formEmail").val()
-        , content: $("formContent").val()
-      }
+//   //create comment function
+//   jake.page.handlers.commentsCreate = function(event) {
+//       event.preventDefault();
+//       var commentPageData = {
+//         name: $("formName").val()
+//         , email: $("formEmail").val()
+//         , content: $("formContent").val()
+//       }
 
-      if(jake.page.commentId) {
-          commentPageData.id = jake.page.commentId;
-          jake.services.comments.update(commentPageData, jake.page.handlers.submitNewComment, jake.page.handlers.ajaxError);
-          jake.page.pendingForm = commentPageData;
-      }
+//       if(jake.page.commentId) {
+//           commentPageData.id = jake.page.commentId;
+//           jake.services.comments.update(commentPageData, jake.page.handlers.submitNewComment, jake.page.handlers.ajaxError);
+//           jake.page.pendingForm = commentPageData;
+//       }
 
-      else {
-          jake.services.comments.create(commentPageData, jake.page.handlers.submitNewComment, jake.page.handlers.ajaxError);
-      }
-  }; 
-      //temporary Response Hold
-      jake.page.handlers.tempResponseHold = function(response) {
-          jake.page.lastSavedForm = response.item;
-          $("#formName").val(response.item.name);
-          $("formEmail").val(response.item.email);
-          $("formContent").val(response.item.content);
-      };
+//       else {
+//           jake.services.comments.create(commentPageData, jake.page.handlers.submitNewComment, jake.page.handlers.ajaxError);
+//       }
+//   }; 
+//       //temporary Response Hold
+//       jake.page.handlers.tempResponseHold = function(response) {
+//           jake.page.lastSavedForm = response.item;
+//           $("#formName").val(response.item.name);
+//           $("formEmail").val(response.item.email);
+//           $("formContent").val(response.item.content);
+//       };
 
 
-      //Client side validation w/ Validate.js
-      jake.page.clientSideValidation = function() {
-          jQuery.validator.setDefaults({  //will need to add the validate.js script to folder
-              debug: true
-          });
+//       //Client side validation w/ Validate.js
+//       jake.page.clientSideValidation = function() {
+//           jQuery.validator.setDefaults({  //will need to add the validate.js script to folder
+//               debug: true
+//           });
 
-          $('#comment-form').validate({
-              rules: {
-                "formName": {
-                    required: true
-                    , maxlength: 50
-                },
-                "formEmail": {
-                    required: true
-                    , maxlength: 100
-                    , type: email
-                },
-                "formContent": {
-                    required: true
-                    , maxlength: 250
-                },  
-              },
+//           $('#comment-form').validate({
+//               rules: {
+//                 "formName": {
+//                     required: true
+//                     , maxlength: 50
+//                 },
+//                 "formEmail": {
+//                     required: true
+//                     , maxlength: 100
+//                     , type: email
+//                 },
+//                 "formContent": {
+//                     required: true
+//                     , maxlength: 250
+//                 },  
+//               },
 
-              messages: {
-                "formName": {
-                    required: "Name is required"
-                    , maxlength: "Please enter no more than 50 characters."
+//               messages: {
+//                 "formName": {
+//                     required: "Name is required"
+//                     , maxlength: "Please enter no more than 50 characters."
                 
-                },
-                "formEmail": {
-                    required: "Email is required"
-                    , maxlength: "Please enter no more than 100 characters."
-                    , type: "Email must contain proper email syntax, did you forget an @ symbol or .com?"
+//                 },
+//                 "formEmail": {
+//                     required: "Email is required"
+//                     , maxlength: "Please enter no more than 100 characters."
+//                     , type: "Email must contain proper email syntax, did you forget an @ symbol or .com?"
                 
-                },
+//                 },
 
-                "formContent": {
-                    required: "A message is required before you press send"
-                    , maxlength: "Please enter no more than 250 characters."
-                },
-              },
-          })
-      };
+//                 "formContent": {
+//                     required: "A message is required before you press send"
+//                     , maxlength: "Please enter no more than 250 characters."
+//                 },
+//               },
+//           })
+//       };
 
-      //submit form function
-      jake.page.handlers.submitNewComment = function(response) {
-          jake.page.commentId = response.item;
-          jake.services.notifications.success("Comments Submitted");
-          jake.page.lastSavedForm = jake.page.pendingForm;
-          $("#submitBtn").text("Update Form");
+//       //submit form function
+//       jake.page.handlers.submitNewComment = function(response) {
+//           jake.page.commentId = response.item;
+//           jake.services.notifications.success("Comments Submitted");
+//           jake.page.lastSavedForm = jake.page.pendingForm;
+//           $("#submitBtn").text("Update Form");
 
-      };
+//       };
 
-      //reset form function, will add reset button later.
-      // jake.page.handlers.resetForm = function() {
-      //     if(jake.page.config.item) {
-      //         $("#formName").val(jake.page.lastSavedForm.name);
-      //         $("#formEmail").val(jake.page.lastSavedForm.email);
-      //         $("#formContent").val(jake.page.lastSavedForm.content);
-      //     }
-      //     else {
-      //         $("comment-form")[0].reset(); //resets form
-      //     }
-      // }; 
+//       //reset form function, will add reset button later.
+//       // jake.page.handlers.resetForm = function() {
+//       //     if(jake.page.config.item) {
+//       //         $("#formName").val(jake.page.lastSavedForm.name);
+//       //         $("#formEmail").val(jake.page.lastSavedForm.email);
+//       //         $("#formContent").val(jake.page.lastSavedForm.content);
+//       //     }
+//       //     else {
+//       //         $("comment-form")[0].reset(); //resets form
+//       //     }
+//       // }; 
 
-      //Ajax Error function
-      jake.page.handlers.ajaxError = function(response) {
-          jake.services.notifications.error("Form failed to Submit");
-      }
+//       //Ajax Error function
+//       jake.page.handlers.ajaxError = function(response) {
+//           jake.services.notifications.error("Form failed to Submit");
+//       }
 
 
 </script>

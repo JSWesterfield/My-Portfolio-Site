@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+	<title>String Manipulation Application</title>
+
+  	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="keywords" content="">
+  	<meta name="description" content="">
+
+	<!-- stylesheets css -->
+<link rel="stylesheet" href="css/bootstrap.min.css">
+
+<link rel="stylesheet" href="css/magnific-popup.css">
+
+<link rel="stylesheet" href="css/animate.min.css">
+<link rel="stylesheet" href="css/font-awesome.min.css">
+<!-- Add icon library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+<link rel="stylesheet" href="css/nivo-lightbox.css">
+<link rel="stylesheet" href="css/nivo_themes/default/default.css">
+
+<link rel="stylesheet" href="css/hover-min.css">
+<link rel="stylesheet" href="css/flexslider.css">
+
+<link rel="stylesheet" href="css/style.css">
+
+<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,600' rel='stylesheet' type='text/css'>
+
+</head>
+<body id="top" data-spy="scroll" data-target=".navbar-collapse" data-offset="50">
+
+<!-- Preloader section -->
+<div class="preloader">
+	<div class="sk-spinner sk-spinner-pulse"></div>
+</div>
+
+
+<!-- Home section -->
+<section id="home" class="parallax-section">
+  <div class="gradient-overlay"><canvas class='connecting-dots'></canvas></div>
+    <div class="container">
+      <div class="row">
+
+          <div class="col-md-offset-2 col-md-8 col-sm-12">
+              <h1 class="wow fadeInUp" data-wow-delay="0.6s" id="title_text">String Manipulator</h1>
+              <p class="wow fadeInUp" data-wow-delay="1.0s" id="subtitle_text">Lets manipulate some strings!!</p>
+          </div>
+
+      </div>
+    </div>
+</section>
+
+
+<!-- Navigation section -->
+<div class="navbar navbar-default navbar-static-top" role="navigation">
+  <div class="container">
+
+    <div class="navbar-header">
+      <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="icon icon-bar"></span>
+        <span class="icon icon-bar"></span>
+        <span class="icon icon-bar"></span>
+      </button>
+      <a href="#" class="navbar-brand"><span><i class="fa fa-code"></i></span></a>
+    </div>
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#top" class="smoothScroll">Home</a></li>
+        <li><a href="#feature" class="smoothScroll">Features</a></li>
+        <li><a href="#about" class="smoothScroll">About</a></li>
+        <li><a href="#muse" class="smoothScroll">Influences</a></li>
+        <li><a href="#gallery" class="smoothScroll">Portfolio</a></li>
+        <li><a href="#contact" class="smoothScroll">Contact</a></li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+<!-- Reverse section -->
+<section id="contact" class="parallax-section">
+  <div class="overlay"></div>
+	<div class="container">
+		<div class="row">
+
+			<div class="col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10">
+            <div class="wow fadeInUp section-title" data-wow-delay="0.3s">
+                <h2>Reverse a String</h2>
+            </div>
+				<div class="contact-form wow fadeInUp" data-wow-delay="0.7s">
+					<form id="comment-form" method="post" action="/reverse">
+						<input name="prerevData" type="text" class="form-control" id="oldUserdata" placeholder="Reverse me!" required>
+                        <input name="revData" type="text" class="form-control" id="revUserdata" placeholder="">
+						<input type="submit" class="form-control submit" id="submitBtn" value="Reverse">
+					</form>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</section>
+
+<!-- Validate Pandidrome section -->
+<section id="contact" class="parallax-section">
+  <div class="overlay"></div>
+	<div class="container">
+		<div class="row">
+
+			<div class="col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10">
+            <div class="wow fadeInUp section-title" data-wow-delay="0.3s">
+                <h2>Validate if this is a palidrome</h2>
+            </div>
+				<div class="contact-form wow fadeInUp" data-wow-delay="0.7s">
+					<form id="comment-form" method="post" action="/validate">
+						<input name="name" type="text" class="form-control" id="palidromeUserData" placeholder="Palidrome?" required>
+						<input type="submit" class="form-control submit" id="submitBtn2" value="Validate Palidrome">
+					</form>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</section>
+
+<!-- Convert this date section -->
+<section id="contact" class="parallax-section">
+  <div class="overlay"></div>
+	<div class="container">
+		<div class="row">
+
+			<div class="col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10">
+            <div class="wow fadeInUp section-title" data-wow-delay="0.3s">
+                <h2>Convert the Date</h2>
+            </div>
+				<div class="contact-form wow fadeInUp" data-wow-delay="0.7s">
+					<form id="comment-form" method="post" action="/validate">
+						<input name="date" type="text" class="form-control" id="userOldDateFormat" placeholder="Input date in 'mm/dd/yyyy' " required>
+                        <input name="newDate" type="text" class="form-control" id="userNewDateFormat" placeholder="Output">
+						<input type="submit" class="form-control submit" id="submitBtn3" value="Convert Date">
+					</form>
+                    <!--Things to think about
+                        1.) How will we grab the data? //jquery or Angular 2-way binding to place the output in a html dom string return NewFormatedData(<html>) 
+                        2.) How will we validate these are numbers? //regex validation? ['0-9']
+                        3.) How will I convert the data? Store the userData into a variable, create another variable where we manipulate this data.
+                    -->
+				</div>
+			</div>
+
+		</div>
+	</div>
+</section>
+
+!-- Footer section -->
+<footer>
+	<div class="container">
+		<div class="row">
+
+              <!--Adding Google Maps feature-->
+              <div class="wow fadeInUp col-md-4 col-sm-4" data-wow-delay="1.3s">
+                <!--<img width="320" src="images/googlemaps.jpg"" alt="Google_Map_Of_Denver, CO">-->
+                <!--Add a function here that executes when http exists but if not connection is made it will then display a .jpg image of the same map.-->
+                <script src='https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyDBpbYW2whIMMv3fu5oML-gSpPSCZxKt4I'>
+                </script>
+                  <div style='overflow:hidden;height:300px;width:320px;'>
+                    <div id='gmap_canvas' style='height:300px;width:320px;'>
+                    </div>
+                      <style>
+                        #gmap_canvas img{
+                          max-width:none!important;
+                          background:none!important;
+                        }
+                      </style>
+                    </div>
+                    <!--My script for my Google Maps, Map Object-->
+                    <script type='text/javascript'>
+                      function init_map(){
+                        var myOptions = {
+                          zoom:14,
+                          center: new google.maps.LatLng(39.75421768574746,-104.98875318518064),
+                          mapTypeId: google.maps.MapTypeId.ROADMAP};
+                          map = new google.maps.Map(document.getElementById('gmap_canvas'), myOptions);
+                          
+                          marker = new google.maps.Marker({
+                            map: map, 
+                            icon: 'http://maps.google.com/mapfiles/ms/icons/purple-dot.png', 
+                            animation: google.maps.Animation.DROP, 
+                            position: new google.maps.LatLng(39.75421768574746,-104.98875318518064)
+                          });
+                          
+                          google.maps.event.addListener(marker, 'click', function(){
+                            var infoWindow = new google.maps.InfoWindow({ 
+                              content: 'Jake Lives Here! :)'
+                            });
+                
+                            infowindow.open(map,marker);
+                          });
+                            //infowindow.open(map,marker);
+                        }
+                          
+                        google.maps.event.addDomListener(window, 'load', init_map);
+                      
+                    </script>
+              </div>
+              
+              <div class="wow fadeInUp col-md-4 col-sm-4" data-wow-delay="1.6s">
+                <h3>Contact Detail</h3>
+                <p>2345 Walnut St, Denver, CO</p>
+                <p>(424)341-2236</p>
+                <p>(720)546-8697</p>
+                <p>jecobwesterfield@gmail.com</p>
+              </div>
+
+              <div class="wow fadeInUp col-md-4 col-sm-4" data-wow-delay="1.9s">
+                <h3>Working Hours</h3>
+                <strong>Monday - Friday</strong>
+                <p>8:00 AM - 4:30 PM MST</p>
+
+                <br>
+                <strong>Current Time</strong>
+                <!-- container for Moment.js output -->
+                <p id="displayMoment"></p>
+              </div>
+		</div>
+	</div>
+</footer>
+
+
+<!-- Copyright section -->
+<section id="copyright">
+  <div class="container">
+    <div class="row">
+
+      <div class="col-md-8 col-sm-8 col-xs-8">
+        <p>Copyright© 2017 - Designed and Built by Jacob Westerfield
+          <a href="https://twitter.com/silv3rsnakejake" target="_blank" class="fa fa-twitter"></a>
+          <a href="https://www.linkedin.com/in/jakewesterfield1/" target="_blank" class="fa fa-linkedin"></a>
+          <a href="https://github.com/JSWesterfield" target="_blank" class="fa fa-github"></a>
+        </p>
+      </div>
+
+      <div class="col-md-4 col-sm-4 text-right">
+        <a href="#home" class="fa fa-angle-up smoothScroll gototop"></a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- javscript js -->
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap.min.js"></script>
+
+<script src="js/jquery.magnific-popup.min.js"></script>
+
+<script src="js/jquery.sticky.js"></script>
+<script src="js/jquery.backstretch.min.js"></script>
+
+<script src="js/isotope.js"></script>
+<script src="js/imagesloaded.min.js"></script>
+<script src="js/nivo-lightbox.min.js"></script>
+
+<script src="js/jquery.flexslider-min.js"></script>
+
+<script src="js/jquery.parallax.js"></script>
+<script src="js/smoothscroll.js"></script>
+<script src="js/wow.min.js"></script>
+
+<script src="js/siteCanvas.js"></script>
+<!--<script src="js/validate.js"> Add this js library later for validation-->
+
+<script src="js/custom.js"></script>
+<script src="js/jake.js"></script>
+ 
+<!--The source of our Angular code-->
+<script src="js/bower_components/angular/angular.min.js"></script>
+
+
+</body>
+</html>
+
+
+<script type="text/javascript">
+    //on page load run script
+    jake.page.startUp = function() {
+      
+      console.log("I am currently executing the page start up");
+      //Failed to figure out what the config.item object was. Need more detailed information on how to create a config.item object on Google.
+</script>
+
+<!--Reverse string script-->
+<script>
+$(".submitBtn").on("click", function() {
+    var convertDate = function(userData) {
+    //store user data
+    var UserData = $("userOldDateFormat").val();
+    //convert user data
+    var newFormatedDate = UserData.reverse();
+    //on click on button, put newFormatedDate in output
+        var changeOutput = $("#newDateFormat").val();
+    }
+})
+</script>
+<input name="prerevData" type="text" class="form-control" id="oldUserdata" placeholder="Reverse me!" required>
+<input name="revData" type="text" class="form-control" id="revUserdata" placeholder="">
+<input type="submit" class="form-control submit" id="submitBtn" value="Reverse">
+
+<!--Convert string script-->
+<script>
+$(".submitBtn3").on("click", function() {
+    var convertDate = function(userData) {
+    //store user data
+    var UserData = $("userOldDateFormat").val();
+    //convert user data
+    var newFormatedDate = UserData.reverse();
+    //on click on button, put newFormatedDate in output
+        var changeOutput = $("#newDateFormat").val();
+    }
+})
+
+</script>
+
+
+<!-- Moment.JS script for the page-->
+<script type="text/javascript">
+(function()
+{
+  // instantiate a moment object
+  var NowMoment = moment();
+  
+  // instantiate a JavaScript Date object
+  var NowDate = new Date();
+  
+  // display value of moment object in #displayMoment div
+  var eDisplayMoment = document.getElementById('displayMoment');
+  eDisplayMoment.innerHTML = NowMoment;
+  
+  //created a genius update function, that's an IIFE, invokes immediately, to help up date my time, in 1 second intervals.
+  var update;
+  (update = function() {
+      document.getElementById("displayMoment")
+      .innerHTML = moment().format('MMMM Do YYYY, h:mm:ss a');
+  })();
+  setInterval(update, 1000);
+})();
+</script>

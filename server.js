@@ -89,9 +89,10 @@ var moment = require('moment');
 //  db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 //require the routes on the page from routes.js
+// var routes = require('/routes')(app);
 // var routes = require('./routes')(app);
-// var routes = require('/routes');
 // app.use('/routes', routes);
+
 
 // set the port of our application
 // process.env.PORT lets the port be set by Heroku
@@ -105,8 +106,8 @@ app.use(express.static(__dirname + '/public'));
 
 // set the home page route
 app.get('/', function(req, res) {
-
-// ejs render automatically looks in the views folder
+ 
+   //ejs render automatically looks in the views folder
     res.render('index'); //actual portfolio page I want to render
 });
 
@@ -121,7 +122,7 @@ app.get('/valerian', function(req, res) {
 app.get('/passwordStrengthMeter', function(req, res) {
     console.log('Got a GET request for /passwordStrengthMeter');
     res.render('passwordStrengthMeter');
-})
+});
 
 // set the form page route
 app.get('/form', function(req, res) {
@@ -129,6 +130,13 @@ app.get('/form', function(req, res) {
     // ejs render automatically looks in the views folder
     console.log('ready to send a POST request for /form');
     res.render('form'); //actual portfolio page I want to render
+});
+
+app.get('/strManipulator', function(req, res) {
+
+    //ejs render automatically looks in the view folder
+    console.log('ready to send POST request for /strManipulator');
+    res.render('strManipulator');
 });
 
 app.listen(port, function() {
