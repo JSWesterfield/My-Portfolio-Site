@@ -139,6 +139,13 @@ app.get('/strManipulator', function(req, res) {
     res.render('strManipulator');
 });
 
+app.get('/weatherApp', function(req, res) {
+
+    //ejs render automatically looks in the view folder
+    console.log('ready to send POST request for /weatherApp');
+    res.render('weatherApp');
+});
+
 app.listen(port, function() {
     console.log('Our app is running on http://localhost:' + port);
 });

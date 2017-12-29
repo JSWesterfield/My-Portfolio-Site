@@ -88,27 +88,18 @@
         <div class="main-container2">
         <div class="form-container">
     
-            <!-- New reverse Section-->
-            <!--We define a Controller inside the app using the ng-controller directive-->
-            <form action="" method="POST" name="joinTeamForm" role="form" ng-controller="FormController">
-                <legend class="form-label">Join the Team</legend>
+        <!-- New reverse Section-->
+            <form name="joinTeamForm" role="form" ng-controller="FormController">
+                <legend class="form-label">Reverse the String</legend>
 
                 <div class="form-group">
                     <label for="fullname">Full Name</label>
-
-                    <div class="error form-hint" ng-show="joinTeamForm.fullname.$dirty && joinTeamForm.fullname.$error.required" ng-cloak>{{"This field is required."}}</div>
-
-                    <input type="text" class="form-control" ng-class="(joinTeamForm.fullname.$dirty && joinTeamForm.fullname.$invalid) ? 'error' : ''" id="fullname" name="fullname" placeholder="Enter Full Name" ng-required="true" ng-model="fullname">
+                    <input type="text" class="form-control" id="fullname" name="fullname" placeholder="Enter Full Name" ng-model="fullname">
                 </div>
 
                 <div class="form-group">
                     <label for="output">Output</label>
-
-                    <div class="error form-hint" ng-show="joinTeamForm.output.$dirty && joinTeamForm.output.$error.required" ng-cloak>{{"This field is required."}}</div>
-
-                    <div class="error form-hint" ng-show="joinTeamForm.email.$dirty && joinTeamForm.email.$error.email" ng-cloak>{{"Email is invalid."}}</div>
-
-                    <input type="text" class="form-control" ng-class="(joinTeamForm.email.$dirty && joinTeamForm.email.$invalid) ? 'error' : ''" id="email" name="email" placeholder="Enter Email Address" ng-required="true" ng-model="email">
+                    <input type="text" class="form-control" id="output" name="output" placeholder="Output" ng-model="output">
                 </div>
 
                 <div class="form-group">
@@ -116,12 +107,10 @@
 
                     <div class="form-hint">To conform with our Strong Password policy, you are required to use 
                         a sufficiently strong password. Password must be more than 7 characters.</div>
-
-                    <input type="password" class="form-control ok-password" ng-class="(joinTeamForm.password.$dirty && joinTeamForm.password.$invalid) ? 'error' : ''" id="password" name="password" placeholder="Enter Password" ng-required="true" ng-model="password">
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Enter Password" ng-model="password">
                 </div>
-                
-
-                <button type="submit" class="btn btn-primary" ng-disabled="joinTeamForm.$invalid">Submit</button>
+            
+                <button type="submit" class="btn btn-primary" id="submitBtn1">Submit</button>
             </form>
         </div>
         </div>
@@ -142,7 +131,6 @@
 						<input name="preRevData" type="text" class="form-control" id="oldUserData" placeholder="Reverse me!" required>
                         <input name="revData" type="text" class="form-control" id="revUserData" placeholder="">
 						<input type="submit" class="form-control" id="submitBtn" value="Reverse">
-                        <input type="button" class="form-control" id="submitBtn0" value="Reverse 2">
 
 					</form>
 				</div>
@@ -337,35 +325,25 @@
     jake.page.startUp = function() {
       
       console.log("I am currently executing the page start up");
-      
-      //Failed to figure out what the config.item object was. Need more detailed information on how to create a config.item object on Google.
-    }
+    };
 </script>
 
-<!--Reverse string script-->
+<!--Reverse String-->
 <script>
-// $(".submitBtn").on("click", function(event) {
-//     event.preventDefault;
-    // var reverseString = function(userStrData) {
-    //     //store user data
-    //     var userStrData = $(".oldUserData").val();
-    //     //convert user data
-    //     var reversedString = userStrData.reverse();
-    //     //on click on button, put newFormatedDate in output
-    //     var changeOutput = $(".revUserData").val(reversedString);
-    //     console.log('String Reversed');
-    // }
-    console.log('Enter data to clear now.'); //console.logs for verification
-    $('.submitBtn0').on('click', function(event) {
-        event.preventDefault();
-        $('.oldUserData, .revUserData').val(" ");
-        $('.reverse-form')[0].reset(); //resets everything including dropdown menus.
-        console.log("Form all clear, Sir!");  
-    })
-// })
+$(".submitBtn1").click(function(event) {
+    //prevent the default click functionality
+    event.preventDefault();
+    var reverseString = function(userData) {
+        //store user data
+        var UserData = $("userOldDateFormat").val();
+        //convert user data
+        var newFormatedDate = UserData.reverse();
+        //on click on button, put newFormatedDate in output
+            var changeOutput = $("#newDateFormat").val();
+        }
+    }
+});
 </script>
-
-
 
 
 <!--Convert string script-->
@@ -379,8 +357,7 @@ $(".submitBtn3").on("click", function() {
     //on click on button, put newFormatedDate in output
         var changeOutput = $("#newDateFormat").val();
     }
-})
-
+});
 </script>
 
 
