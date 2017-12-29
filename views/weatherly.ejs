@@ -27,10 +27,9 @@
 <link rel="stylesheet" href="css/hover-min.css">
 <link rel="stylesheet" href="css/flexslider.css">
 
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/weatherstyle.css">
 <link rel="stylesheet" href="js/bower_components/bootstrap/dist/css/bootstrap.min.css">
 <link rel="stylesheet" href="js/bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
-<link rel="stylesheet" href="css/main2.css">
 
 <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,600' rel='stylesheet' type='text/css'>
@@ -291,7 +290,6 @@
 </section>
 
 <!-- Add a new city button-->
-<!-- Validate Palidrome section -->
 <section id="contact" class="parallax-section">
   <div class="overlay2"></div>
 	<div class="container">
@@ -301,8 +299,8 @@
             <div class="wow fadeInUp section-title" data-wow-delay="0.3s">
             </div>
 				<div class="contact-form wow fadeInUp" data-wow-delay="0.8s">
-					<form id="palidrome-form" method="post" action="/validate">
-						<input type="submit" class="form-control submit" id="submitBtn2" value="Add a New City +">
+					<form id="addCity" method="post" action="">
+						<input type="submit" class="form-control submit" id="submitBtn" value="Add a New City +">
                         
 					</form>
 				</div>
@@ -323,10 +321,6 @@
           <a href="https://www.linkedin.com/in/jakewesterfield1/" target="_blank" class="fa fa-linkedin"></a>
           <a href="https://github.com/JSWesterfield" target="_blank" class="fa fa-github"></a>
         </p>
-      </div>
-
-      <div class="col-md-4 col-sm-4 text-right">
-        <a href="#home" class="fa fa-angle-up smoothScroll gototop"></a>
       </div>
 
     </div>
@@ -356,7 +350,6 @@
 <!--<script src="js/validate.js"> Add this js library later for validation-->
 
 <script src="js/custom.js"></script>
-<script src="js/jake.js"></script>
  
 <!--The source of our Angular code-->
 <script src="js/bower_components/angular/angular.min.js"></script>
@@ -374,37 +367,6 @@
     };
 </script>
 
-<!--Reverse String-->
-<script>
-$(".submitBtn1").click(function(event) {
-    //prevent the default click functionality
-    event.preventDefault();
-    var reverseString = function(userData) {
-        //store user data
-        var UserData = $("userOldDateFormat").val();
-        //convert user data
-        var newFormatedDate = UserData.reverse();
-        //on click on button, put newFormatedDate in output
-            var changeOutput = $("#newDateFormat").val();
-        }
-    }
-});
-</script>
-
-
-<!--Convert string script-->
-<script>
-$(".submitBtn3").on("click", function() {
-    var convertDate = function(userData) {
-    //store user data
-    var UserData = $("userOldDateFormat").val();
-    //convert user data
-    var newFormatedDate = UserData.reverse();
-    //on click on button, put newFormatedDate in output
-        var changeOutput = $("#newDateFormat").val();
-    }
-});
-</script>
 
 
 <!-- Moment.JS script for the page-->

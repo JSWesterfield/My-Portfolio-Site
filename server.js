@@ -139,11 +139,11 @@ app.get('/strManipulator', function(req, res) {
     res.render('strManipulator');
 });
 
-app.get('/weatherApp', function(req, res) {
+app.get('/weatherly', function(req, res) {
 
     //ejs render automatically looks in the view folder
-    console.log('ready to send POST request for /weatherApp');
-    res.render('weatherApp');
+    console.log('ready to send POST request for /weatherby');
+    res.render('weatherly');
 });
 
 app.listen(port, function() {
