@@ -638,3 +638,16 @@ canvas {
 #weather-image {
   size: 5px;
 }
+
+
+/* Start of Test Drag and Drop section */
+#target {
+  width: 130px;
+  height: 130px;
+  background-color: royalblue;
+  border: 2px solid blue;
+  position: absolute;
+}
+
+
+/* END of Test Drag and Drop section */
