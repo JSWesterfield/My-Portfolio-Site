@@ -665,9 +665,6 @@ http://www.tooplate.com/view/2083-steak-house
 <script src="js/jake.js"></script>
 
 
-<!--Moment.JS for displaying current time-->
-<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.7.0/moment.min.js" type="text/javascript"></script>
-
 </body>
 </html>
 
@@ -794,8 +791,15 @@ $( document ).ready(function() {
         // }
 </script>
 
+<!--Moment.JS for displaying current time-->
+<!--<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.7.0/moment.min.js" type="text/javascript"></script>-->
+<script src="js/moment/moment.js" type="text/javascript"></script>
+
+
 <!-- Moment.JS script for the page-->
 <script type="text/javascript">
+moment().format();
+
 (function()
 {
   // instantiate a moment object

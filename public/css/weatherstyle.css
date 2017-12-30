@@ -634,3 +634,7 @@ canvas {
   text-align: 100%;
   border-bottom: 0.05em dotted white;
 }
+
+#weather-image {
+  size: 5px;
+}

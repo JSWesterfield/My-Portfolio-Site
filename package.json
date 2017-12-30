@@ -12,6 +12,7 @@
     "express": "~4.9.8",
     "jshint": "2.9.5",
     "moment": "^2.19.2",
+    "moment-timezone": "0.5.14",
     "mongodb": "3.0.0-rc0",
     "mongoose": "^4.13.6"
   },
