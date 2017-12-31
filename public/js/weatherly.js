@@ -9,10 +9,10 @@ var weatherData = {
 };
 
 //we round our temperature w/ the toFixed function and round to the nearest whole number.
-function roundTemperature(temperature){
+function roundTemperature(temperature) {
 			temperature = temperature.toFixed(1);
 			return temperature;
-		}
+}
 
 // we create a method that will change the temperature units from Farenheight to Celsius
 function switchUnits () {

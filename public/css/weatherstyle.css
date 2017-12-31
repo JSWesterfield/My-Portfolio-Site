@@ -47,12 +47,12 @@ h1,h2,h3, .btn {
 
 h1 {
   font-weight: bold;
-  font-size: 100px;
+  font-size: 40px;
 }
 
 h2 {
   color: #333;
-  font-size: 40px;
+  font-size: 30px;
   letter-spacing: 2px;
   text-transform: uppercase;
   margin-top: 8px;
@@ -98,6 +98,7 @@ a:focus {
 .parallax-section {
   background-attachment: fixed !important;
   background-size: cover !important;
+  /*position: absolute;   set the position of each section to absolute? */
 }
 
 /* hover min css */
@@ -108,39 +109,22 @@ a:focus {
 
 
 /* All Section styles */
-#about,
-#feature,
-#video,
-#menu,
-#muse,
-#gallery,
+/*To change the size of the contact section */
 #contact {
   color: #656565;
-  padding-top: 50px;
-  padding-bottom: 50px;
+  padding-top: 10px;
+  padding-bottom: 5px;
 }
 
-#feature,
-#video,
-#muse,
-#gallery,
 #contact {
   text-align: center;
-}
-
-#feature,
-#muse {
-  background: rgb(240,240,240);
 }
 
 /* section title */
 .section-title {
-  padding-bottom: 70px;
+  padding-bottom: 20px;
 }
-#about .section-title,
-#menu .section-title {
-  text-align: center;
-}
+
 #contact .section-title {
   color: #f0f0f0;
 }
@@ -187,54 +171,6 @@ a:focus {
             transform: scale(1);
     opacity: 0; } }
 
-
-/* Home section */
-#home {
-  color: #ffffff;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-        align-items: center;
-  text-align: center;
-  height: 100vh;
-  overflow: hidden;
-  position: relative;
-}
-
-#home .gradient-overlay {
-  background:black; /* For browsers that do not support gradients */
-  background: -webkit-linear-gradient(left, black , black); /* For Safari 5.1 to 6.0 */
-  background: -o-linear-gradient(right, black, black); /* For Opera 11.1 to 12.0 */
-  background: -moz-linear-gradient(right, black, black); /* For Firefox 3.6 to 15 */
-  background: linear-gradient(to right, black, black); /* Standard syntax */
-  opacity: 0.7;
-  position: absolute;
-  top: 0;
-  width: 100%;
-  height: 100vh;
-}
-
-#home .btn {
-  background: transparent;
-  border: 3px solid #ffffff;
-  color: white;
-  font-size: 12px;
-  letter-spacing: 2px;
-  padding: 13px 30px;
-  margin-top: 34px;
-  text-transform: uppercase;
-  font-weight: 400;
-}
-
-#home .btn:hover,
-#home .btn:focus {
-  color: purple;
-  opacity: 0.7;
-}
 
 /*Projects should have a white lettering w/ text shadow, now sure how to create a transition with the gradient*/
 a.project-text {
@@ -458,8 +394,7 @@ footer strong {
 
 @media (max-width: 900px) {
 
-  h1 {font-size: 70px;}
-
+  h1 {font-size: 40px;}
 }
 
 
@@ -500,23 +435,12 @@ footer strong {
   }
 
   h1 {
-    font-size: 60px;
+    font-size: 40px;
   }
   h2 {
     font-size: 30px;
   }
 
-  #feature {
-    padding-top: 80px;
-    padding-bottom: 80px;
-  }
-
-  #about,
-  #feature,
-  #video,
-  #menu,
-  #muse,
-  #gallery,
   #contact {
     padding-top: 80px;
     padding-bottom: 80px;
@@ -637,6 +561,20 @@ canvas {
 
 #weather-image {
   size: 5px;
+  width: 50px;
+  height:50px;
+}
+
+#weather-image, #temperature {
+  float: right;
+}
+
+h2.city, h4.state-country, .day-date-time {
+  float: left;
+}
+
+h4.state-country {
+  margin-right: 5px;
 }
 
 
@@ -648,6 +586,4 @@ canvas {
   border: 2px solid blue;
   position: absolute;
 }
-
-
 /* END of Test Drag and Drop section */
