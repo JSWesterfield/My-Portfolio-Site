@@ -77,6 +77,27 @@
                   <div class="wow fadeInUp section-title" data-wow-delay="0.3s">
 
                       <!--Test Drag and Drop section-->
+                      <!--the mouse over and dragging class are defined on each item--> 
+                        	<div class="DragContainer" id="DragContainer1"> 
+                        	    <div class="DragBox" id="Item1"  overClass="OverDragBox" dragClass="DragDragBox">Item #1</div> 
+                        	    <div class="DragBox" id="Item2"  overClass="OverDragBox" dragClass="DragDragBox">Item #2</div> 
+                        	    <div class="DragBox" id="Item3"  overClass="OverDragBox" dragClass="DragDragBox">Item #3</div> 
+                        	    <div class="DragBox" id="Item4"  overClass="OverDragBox" dragClass="DragDragBox">Item #4</div> 
+                        	</div> 
+                        	<div class="DragContainer" id="DragContainer2"> 
+                        	    <div class="DragBox" id="Item5"  overClass="OverDragBox" dragClass="DragDragBox">Item #5</div> 
+                        	    <div class="DragBox" id="Item6"  overClass="OverDragBox" dragClass="DragDragBox">Item #6</div> 
+                        	    <div class="DragBox" id="Item7"  overClass="OverDragBox" dragClass="DragDragBox">Item #7</div> 
+                        	    <div class="DragBox" id="Item8"  overClass="OverDragBox" dragClass="DragDragBox">Item #8</div> 
+                        	</div> 
+                        	<div class="DragContainer" id="DragContainer3"> 
+                        	    <div class="DragBox" id="Item9"  overClass="OverDragBox" dragClass="DragDragBox">Item #9</div> 
+                        	    <div class="DragBox" id="Item10" overClass="OverDragBox" dragClass="DragDragBox">Item #10</div> 
+                        	    <div class="DragBox" id="Item11" overClass="OverDragBox" dragClass="DragDragBox">Item #11</div> 
+                        	    <div class="DragBox" id="Item12" overClass="OverDragBox" dragClass="DragDragBox">Item #12</div> 
+                        	</div> 
+
+
 
 
 
@@ -103,7 +124,6 @@
                         <img src="images/weathericons/01d.png" id="weather-image" alt="weather">
                         <!--<h1 id="weather"></h1>-->71° F
                       </h1>
-                      <h1 class="weather"></h1>
                       <h4 class="state-country">Florida, United States</h4>
                       <!--City Airport Codes used in conjuction w/ display momentID-->
                       <h4 class="day-date-time"id="displayMIAMoment">Thu, December 28th 10:14 PM</h4>
@@ -130,7 +150,6 @@
                         <img src="images/weathericons/02d.png" id="weather-image" alt="weather">
                         <!--<h1 id="weather"></h1>-->28° F
                       </h1>
-                      <h1 id="weather"></h1>
                       <h4 class="state-country">United States</h4>
                       <h4 class="day-date-time" id="displayMoment">Thu, December 28th 10:14 PM</h4>
 
@@ -257,7 +276,8 @@
                       <h2 class="city">Houston</h2>
                       <h1 class="temperature" onclick="switchUnits(); return false;">
                         <img src="images/weathericons/02d.png" id="weather-image" alt="weather">
-                        <!--<h1 id="weather"></h1>-->45° F</h1>
+                        <!--<h1 id="weather"></h1>-->45° F
+                      </h1>
                       <h4 class="state-country">Texas, United States</h4>
                       <h4 class="day-date-time" id="displayHOUMoment">Thu, December 28th 10:14 PM</h4>
 
@@ -413,6 +433,7 @@
                         <img src="images/weathericons/04n.png" id="weather-image" alt="weather">
                         <!--<h1 id="weather"></h1>-->25° F
                       </h1>
+                      
                       <h4 class="state-country">North Carolina, United States</h4>
                       <h4 class="day-date-time" id="displayRDVMoment">Thu, December 28th 10:14 PM</h4>
 
@@ -514,7 +535,7 @@
             <div class="contact-form wow fadeInUp" data-wow-delay="0.8s">
               <form id="addCity" method="post" action="">
                 <input type="submit" class="form-control submit" onclick="inputFunction()" id="submitBtn" value="Add a New City +">
-                <input name="cityName" type="text" class="form-control" id="city-input" placeholder="Enter City" required>
+                <input name="city-input" type="text" class="form-control" id="city-input" placeholder="Enter City" required>
               </form>
             </div>
           </div>
