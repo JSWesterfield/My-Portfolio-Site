@@ -34,8 +34,6 @@
 
     <!--<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>-->
     <!--<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,600' rel='stylesheet' type='text/css'>-->
-    <!--The source of our Angular code-->
-    <script src="js/angular/angular.min.js"></script>
 
   </head>
 
@@ -605,6 +603,12 @@
 
 <!-- javscript js -->
 <script src="js/jquery.js"></script>
+<script type="text/javascript" src="js/jquery-ui/ui/jquery-1-7.js"></script>
+<!--<script type="text/javascript" src="js/jquery-ui/external/jquery-3.1.0/jquery.js"></script>-->
+<script type="text/javascript" src="js/jquery-ui/ui/widgets/sortable.js"></script>
+
+<script type="text/javascript" src="js/jquery.cookie/jquery.cookie.js"></script>
+
 <script src="js/bootstrap.min.js"></script>
 
 <script src="js/jquery.magnific-popup.min.js"></script>
@@ -622,22 +626,16 @@
 <script src="js/smoothscroll.js"></script>
 <script src="js/wow.min.js"></script>
 
-<!--<script src="js/validate.js"> Add this js library later for validation-->
-
 <script src="js/custom.js"></script>
-
-<!--The source of our Angular code, moved up to top to maybe see if within the head tag it would remedy rendering issues, and/or file location issues-->
-<!--<script src="js/bower_components/angular/angular.min.js"></script>-->
-<!--<script src="js/bower_components/angular/angular.js"></script>-->
 
 <!--Jake.js object -->
 <script src="js/jake.js"></script>
 
 <!--Weatherly JS-->
-<script src="js/weatherly.js"></script>
+<!--<script src="js/weatherly.js"></script>-->
 
 <!-- Drag N Drop functionality -->
-<script src="js/dragNdrops.js"></script>
+<!--<script src="js/dragNdrops.js"></script>-->
 
 <!--Moment.JS for displaying current time-->
 <!--<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.7.0/moment.min.js" type="text/javascript"></script>-->
@@ -661,14 +659,9 @@
         var hidden = input.syle.display == "none";
     };
 
-
-    function MyCtrl($scope) {
-      $scope.myvalue = false;
-      
-      $scope.showAlert = function() {
-        $scope.myvalue = true;
-      }
-    }
+   
+   //Sortable classes
+    $('.DragBox').sortable();
 
     dateTimeMIA = $('#displayMIAMoment');  //Miami
     dateTimeCHI = $('#displayCHIMoment');  //Chicago
@@ -872,14 +865,15 @@ function drop_handler(ev) {
 </script>
 
 <script>
-  function inputFunction() {
-      var x = document.getElementById("city-input");
-      if (x.style.display === "none") {
-        x.style.display = "block";
-      } else {
-        x.style.display = "none";
-      } 
-  }
+  // function inputFunction() {
+  //     var x = document.getElementById("city-input");
+  //     if (x.style.display === "none") {
+  //       x.style.display = "block";
+  //     } else {
+  //       x.style.display = "none";
+  //     } 
+  // }
 
 
 </script>
+

@@ -579,7 +579,7 @@ canvas {
 h2.city, h4.state-country, .day-date-time {
   float: left;
 }
-
+ 
 h4.state-country {
   margin-right: 5px;
 }
@@ -610,3 +610,16 @@ h4.state-country {
 
 
 /* END of Test Drag and Drop section */
+
+/*!
+ * jQuery UI Sortable 1.12.1
+ * http://jqueryui.com
+ *
+ * Copyright jQuery Foundation and other contributors
+ * Released under the MIT license.
+ * http://jquery.org/license
+ */
+.ui-sortable-handle {
+	-ms-touch-action: none;
+	touch-action: none;
+}
