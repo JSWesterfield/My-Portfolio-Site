@@ -12,28 +12,41 @@
 
     <!-- stylesheets css -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
-
     <link rel="stylesheet" href="css/magnific-popup.css">
-
     <link rel="stylesheet" href="css/animate.min.css">
-    <!--<link rel="stylesheet" href="css/font-awesome.min.css">-->
-    
+    <!--<link rel="stylesheet" href="css/font-awesome.min.css">-->  
     <!-- Add icon library --> 
     <!-- Font awesome defined above -->
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">-->
-
-
     <link rel="stylesheet" href="css/nivo-lightbox.css">
     <link rel="stylesheet" href="css/nivo_themes/default/default.css">
-
     <link rel="stylesheet" href="css/hover-min.css">
     <link rel="stylesheet" href="css/flexslider.css">
-
     <link rel="stylesheet" href="css/weatherstyle.css">
-    
+    <!--<link rel="stylesheet" href="css/all.css">-->
+    <link rel="stylesheet" href="css/sortable_css/demos.css">
+    <link rel="stylesheet" href="css/sortable_css/theme.css">
+    <link rel="stylesheet" href="css/sortable_css/base.css">
+    <link rel="stylesheet" href="css/sortable_css/sortable.css">
+
 
     <!--<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>-->
     <!--<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,600' rel='stylesheet' type='text/css'>-->
+    
+    <script src="js/jquery.js"></script>
+    <script src="js/jquery-ui/ui/widgets/sortable.js"></script>
+
+    <script src="js/bootstrap.min.js" data-modules="disable-selection">
+      $( "#sortable1" ).sortable({
+        items: "li:not(.ui-state-disabled)"
+      });
+
+      $( "#sortable2" ).sortable({
+        cancel: ".ui-state-disabled"
+      });
+
+      $( "#sortable1 li, #sortable2 li" ).disableSelection();
+    </script>
 
   </head>
 
@@ -53,7 +66,7 @@
             <div class="col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10">
                   <section class="user-location">
                     <h1 id="weatherly-title">Weatherly</h1>
-                    <p> <a class="temperature" href="#" onclick="switchUnits(); return false;" title ="Click to switch between metric and impreial units"></a><span id = "weather"></p>
+                    <p> <a class="temperature" href="#" onclick="" title ="Click to switch between metric and impreial units"></a><span id = "weather"></p>
 
                   </section>
               <div class="contact-form wow fadeInUp" data-wow-delay="0.7s">
@@ -75,6 +88,24 @@
                   <div class="wow fadeInUp section-title" data-wow-delay="0.3s">
 
                       <!--Test Drag and Drop section-->
+                      <h3 class="docs">Specify which items are sortable:</h3>
+
+                        <ul id="sortable1">
+                          <li class="ui-state-default">Item 1</li>
+                          <li class="ui-state-default ui-state-disabled">(I'm not sortable or a drop target)</li>
+                          <li class="ui-state-default ui-state-disabled">(I'm not sortable or a drop target)</li>
+                          <li class="ui-state-default">Item 4</li>
+                        </ul>
+
+                        <h3 class="docs">Cancel sorting (but keep as drop targets):</h3>
+
+                        <ul id="sortable2">
+                          <li class="ui-state-default">Item 1</li>
+                          <li class="ui-state-default ui-state-disabled">(I'm not sortable)</li>
+                          <li class="ui-state-default ui-state-disabled">(I'm not sortable)</li>
+                          <li class="ui-state-default">Item 4</li>
+                        </ul>
+
                       <!--the mouse over and dragging class are defined on each item--> 
                         <!--<div class="DragContainer" id="DragContainer1">-->
                         	    <!--<div class="DragBox" id="Item1"  overClass="OverDragBox" dragClass="DragDragBox">Item #1</div> 
@@ -90,10 +121,6 @@
                         	    <div class="DragBox" id="Item11" overClass="OverDragBox" dragClass="DragDragBox">Item #11</div> 
                         	    <div class="DragBox" id="Item12" overClass="OverDragBox" dragClass="DragDragBox">Item #12</div
                         </div>--> 
-
-
-
-
 
 
                   </div>
@@ -118,7 +145,7 @@
                 <div class="col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10">
                       <div class="wow fadeInUp section-title" data-wow-delay="0.3s">
                           <h2 class="city">Miami</h2>
-                          <h1 class="temperature" onclick="switchUnits(); return false;">
+                          <h1 class="temperature" onclick="">
                             <img src="images/weathericons/01d.png" id="weather-image" alt="weather">
                             <!--<h1 id="weather"></h1>-->71° F
                           </h1>
@@ -147,7 +174,7 @@
                 <div class="col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10">
                       <div class="wow fadeInUp section-title" data-wow-delay="0.3s">
                           <h2 class="city">Current City</h2>
-                          <h1 class="temperature" onclick="switchUnits(); return false;">
+                          <h1 class="temperature" onclick="">
                             <img src="images/weathericons/02d.png" id="weather-image" alt="weather">
                             <!--<h1 id="weather"></h1>-->28° F
                           </h1>
@@ -176,7 +203,7 @@
                 <div class="col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10">
                       <div class="wow fadeInUp section-title" data-wow-delay="0.3s">
                           <h2 class="city">Los Angeles</h2>
-                          <h1 class="temperature" onclick="switchUnits(); return false;">
+                          <h1 class="temperature" onclick="">
                             <img src="images/weathericons/02d.png" id="weather-image" alt="weather">
                             <!--<h1 id="weather"></h1>-->67° F
                           </h1>
@@ -204,7 +231,7 @@
                 <div class="col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10">
                       <div class="wow fadeInUp section-title" data-wow-delay="0.3s">
                           <h2 class="city">San Jose</h2>
-                          <h1 class="temperature" onclick="switchUnits(); return false;">
+                          <h1 class="temperature" onclick="">
                             <img src="images/weathericons/01d.png" id="weather-image" alt="weather">
                             <!--<h1 id="weather"></h1>-->63° F
                           </h1>
@@ -231,7 +258,7 @@
                 <div class="col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10">
                       <div class="wow fadeInUp section-title" data-wow-delay="0.3s">
                           <h2 class="city">San Francisco</h2>
-                          <h1 class="temperature" onclick="switchUnits(); return false;">
+                          <h1 class="temperature" onclick="">
                             <img src="images/weathericons/10d.png" id="weather-image" alt="weather">
                             <!--<h1 id="weather"></h1>-->55° F
                           </h1>
@@ -259,7 +286,7 @@
                 <div class="col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10">
                       <div class="wow fadeInUp section-title" data-wow-delay="0.3s">
                           <h2 class="city">Austin</h2>
-                          <h1 class="temperature" onclick="switchUnits(); return false;">
+                          <h1 class="temperature" onclick="">
                             <img src="images/weathericons/03d.png" id="weather-image" alt="weather">
                             <!--<h1 id="weather"></h1>-->46° F
                           </h1>
@@ -287,7 +314,7 @@
                 <div class="col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10">
                       <div class="wow fadeInUp section-title" data-wow-delay="0.3s">
                           <h2 class="city">Houston</h2>
-                          <h1 class="temperature" onclick="switchUnits(); return false;">
+                          <h1 class="temperature" onclick="">
                             <img src="images/weathericons/02d.png" id="weather-image" alt="weather">
                             <!--<h1 id="weather"></h1>-->45° F
                           </h1>
@@ -315,7 +342,7 @@
                 <div class="col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10">
                       <div class="wow fadeInUp section-title" data-wow-delay="0.3s">
                           <h2 class="city">Dallas</h2>
-                          <h1 class="temperature" onclick="switchUnits(); return false;">
+                          <h1 class="temperature" onclick="">
                             <img src="images/weathericons/03d.png" id="weather-image" alt="weather">
                             <!--<h1 id="weather"></h1>-->42° F
                           </h1>
@@ -343,7 +370,7 @@
                 <div class="col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10">
                       <div class="wow fadeInUp section-title" data-wow-delay="0.3s">
                           <h2 class="city">Atlanta</h2>
-                          <h1 class="temperature" onclick="switchUnits(); return false;">
+                          <h1 class="temperature" onclick="">
                             <img src="images/weathericons/04n.png" id="weather-image" alt="weather">
                             <!--<h1 id="weather"></h1>-->41° F
                           </h1>
@@ -372,7 +399,7 @@
                 <div class="col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10">
                       <div class="wow fadeInUp section-title" data-wow-delay="0.3s">
                           <h2 class="city">Seattle</h2>
-                          <h1 class="temperature" onclick="switchUnits(); return false;">
+                          <h1 class="temperature" onclick="">
                             <img src="images/weathericons/09n.png" id="weather-image" alt="weather">
                             <!--<h1 id="weather"></h1>-->32° F
                           </h1>
@@ -400,7 +427,7 @@
                 <div class="col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10">
                       <div class="wow fadeInUp section-title" data-wow-delay="0.3s">
                           <h2 class="city">Denver</h2>
-                          <h1 class="temperature" onclick="switchUnits(); return false;">
+                          <h1 class="temperature" onclick="">
                             <img src="images/weathericons/01d.png" id="weather-image" alt="weather">
                             <!--<h1 id="weather"></h1>-->28° F
                           </h1>
@@ -427,7 +454,7 @@
                 <div class="col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10">
                       <div class="wow fadeInUp section-title" data-wow-delay="0.3s">
                           <h2 class="city">Charlotte</h2>
-                          <h1 class="temperature" onclick="switchUnits(); return false;">
+                          <h1 class="temperature" onclick="">
                             <img src="images/weathericons/04n.png" id="weather-image" alt="weather">
                             <!--<h1 id="weather"></h1>-->27° F
                           </h1>
@@ -454,7 +481,7 @@
                 <div class="col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10">
                       <div class="wow fadeInUp section-title" data-wow-delay="0.3s">
                           <h2 class="city">Raleigh</h2>
-                          <h1 class="temperature" onclick="switchUnits(); return false;">
+                          <h1 class="temperature" onclick="">
                             <img src="images/weathericons/04n.png" id="weather-image" alt="weather">
                             <!--<h1 id="weather"></h1>-->25° F
                           </h1>
@@ -483,7 +510,7 @@
                 <div class="col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10">
                       <div class="wow fadeInUp section-title" data-wow-delay="0.3s">
                           <h2 class="city">Baltimore</h2>
-                          <h1 class="temperature" onclick="switchUnits(); return false;">
+                          <h1 class="temperature" onclick="">
                             <img src="images/weathericons/03d.png" id="weather-image" alt="weather">
                             <!--<h1 id="weather"></h1>-->22° F
                           </h1>
@@ -510,7 +537,7 @@
                 <div class="col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10">
                       <div class="wow fadeInUp section-title" data-wow-delay="0.3s">
                           <h2 class="city">Washington, D.C.</h2>
-                          <h1 class="temperature" onclick="switchUnits(); return false;">
+                          <h1 class="temperature" onclick="">
                             <img src="images/weathericons/04n.png" id="weather-image" alt="weather">
                             <!--<h1 id="weather"></h1>-->21° F
                           </h1>
@@ -538,7 +565,7 @@
                 <div class="col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10">
                       <div class="wow fadeInUp section-title" data-wow-delay="0.3s">
                           <h2 class="city">Chicago</h2>
-                          <h1 class="temperature" onclick="switchUnits(); return false;">
+                          <h1 class="temperature" onclick="">
                             <img src="images/weathericons/13d.png" id="weather-image" alt="weather">
                             <!--<h1 id="weather"></h1>-->16° F
                           </h1>
@@ -602,10 +629,6 @@
 </html>
 
 <!-- javscript js -->
-<script src="js/jquery.js"></script>
-<script type="text/javascript" src="js/jquery-ui/ui/jquery-1-7.js"></script>
-<!--<script type="text/javascript" src="js/jquery-ui/external/jquery-3.1.0/jquery.js"></script>-->
-<script type="text/javascript" src="js/jquery-ui/ui/widgets/sortable.js"></script>
 
 <script type="text/javascript" src="js/jquery.cookie/jquery.cookie.js"></script>
 
@@ -637,6 +660,7 @@
 <!-- Drag N Drop functionality -->
 <!--<script src="js/dragNdrops.js"></script>-->
 
+
 <!--Moment.JS for displaying current time-->
 <!--<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.7.0/moment.min.js" type="text/javascript"></script>-->
 <script src="js/moment/moment.js" type="text/javascript">
@@ -647,6 +671,9 @@
 <script src="js/moment-timezone-with-data-2010-2020/index.js" type="text/javascript">
 </script>
 
+<script src="js/jquery-ui/ui/widgets/sortable.js"></script>
+
+<script src="js/jquery-ui/external/requirejs/require.js"></script>
 
 <script type="text/javascript">
   //on page load run script
@@ -658,10 +685,6 @@
         var input = document.getElementById("city-input");
         var hidden = input.syle.display == "none";
     };
-
-   
-   //Sortable classes
-    $('.DragBox').sortable();
 
     dateTimeMIA = $('#displayMIAMoment');  //Miami
     dateTimeCHI = $('#displayCHIMoment');  //Chicago
