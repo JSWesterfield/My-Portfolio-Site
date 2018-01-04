@@ -30,24 +30,13 @@
     <link rel="stylesheet" href="css/sortable_css/sortable.css">
 
 
-    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,600' rel='stylesheet' type='text/css'>
-    
-    <script src="js/jquery.js"></script>
-    <script src="js/jquery-ui/ui/widgets/sortable.js"></script>
-
-    <!--<script src="js/jquery-ui/demos/bootstrap.js" data-modules="disable-selection">
-      $( "#sortable1" ).sortable({
-        items: "li:not(.ui-state-disabled)"
-      });
-
-      $( "#sortable2" ).sortable({
-        cancel: ".ui-state-disabled"
-      });
-
-      $( "#sortable1 li, #sortable2 li" ).disableSelection();
-    </script>-->
-
+    <!--<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>-->
+    <!--<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,600' rel='stylesheet' type='text/css'>-->
+    <style>
+      	#sortable { list-style-type: none; margin: 0; padding: 0; width: 60%; }
+	      #sortable li { margin: 0 3px 3px 3px; padding: 0.4em; padding-left: 1.5em; font-size: 1.4em; height: 18px; }
+	      #sortable li span { position: absolute; margin-left: -1.3em; }
+    </style>
   </head>
 
   <body id="top" data-spy="scroll" data-target=".navbar-collapse" data-offset="50" ng-app>
@@ -79,49 +68,24 @@
 
 
     <!--Test Drag and Drop section-->
-    <!--<section id="contact" class="parallax-section">
+    <section id="contact" class="parallax-section">
       <div class="overlay"></div>
         <div class="container">
           <div class="row">
 
             <div class="col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10">
-                  <div class="wow fadeInUp section-title" data-wow-delay="0.3s">-->
+                  <div class="wow fadeInUp section-title" data-wow-delay="0.3s">
 
                       <!--Test Drag and Drop section-->
-                      <!--<h3 class="docs">Specify which items are sortable:</h3>
-
-                        <ul id="sortable1">
-                          <li class="ui-state-default">Item 1</li>
-                          <li class="ui-state-default ui-state-disabled">(I'm not sortable or a drop target)</li>
-                          <li class="ui-state-default ui-state-disabled">(I'm not sortable or a drop target)</li>
-                          <li class="ui-state-default">Item 4</li>
-                        </ul>
-
-                        <h3 class="docs">Cancel sorting (but keep as drop targets):</h3>
-
-                        <ul id="sortable2">
-                          <li class="ui-state-default">Item 1</li>
-                          <li class="ui-state-default ui-state-disabled">(I'm not sortable)</li>
-                          <li class="ui-state-default ui-state-disabled">(I'm not sortable)</li>
-                          <li class="ui-state-default">Item 4</li>
-                        </ul>-->
-
-                      <!--the mouse over and dragging class are defined on each item--> 
-                        <!--<div class="DragContainer" id="DragContainer1">-->
-                        	    <!--<div class="DragBox" id="Item1"  overClass="OverDragBox" dragClass="DragDragBox">Item #1</div> 
-                        	    <div class="DragBox" id="Item2"  overClass="OverDragBox" dragClass="DragDragBox">Item #2</div>
-                        	    <div class="DragBox" id="Item3"  overClass="OverDragBox" dragClass="DragDragBox">Item #3</div>
-                        	    <div class="DragBox" id="Item4"  overClass="OverDragBox" dragClass="DragDragBox">Item #4</div>
-                              <div class="DragBox" id="Item5"  overClass="OverDragBox" dragClass="DragDragBox">Item #5</div>
-                        	    <div class="DragBox" id="Item6"  overClass="OverDragBox" dragClass="DragDragBox">Item #6</div>
-                        	    <div class="DragBox" id="Item7"  overClass="OverDragBox" dragClass="DragDragBox">Item #7</div> 
-                        	    <div class="DragBox" id="Item8"  overClass="OverDragBox" dragClass="DragDragBox">Item #8</div> 
-                              <div class="DragBox" id="Item9"  overClass="OverDragBox" dragClass="DragDragBox">Item #9</div> 
-                        	    <div class="DragBox" id="Item10" overClass="OverDragBox" dragClass="DragDragBox">Item #10</div> 
-                        	    <div class="DragBox" id="Item11" overClass="OverDragBox" dragClass="DragDragBox">Item #11</div> 
-                        	    <div class="DragBox" id="Item12" overClass="OverDragBox" dragClass="DragDragBox">Item #12</div
-                        </div>--> 
-<!--
+                      <ul id="sortable">
+                        <li class="ui-state-default">Item 1</li>
+                        <li class="ui-state-default">Item 2</li>
+                        <li class="ui-state-default">Item 3</li>
+                        <li class="ui-state-default">Item 4</li>
+                        <li class="ui-state-default">Item 5</li>
+                        <li class="ui-state-default">Item 6</li>
+                        <li class="ui-state-default">Item 7</li>
+                      </ul>
 
                   </div>
               <div class="contact-form wow fadeInUp" data-wow-delay="0.7s">
@@ -131,7 +95,7 @@
           </div>
       </div>
     </section>
-              -->
+            
     <!-- START of Drag container -->
     <div class="DragContainer" id="DragContainer1"> 
 
@@ -629,10 +593,21 @@
 </html>
 
 <!-- javscript js -->
+<!-- Javscript files MUST be in this sequence for jquery-ui's sortable.js module to render -->
+<script src="js/jquery-ui/external/jquery/jquery.js"></script>
+<script src="js/jquery-ui/ui/widget.js"></script>
+<script src="js/jquery-ui/ui/data.js"></script>
+<script src="js/jquery-ui/ui/version.js"></script>
+<script src="js/jquery-ui/ui/scroll-parent.js"></script>
+<script src="js/jquery-ui/ui/widgets/mouse.js"></script>
 
-<script type="text/javascript" src="js/jquery.cookie/jquery.cookie.js"></script>
+<script src="js/bootstrap.min.js" data-modules="disable-selection">
+		$( "#sortable" ).sortable();
+		$( "#sortable" ).disableSelection();
+</script>
+<!-- END of Sequence for sortable.js & dependency files-->
 
-<script src="js/bootstrap.min.js"></script>
+<!--<script src="js/jquery-ui/demos/bootstrap.js"></script>-->
 
 <script src="js/jquery.magnific-popup.min.js"></script>
 
@@ -654,6 +629,8 @@
 <!--Jake.js object -->
 <script src="js/jake.js"></script>
 
+
+
 <!--Weatherly JS-->
 <!--<script src="js/weatherly.js"></script>-->
 
@@ -670,10 +647,6 @@
 <!-- Added w/ NPM: npm install moment-timezone-with-data-2010-2020 dashdashsave -->
 <script src="js/moment-timezone-with-data-2010-2020/index.js" type="text/javascript">
 </script>
-
-<script src="js/jquery-ui/ui/widgets/sortable.js"></script>
-
-<script src="js/jquery-ui/external/requirejs/require.js"></script>
 
 <script type="text/javascript">
   //on page load run script
