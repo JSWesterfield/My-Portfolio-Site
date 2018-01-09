@@ -22,20 +22,18 @@
     <link rel="stylesheet" href="css/nivo_themes/default/default.css">
     <link rel="stylesheet" href="css/hover-min.css">
     <link rel="stylesheet" href="css/flexslider.css">
-    <link rel="stylesheet" href="css/weatherstyle.css">
-    <!--<link rel="stylesheet" href="css/all.css">-->
     <link rel="stylesheet" href="css/sortable_css/demos.css">
     <link rel="stylesheet" href="css/sortable_css/theme.css">
     <link rel="stylesheet" href="css/sortable_css/base.css">
     <link rel="stylesheet" href="css/sortable_css/sortable.css">
+    <link rel="stylesheet" href="css/weatherstyle.css">
+    
 
 
     <!--<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>-->
     <!--<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,600' rel='stylesheet' type='text/css'>-->
     <style>
-      	#sortable { list-style-type: none; margin: 0; padding: 0; width: 60%; }
-	      #sortable li { margin: 0 3px 3px 3px; padding: 0.4em; padding-left: 1.5em; font-size: 1.4em; height: 18px; }
-	      #sortable li span { position: absolute; margin-left: -1.3em; }
+      	
     </style>
   </head>
 
@@ -47,14 +45,14 @@
       </div>
 
     <!-- User Moment/practice rendering weather application section -->
-    <section id="contact" class="parallax-section">
+    <!--<section id="contact" class="parallax-section">
       <div class="overlay2"></div>
         <div class="container">
           <div class="row">
 
             <div class="col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10">
-                  <section class="user-location">
-                    <h1 id="weatherly-title">Weatherly</h1>
+                  <section>
+                    <h2 id="weatherly-title">Weatherly</h2>
                     <p> <a class="temperature" href="#" onclick="" title ="Click to switch between metric and impreial units"></a><span id = "weather"></p>
 
                   </section>
@@ -64,10 +62,9 @@
 
           </div>
       </div>
-    </section>
+    </section>-->
 
-
-    <!--Test Drag and Drop section-->
+    <!-- User Moment/practice rendering weather application section -->
     <section id="contact" class="parallax-section">
       <div class="overlay"></div>
         <div class="container">
@@ -75,18 +72,7 @@
 
             <div class="col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10">
                   <div class="wow fadeInUp section-title" data-wow-delay="0.3s">
-
-                      <!--Test Drag and Drop section-->
-                      <ul id="sortable">
-                        <li class="ui-state-default">Item 1</li>
-                        <li class="ui-state-default">Item 2</li>
-                        <li class="ui-state-default">Item 3</li>
-                        <li class="ui-state-default">Item 4</li>
-                        <li class="ui-state-default">Item 5</li>
-                        <li class="ui-state-default">Item 6</li>
-                        <li class="ui-state-default">Item 7</li>
-                      </ul>
-
+                      <h1 id="city" class="title">Weatherly Web App</12>
                   </div>
               <div class="contact-form wow fadeInUp" data-wow-delay="0.7s">
               </div>
@@ -95,14 +81,38 @@
           </div>
       </div>
     </section>
+
             
     <!-- START of Drag container -->
-    <div class="DragContainer" id="DragContainer1"> 
+
+      <!-- User Moment-->
+        <section id="contact" class="parallax-section">
+          <div class="overlay2"></div>
+            <div class="container" id="user-location">
+              <div class="row" id="userCity">
+
+                <div class="col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10">
+                      <div class="wow fadeInUp section-title" data-wow-delay="0.3s">
+                          <h2 class="city" id="city">Current City</h2>
+                          <h1 class="temperature" id="temperature" onclick="">
+                            <img src="images/weathericons/02d.png" id="weather-image" alt="weather">
+                            <!--<h1 id="weather"></h1>-->28° F
+                          </h1>
+                          <h4 class="state-country">United States</h4>
+                          <h4 class="day-date-time" id="displayMoment">Thu, December 28th 10:14 PM</h4>
+
+                      </div>
+                  <div class="contact-form wow fadeInUp" data-wow-delay="0.7s">
+                  </div>
+                </div>
+
+              </div>
+          </div>
+        </section>
 
       <!-- Miami section -->
-      <div class="DragBox" id="Item1"  overClass="OverDragBox" dragClass="DragDragBox">
         <section id="contact" class="parallax-section ">
-          <div class="overlay2"></div>
+          <div class="overlay"></div>
             <div class="container">
               <div class="row">
 
@@ -125,40 +135,10 @@
               </div>
           </div>
         </section>
-      </div>  
 
 
-        <!-- User Moment-->
-      <div class="DragBox" id="Item2"  overClass="OverDragBox" dragClass="DragDragBox">
-        <section id="contact" class="parallax-section">
-          <div class="overlay"></div>
-            <div class="container">
-              <div class="row">
-
-                <div class="col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10">
-                      <div class="wow fadeInUp section-title" data-wow-delay="0.3s">
-                          <h2 class="city">Current City</h2>
-                          <h1 class="temperature" onclick="">
-                            <img src="images/weathericons/02d.png" id="weather-image" alt="weather">
-                            <!--<h1 id="weather"></h1>-->28° F
-                          </h1>
-                          <h4 class="state-country">United States</h4>
-                          <h4 class="day-date-time" id="displayMoment">Thu, December 28th 10:14 PM</h4>
-
-                      </div>
-                  <div class="contact-form wow fadeInUp" data-wow-delay="0.7s">
-                  </div>
-                </div>
-
-              </div>
-          </div>
-        </section>
-      <!-- End of Drag box item #2-->
-      </div>
-
-
+      
         <!-- Los Angeles section -->
-      <div class="DragBox" id="Item3"  overClass="OverDragBox" dragClass="DragDragBox">
         <section id="contact" class="parallax-section">
           <div class="overlay2"></div>
             <div class="container">
@@ -182,11 +162,9 @@
               </div>
           </div>
         </section>
-      </div> 
 
 
         <!-- San Jose section -->
-      <div class="DragBox" id="Item4"  overClass="OverDragBox" dragClass="DragDragBox">
         <section id="contact" class="parallax-section">
           <div class="overlay"></div>
             <div class="container">
@@ -210,10 +188,8 @@
               </div>
           </div>
         </section>
-      </div> 
 
         <!-- San Francisco section -->
-      <div class="DragBox" id="Item5"  overClass="OverDragBox" dragClass="DragDragBox">
         <section id="contact" class="parallax-section">
           <div class="overlay2"></div>
             <div class="container">
@@ -238,10 +214,8 @@
               </div>
           </div>
         </section>
-      </div> 
 
         <!-- Austin section -->
-      <div class="DragBox" id="Item6"  overClass="OverDragBox" dragClass="DragDragBox">
         <section id="contact" class="parallax-section">
           <div class="overlay"></div>
             <div class="container">
@@ -265,11 +239,9 @@
               </div>
           </div>
         </section>
-      </div>  
 
 
         <!-- Houston section -->
-      <div class="DragBox" id="Item7"  overClass="OverDragBox" dragClass="DragDragBox">   
         <section id="contact" class="parallax-section">
           <div class="overlay2"></div>
             <div class="container">
@@ -293,11 +265,9 @@
               </div>
           </div>
         </section>
-      </div>
 
 
         <!-- Dallas section -->
-      <div class="DragBox" id="Item8"  overClass="OverDragBox" dragClass="DragDragBox">   
         <section id="contact" class="parallax-section">
           <div class="overlay"></div>
             <div class="container">
@@ -321,11 +291,9 @@
               </div>
           </div>
         </section>
-      </div>
 
 
         <!-- Atlanta section -->
-      <div class="DragBox" id="Item9"  overClass="OverDragBox" dragClass="DragDragBox">   
         <section id="contact" class="parallax-section">
           <div class="overlay2"></div>
             <div class="container">
@@ -349,12 +317,10 @@
               </div>
           </div>
         </section>
-      </div>
 
 
 
         <!-- Seattle section -->
-      <div class="DragBox" id="Item10"  overClass="OverDragBox" dragClass="DragDragBox">   
         <section id="contact" class="parallax-section">
           <div class="overlay"></div>
             <div class="container">
@@ -378,11 +344,9 @@
               </div>
           </div>
         </section>
-      </div>
 
 
         <!-- Denver section -->
-      <div class="DragBox" id="Item11"  overClass="OverDragBox" dragClass="DragDragBox">   
         <section id="contact" class="parallax-section">
           <div class="overlay2"></div>
             <div class="container">
@@ -406,10 +370,8 @@
               </div>
           </div>
         </section>
-      </div>
 
         <!-- Charlotte section -->
-      <div class="DragBox" id="Item12"  overClass="OverDragBox" dragClass="DragDragBox">   
         <section id="contact" class="parallax-section">
           <div class="overlay"></div>
             <div class="container">
@@ -433,10 +395,8 @@
               </div>
           </div>
         </section>
-      </div>
 
         <!-- Raleigh section -->
-      <div class="DragBox" id="Item13"  overClass="OverDragBox" dragClass="DragDragBox">   
         <section id="contact" class="parallax-section">
           <div class="overlay2"></div>
             <div class="container">
@@ -461,11 +421,9 @@
               </div>
           </div>
         </section>
-      </div>
 
 
         <!-- Baltimore section -->
-      <div class="DragBox" id="Item14"  overClass="OverDragBox" dragClass="DragDragBox">   
         <section id="contact" class="parallax-section">
           <div class="overlay"></div>
             <div class="container">
@@ -489,10 +447,8 @@
               </div>
           </div>
         </section>
-      </div>
 
         <!-- Washington, D.C. section -->
-      <div class="DragBox" id="Item15"  overClass="OverDragBox" dragClass="DragDragBox">   
         <section id="contact" class="parallax-section">
           <div class="overlay2"></div>
             <div class="container">
@@ -516,11 +472,9 @@
               </div>
           </div>
         </section>
-      </div>
 
 
         <!-- Chicago section -->
-      <div class="DragBox" id="Item16"  overClass="OverDragBox" dragClass="DragDragBox">   
         <section id="contact" class="parallax-section">
           <div class="overlay"></div>
             <div class="container">
@@ -535,18 +489,16 @@
                           </h1>
                           <h4 class="state-country">Illinois, United States</h4>
                           <h4 class="day-date-time" id="displayCHIMoment">Thu, December 28th 10:14 PM</h4>
-
+                          
                       </div>
-                  <div class="contact-form wow fadeInUp" data-wow-delay="0.7s">
-                  </div>
+                    <div class="contact-form wow fadeInUp" data-wow-delay="0.7s">
+                    </div>
                 </div>
 
               </div>
           </div>
         </section>
-      <!-- END of Drag Container--> 
-      </div>
-    </div>
+    <!-- END of Drag Container--> 
 
     <!-- Add a new city button-->
     <section id="contact" class="parallax-section city-input" ng-controller="MyCtrl">
@@ -582,6 +534,7 @@
               <br/> Powered by 
                 <a href="http://flickr.com/services/api/">Flickr</a> and 
                 <a href="http://openweathermap.org">Openweathermap.org</a>
+                <a id="image-source" href="#">Image source</a>
             </p>
           </div>       
 
@@ -594,7 +547,7 @@
 
 <!-- javscript js -->
 <!-- Javscript files MUST be in this sequence for jquery-ui's sortable.js module to render -->
-<script src="js/jquery-ui/external/jquery/jquery.js"></script>
+<script type="text/javascript" src="js/jquery-ui/external/jquery/jquery.js"></script>
 <script src="js/jquery-ui/ui/widget.js"></script>
 <script src="js/jquery-ui/ui/data.js"></script>
 <script src="js/jquery-ui/ui/version.js"></script>
@@ -632,7 +585,7 @@
 
 
 <!--Weatherly JS-->
-<!--<script src="js/weatherly.js"></script>-->
+<script src="js/weatherly.js"></script>
 
 <!-- Drag N Drop functionality -->
 <!--<script src="js/dragNdrops.js"></script>-->

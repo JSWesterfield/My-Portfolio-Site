@@ -393,7 +393,6 @@ footer strong {
 
 }
 
-
 @media (max-width: 900px) {
 
   h1 {font-size: 40px;}
@@ -568,7 +567,7 @@ canvas {
   height:50px;
 }
 
-#weather-image, #temperature {
+#weather-image {
   float: right;
 }
 
@@ -576,7 +575,7 @@ canvas {
   padding-top: 10px; 
 }
 
-h2.city, h4.state-country, .day-date-time {
+h2.city, h4.state-country, h2#city, h4#day-date-time, .day-date-time {
   float: left;
 }
  
@@ -584,6 +583,16 @@ h4.state-country {
   margin-right: 5px;
 }
 
+h1.title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  letter-spacing: 2px;
+  /*letter-spacing: 2px;*/
+  /*margin-top: 0px;*/
+  margin-top: 8px;
+  text-transform: uppercase;
+  font-size: 40px;
+}
 
 /* Start of Test Drag and Drop section */
 #target {
@@ -592,20 +601,6 @@ h4.state-country {
   background-color: royalblue;
   border: 2px solid blue;
   position: absolute;
-}
-
-.DragContainer, .OverDragContainer {
-    margin: 1px;
-    border: black 2px solid;
-    padding: 1px;
-}
-
-.DragBox, .OverDragBox, .DragDragBox, .miniDragBox {
-    border: grey 1px solid;
-    padding: 0.5px;
-    cursor: pointer;
-    font-family: verdana, tahoma, arial;
-    background-color: rgb(238, 238, 238);
 }
 
 
@@ -622,4 +617,29 @@ h4.state-country {
 .ui-sortable-handle {
 	-ms-touch-action: none;
 	touch-action: none;
+}
+
+#center-sortable {
+  margin-top: 8px;  
+  width: 100%;
+  border: 3px solid green;
+}
+
+#sortable { 
+    list-style-type: none; 
+    margin: 0; 
+    padding: 0; 
+    width: 60%; 
+}
+
+#sortable li span { 
+    position: absolute; 
+}
+
+#sortable li { 
+    margin: 0 3px 3px 3px; 
+    padding: 0.4em; 
+    padding-left: 1.5em; 
+    font-size: 1.4em; 
+    height: 25px; 
 }
