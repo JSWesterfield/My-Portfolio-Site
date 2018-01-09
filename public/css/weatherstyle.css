@@ -252,6 +252,12 @@ a.project-text {
   background-size: cover;
   background-position: center center;
   position: relative;
+  margin: 1px;
+  border: black 1px solid;
+  padding: 1px;
+  cursor: pointer;
+  font-family: verdana, tahoma, arial;
+  background-color: rgb(238, 238, 238);
 }
 
 #contact .overlay {
