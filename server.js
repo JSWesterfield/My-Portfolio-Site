@@ -1,3 +1,4 @@
+
 //adding this node.js express 'module', using the require function/method
 var express = require('express');
 
@@ -7,7 +8,6 @@ var app = express();
 
 //Moment.JS for time/date keeping
 var moment = require('moment');
-
 
 /**
  * install body-parser first.
@@ -104,6 +104,10 @@ app.set('view engine', 'ejs');
 // make express look in the public directory for assets (css/js/img)
 app.use(express.static(__dirname + '/public'));
 
+// make express look in my node_modules for kendo-ui css files
+app.use('/scripts', express.static(__dirname + '/node_modules/kendo-ui-core/'));
+
+
 // set the home page route
 app.get('/', function(req, res) {
  
@@ -142,8 +146,14 @@ app.get('/strManipulator', function(req, res) {
 app.get('/weatherly', function(req, res) {
 
     //ejs render automatically looks in the view folder
-    console.log('ready to send POST request for /weatherby');
+    console.log('ready to send POST request for /weatherly');
     res.render('weatherly');
+});
+
+app.get('/test', function(req, res) {
+    //ejs render automatically looks in the view folder
+    console.log('ready to send POST request for /test');
+    res.render('test');
 });
 
 app.listen(port, function() {
