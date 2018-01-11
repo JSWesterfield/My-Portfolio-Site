@@ -90,7 +90,13 @@ p {
 
 a {
   text-decoration: none !important;
+  color: white;
 }
+
+a:hover {
+  color: beige;
+}
+
 a:visited,
 a:focus {
   outline: none;
@@ -302,7 +308,7 @@ a.project-text {
 #contact input[type='submit']:hover {
   border-color: transparent;
   color: #ffffff;
-  background: blue; /* For browsers that do not support gradients */
+  background: goldenrod; /* For browsers that do not support gradients */
   background: -webkit-linear-gradient(left,goldenrod , yellow); /* For Safari 5.1 to 6.0 */
   background: -o-linear-gradient(right, goldenrod, yellow); /* For Opera 11.1 to 12.0 */
   background: -moz-linear-gradient(right, goldenrod, yellow); /* For Firefox 3.6 to 15 */
@@ -565,18 +571,14 @@ canvas {
   text-decoration: none;
   text-align: 100%;
   margin-left: 400px;
+  margin-top: 10px;
 }
 
-#weather-image {
+.weather-image {
   size: 5px;
   width: 50px;
   height:50px;
-  margin-top: 8px;
   float: right;  
-}
-
-#weatherly-title {
-  padding-top: 10px; 
 }
 
 h2.city, h4.state-country, h2#userCity, h4#day-date-time, .day-date-time {
@@ -591,11 +593,13 @@ h1.title {
   font-family: 'Montserrat', sans-serif;
   font-weight: 400;
   letter-spacing: 2px;
-  /*letter-spacing: 2px;*/
-  /*margin-top: 0px;*/
   margin-top: 8px;
   text-transform: uppercase;
   font-size: 40px;
+}
+
+#weatherly-title {
+  padding-top: 8px; 
 }
 
 /* Start of Test Drag and Drop section */

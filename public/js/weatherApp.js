@@ -3,7 +3,6 @@
 var weatherData = {
   city: document.querySelector ("#city"),
   weather: document.querySelector ("#weather"),
-  state: document.querySelector ("#state"), 
   temperature: document.querySelector("#temperature"),
   temperatureValue: 0,
   units: "°C"
@@ -43,8 +42,6 @@ function getLocationAndWeather(){
       };
 
       var cityName = response.city;
-      //added state for user Geolocation + Current weather section
-      var weatherState = reponse.state;
       var weatherSimpleDescription = response.weather.simple;
       var weatherDescription = response.weather.description;
       var weatherTemperature = roundTemperature(response.weather.temperature);

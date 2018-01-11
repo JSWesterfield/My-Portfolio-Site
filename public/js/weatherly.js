@@ -2,8 +2,9 @@
 
 var weatherData = {
   city: document.querySelector ("#userCity"),
+  state: document.querySelector ("#userState"), 
   weather: document.querySelector ("#userWeather"),
-  temperature: document.querySelector("#userTemperature"),
+  temperature: document.querySelector("#usertemperature"),
   temperatureValue: 0,
   units: "°C"
   
@@ -41,7 +42,9 @@ function getLocationAndWeather(){
         longitude: response.longitude
       };
       var cityName = response.city;
-
+      
+      //added 'state' property to our 'WeatherData' object for user Geolocation + Current weather section
+      var weatherState = reponse.state;
       var weatherSimpleDescription = response.weather.simple;
       var weatherDescription = response.weather.description;
       var weatherTemperature = roundTemperature(response.weather.temperature);
@@ -52,6 +55,20 @@ function getLocationAndWeather(){
       weatherData.city.innerHTML = cityName;
       weatherData.weather.innerHTML =  ", " + weatherDescription;
       weatherData.temperature.innerHTML = weatherTemperature + weatherData.units;
+      //place this data within a function
+      //pseudo code
+      //response if check to display state data ONLY when response.state exists
+      var stateResponseCheck = function(response) {
+        if(response.state) {
+            //if response.state exists we render this response data(weatherState == response.state) within our html at the 'userState' id attribute 
+            weatherData.state.innerHTML = weatherState;
+        }
+        else {
+            //just put nothing here if there is no data. 
+            weatherData.state.innerHTML = '';
+        }
+
+      }
     }, false);
 
     xhr.addEventListener("error", function(err){
