@@ -1,9 +1,9 @@
 
 
 var weatherData = {
-  city: document.querySelector ("#city"),
-  weather: document.querySelector ("#weather"),
-  temperature: document.querySelector("#temperature"),
+  city: document.querySelector ("#userCity"),
+  weather: document.querySelector ("#userWeather"),
+  temperature: document.querySelector("#userTemperature"),
   temperatureValue: 0,
   units: "°C"
   

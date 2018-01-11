@@ -44,12 +44,11 @@
         <div class="sk-spinner sk-spinner-pulse"></div>
       </div>
 
-    <!-- User Moment/practice rendering weather application section -->
+    <!-- Section 'Weatherly' Title-->
     <section id="contact" class="parallax-section">
       <div class="overlay"></div>
         <div class="container">
           <div class="row">
-
 
             <div class="col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10">
                   <div class="wow fadeInUp section-title" data-wow-delay="0.3s">
@@ -73,13 +72,14 @@
 
                 <div class="col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10">
                       <div class="wow fadeInUp section-title" data-wow-delay="0.3s">
-                          <h2 class="city" id="city">Current City</h2>
-                          <h1 class="temperature" id="temperature" onclick="">
+                          <h2 class="city" id="userCity">Current City</h2>
+                          <!-- shows temperature in celsius --> 
+                          <h1 class="temperature" id="userTemperature" onclick="switchUnits(); return false;">
+                            <!--Turned this into a a tag so it keeps its shape, and inherits from the class temperature.-->   
+                            <a id="userWeather">28°F</a>
                             <img src="images/weathericons/02d.png"  id="weather-image" alt="weather">
-                            <!--Turned this into a a tag so it keeps its shape, and inherits from the class temperature.-->
-                            <a id="weather">28°F</a>
                           </h1>
-                          <h4 class="state-country" >United States</h4>
+                          <h4 class="state-country">United States</h4>
                           <h4 class="day-date-time" id="displayMoment">Thu, December 28th 10:14 PM</h4>
 
                       </div>

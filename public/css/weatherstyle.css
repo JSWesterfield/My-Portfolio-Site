@@ -495,7 +495,7 @@ footer strong {
 }
 
 .fa-facebook:hover {
-    color: purple; /* For browsers that do not support gradients */
+    color: lightblue; /* For browsers that do not support gradients */
 }
 
 /* Twitter */
@@ -504,7 +504,7 @@ footer strong {
 }
 
 .fa-twitter:hover {
-    color: purple; /* For browsers that do not support gradients */
+    color: lightblue; /* For browsers that do not support gradients */
 }
 
 /* Github */
@@ -513,7 +513,7 @@ footer strong {
 }
 
 .fa-github:hover {
-    color: purple; /* For browsers that do not support gradients */
+    color: lightblue; /* For browsers that do not support gradients */
 }
 
 /* Linkedin */
@@ -522,7 +522,7 @@ footer strong {
 }
 
 .fa-linkedin:hover {
-    color: purple; /* For browsers that do not support gradients */
+    color: lightblue; /* For browsers that do not support gradients */
 }
 
 /*Added cool Constellation Canvas, w/ mouseOver */
@@ -571,17 +571,15 @@ canvas {
   size: 5px;
   width: 50px;
   height:50px;
-}
-
-#weather-image {
-  float: right;
+  margin-top: 8px;
+  float: right;  
 }
 
 #weatherly-title {
   padding-top: 10px; 
 }
 
-h2.city, h4.state-country, h2#city, h4#day-date-time, .day-date-time {
+h2.city, h4.state-country, h2#userCity, h4#day-date-time, .day-date-time {
   float: left;
 }
  
