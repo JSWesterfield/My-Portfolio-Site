@@ -23,7 +23,7 @@ body {
     background-attachment: fixed;
     background-size: cover;
     text-transform: capitalize;
-	}
+}
 
 
 
@@ -633,7 +633,7 @@ h1.title {
   border: 3px solid green;
 }
 
-#sortable { 
+/*#sortable { 
     list-style-type: none; 
     margin: 0; 
     padding: 0; 
@@ -650,4 +650,4 @@ h1.title {
     padding-left: 1.5em; 
     font-size: 1.4em; 
     height: 25px; 
-}
+}*/

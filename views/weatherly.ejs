@@ -27,8 +27,7 @@
     <link rel="stylesheet" href="css/sortable_css/base.css">
     <link rel="stylesheet" href="css/sortable_css/sortable.css">
     <link rel="stylesheet" href="css/weatherstyle.css">
-    
-
+  
 
     <!--<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>-->
     <!--<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,600' rel='stylesheet' type='text/css'>-->
@@ -67,8 +66,8 @@
       <!-- User Moment-->
         <section id="contact" class="parallax-section">
           <div class="overlay"></div>
-            <div class="container" id="user-location">
-              <div class="row" id="userCity">
+            <div class="container">
+              <div class="row">
 
                 <div class="col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10">
                       <div class="wow fadeInUp section-title" data-wow-delay="0.3s">
@@ -77,8 +76,8 @@
                           <h1 class="temperature" id="userTemperature" onclick="switchUnits(); return false;">
                             <!--Turned this into a a tag so it keeps its shape, and inherits from the class temperature.-->   
                             <a id="userWeather" class="degree">44°F</a>
-                            <img src="images/weathericons/02d.png" class="weather-image" alt="weather">
                           </h1>
+                          <img src="images/weathericons/02d.png" class="weather-image" alt="weather">
                           <!-- Added state within an A tag to basically display the state when applicable and hide when not(page doesnt render)-->
                           <h4 class="state-country" id><a id="userState"></a>United States</h4>
                           <h4 class="day-date-time" id="displayMoment">Thu, December 28th 10:14 PM</h4>
@@ -614,29 +613,46 @@
     dateTimeHOU = $('#displayHOUMoment');  //Houston
     dateTimeSJC = $('#displaySJCMoment');  //San Jose 
     dateTimeSFO = $('#displaySFOMoment');  //San Francisco
+    dateTimeUserLocation = $('#displayMoment'); //User's Current City
+
+
     //update all these moment.tz object instances
     updateCities();
     //update time every second
     setInterval(updateCities, 1000);
   };
-   // instantiate a moment object
-   var NowMoment = moment();
+
+  // instantiate a moment object
+  var NowMoment = moment();
   
   // instantiate a JavaScript Date object
-   var NowDate = new Date();
-  //Moment-Timezone.js for each city-->
+  var NowDate = new Date();
+
+  // display value of moment object in #displayMoment div
+  var eDisplayMoment = document.getElementById('displayMoment');
+  eDisplayMoment.innerHTML = NowMoment;
+  
+  //Moment-Timezone.js for each individual city-->
+  //User's Current Location
+  var dateTimeUserLocation = null;
+  dateUserLocation = null;
+
   //Chicago time
   var dateTimeCHI = null,
   dateCHI = null;
+  
   //Miami time
   var dateTimeMIA = null,
   dateMIA = null;
+  
   //Austin time
   var dateTimeAUS = null,
   dateAUS = null;
+
   //Dallas time
   var dateTimeDFW = null,
   dateDFW = null;
+
   //Raleigh time
   var dateTimeRDV = null,
   dateRDV = null;
@@ -671,56 +687,77 @@
   //Houston  time
   var dateTimeHOU = null,
   dateHOU = null;
+
   //San Jose time
   var dateTimeSJC = null,
   dateSJC = null;
+
   //San Francisco time
   var dateTimeSFO = null;
   dateSFO = null;
+
   //update function
   var updateCities = function() {
+    //User's Current Location
+    dateUserLocation = moment().format('MMMM Do YYYY, h:mm:ss a');
+    dateTimeUserLocation.html(dateUserLocation);
+
     //Chicago, IL
     dateCHI = moment().tz('America/Chicago').format('MMMM Do YYYY, h:mm:ss a');
     dateTimeCHI.html(dateCHI);
+    
     //Miami, FL
     dateMIA = moment().tz('America/New_York').format('MMMM Do YYYY, h:mm:ss a');
     dateTimeMIA.html(dateMIA);
+    
     //Austin, TX
     dateAUS = moment().tz('America/Chicago').format('MMMM Do YYYY, h:mm:ss a');
     dateTimeAUS.html(dateAUS);
+    
     //Dallas, TX
     dateDFW = moment().tz('America/Chicago').format('MMMM Do YYYY, h:mm:ss a');
     dateTimeDFW.html(dateDFW);
+    
     //Charlotte, NC
     dateCLT = moment().tz('America/New_York').format('MMMM Do YYYY, h:mm:ss a');
     dateTimeCLT.html(dateCLT);
+    
     //Raleigh, NC
     dateRDV = moment().tz('America/New_York').format('MMMM Do YYYY, h:mm:ss a');
     dateTimeRDV.html(dateRDV);
+    
     //Seattle, WA
     dateSEA = moment().tz('America/Los_Angeles').format('MMMM Do YYYY, h:mm:ss a');
     dateTimeSEA.html(dateSEA);
+    
     //Washington, D.C. 
     dateWAS = moment().tz('America/New_York').format('MMMM Do YYYY, h:mm:ss a');
     dateTimeWAS.html(dateWAS);
+    
     //Baltimore, MD
     dateBWI = moment().tz('America/New_York').format('MMMM Do YYYY, h:mm:ss a');
     dateTimeBWI.html(dateBWI);
+    
     //Denver, CO
     dateDEN = moment().tz('America/Denver').format('MMMM Do YYYY, h:mm:ss a');
     dateTimeDEN.html(dateDEN);
+    
     //Atlanta, GA
     dateATL = moment().tz('America/New_York').format('MMMM Do YYYY, h:mm:ss a'); 
     dateTimeATL.html(dateATL);
+    
     //Los Angeles, CA
     dateLAX = moment().tz('America/Los_Angeles').format('MMMM Do YYYY, h:mm:ss a');
     dateTimeLAX.html(dateLAX);
+   
     //Houston, TX
     dateHOU = moment().tz('America/Chicago').format('MMMM Do YYYY, h:mm:ss a');
     dateTimeHOU.html(dateHOU);
+   
     //San Jose, CA
     dateSJC = moment().tz('America/Los_Angeles').format('MMMM Do YYYY, h:mm:ss a');
     dateTimeSJC.html(dateSJC);
+
     //San Francisco, CA
     dateSFO = moment().tz('America/Los_Angeles').format('MMMM Do YYYY, h:mm:ss a');
     dateTimeSFO.html(dateSFO);
@@ -728,57 +765,38 @@
 </script>
 
 <!--Moment.JS script for the page-->
-<script type="text/javascript">
-   (function()
-  {
-   // instantiate a moment object
-   var NowMoment = moment();
-  
-  // instantiate a JavaScript Date object
-   var NowDate = new Date();
-  
-  // display value of moment object in #displayMoment div
-  var eDisplayMoment = document.getElementById('displayMoment');
-   eDisplayMoment.innerHTML = NowMoment;
-  
-   //created a genius update function, that's an IIFE, invokes immediately, to help up date my time, in 1 second intervals.
-   var update;
-   (update = function() {
-       document.getElementById('displayMoment')
-       .innerHTML = moment().format('MMMM Do YYYY, h:mm:ss a');
-   })();
-   setInterval(update, 1000);
- })();
-</script>
+<!--<script type="text/javascript">-->
+  <!--// (function()
+  //   {
+  //     // instantiate a moment object
+  //     var NowMoment = moment();
+      
+  //     // instantiate a JavaScript Date object
+  //     var NowDate = new Date();
+      
+  //     // display value of moment object in #displayMoment div
+  //     var eDisplayMoment = document.getElementById('displayMoment');
+  //     eDisplayMoment.innerHTML = NowMoment;
+      
+      //created a genius update function, that's an IIFE, invokes immediately, to help up date my time, in 1 second intervals.
+      // var update;
+      //   (update = function() {
+      //     document.getElementById('displayMoment').innerHTML = moment().format('MMMM Do YYYY, h:mm:ss a');
+      //   })();
+      //   setInterval(update, 1000);
+  // })();-->
+<!--</script>-->
 
 <!--Test drag and drop section-->
 <!--https://developer.mozilla.org/en-US/docs/Web/API/HTML_Drag_and_Drop_API-->
-<script>
-function dragstart_handler(ev) {
-  // Add the target element's id to the data transfer object
-  ev.dataTransfer.setData("text/plain", ev.target.id);
-  ev.dropEffect = "move";
-}
-function dragover_handler(ev) {
-  ev.preventDefault();
-  // Set the dropEffect to move
-  ev.dataTransfer.dropEffect = "move"
-}
-function drop_handler(ev) {
-  ev.preventDefault();
-  // Get the id of the target and add the moved element to the target's DOM
-  var data = ev.dataTransfer.getData("text");
-  ev.target.appendChild(document.getElementById(data));
-}
-</script>
 
-<script>
-  // function inputFunction() {
+<!--<script>-->
+  <!--// function inputFunction() {
   //     var x = document.getElementById("city-input");
   //     if (x.style.display === "none") {
   //       x.style.display = "block";
   //     } else {
   //       x.style.display = "none";
   //     } 
-  // }
-</script>
+  // }-->
+<!--</script>-->

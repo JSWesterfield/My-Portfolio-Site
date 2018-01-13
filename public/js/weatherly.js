@@ -4,7 +4,7 @@ var weatherData = {
   city: document.querySelector ("#userCity"),
   state: document.querySelector ("#userState"), 
   weather: document.querySelector ("#userWeather"),
-  temperature: document.querySelector("#usertemperature"),
+  temperature: document.querySelector("#userTemperature"),
   temperatureValue: 0,
   units: "°C"
   
@@ -42,9 +42,7 @@ function getLocationAndWeather(){
         longitude: response.longitude
       };
       var cityName = response.city;
-      
-      //added 'state' property to our 'WeatherData' object for user Geolocation + Current weather section
-      var weatherState = reponse.state;
+
       var weatherSimpleDescription = response.weather.simple;
       var weatherDescription = response.weather.description;
       var weatherTemperature = roundTemperature(response.weather.temperature);
@@ -55,27 +53,13 @@ function getLocationAndWeather(){
       weatherData.city.innerHTML = cityName;
       weatherData.weather.innerHTML =  ", " + weatherDescription;
       weatherData.temperature.innerHTML = weatherTemperature + weatherData.units;
-      //place this data within a function
-      //pseudo code
-      //response if check to display state data ONLY when response.state exists
-      var stateResponseCheck = function(response) {
-        if(response.state) {
-            //if response.state exists we render this response data(weatherState == response.state) within our html at the 'userState' id attribute 
-            weatherData.state.innerHTML = weatherState;
-        }
-        else {
-            //just put nothing here if there is no data. 
-            weatherData.state.innerHTML = '';
-        }
-
-      }
     }, false);
 
     xhr.addEventListener("error", function(err){
       alert("Could not complete the request");
     }, false);
 
-    xhr.open("GET", "https://fourtonfish.com/tutorials/weather-web-app/getlocationandweather.php?owapikey=e2db5b0453a25a492e87ad8b03046a7c&units=metric", true);
+    xhr.open("GET", "https://fourtonfish.com/tutorials/weather-web-app/getlocationandweather.php?owapikey=e2db5b0453a25a492e87ad8b03046a7c&units=imperial", true);
     xhr.send();
   }
   else{
@@ -96,11 +80,11 @@ function jsonFlickrApi(data){
   if (data.photos.pages > 0){
     var randomPhotoId = parseInt(data.photos.total);
     var photo = data.photos.photo[Math.floor(Math.random()*parseInt(data.photos.photo.length))];
-    document.querySelector("body").style.backgroundImage = "url('" + photo.url_l + "')";
+    document.querySelector(".userTemperature").style.backgroundImage = "url('" + photo.url_l + "')";
     document.querySelector("#image-source").setAttribute("href", "http://www.flickr.com/photos/" + photo.owner + "/" + photo.id);
   }
   else{
-    document.querySelector("body").style.backgroundImage = "url('https://fourtonfish.com/tutorials/weather-web-app/images/default.jpg')";
+    document.querySelector(".userTemperature").style.backgroundImage = "url('https://fourtonfish.com/tutorials/weather-web-app/images/default.jpg')";
     document.querySelector("#image-source").setAttribute("href", "https://www.flickr.com/photos/superfamous/310185523/sizes/o/");
   }
 }
