@@ -44,12 +44,12 @@ function getLocationAndWeather(){
       var cityName = response.city;
 
       var weatherSimpleDescription = response.weather.simple;
-      //var weatherDescription = response.weather.description;
+      var weatherDescription = response.weather.description;
       var weatherTemperature = roundTemperature(response.weather.temperature);
 
       weatherData.temperatureValue = weatherTemperature;
 
-      loadBackground(position.latitude, position.longitude);
+      loadBackground(position.latitude, position.longitude, weatherSimpleDescription);
       weatherData.city.innerHTML = cityName;
       //weatherData.weather.innerHTML =  ", " + weatherDescription;
       weatherData.temperature.innerHTML = weatherTemperature + weatherData.units;
