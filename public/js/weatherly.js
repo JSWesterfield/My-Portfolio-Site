@@ -59,7 +59,7 @@ function getLocationAndWeather(){
       alert("Could not complete the request");
     }, false);
 
-    xhr.open("GET", "https://fourtonfish.com/tutorials/weather-web-app/getlocationandweather.php?owapikey=e2db5b0453a25a492e87ad8b03046a7c&units=imperial", true);
+    xhr.open("GET", "https://fourtonfish.com/tutorials/weather-web-app/getlocationandweather.php?owapikey=e2db5b0453a25a492e87ad8b03046a7c&units=metric", true);
     xhr.send();
   }
   else{
@@ -80,11 +80,11 @@ function jsonFlickrApi(data){
   if (data.photos.pages > 0){
     var randomPhotoId = parseInt(data.photos.total);
     var photo = data.photos.photo[Math.floor(Math.random()*parseInt(data.photos.photo.length))];
-    document.querySelector(".userTemperature").style.backgroundImage = "url('" + photo.url_l + "')";
+    document.querySelector("#userWeather").style.backgroundImage = "url('" + photo.url_l + "')";
     document.querySelector("#image-source").setAttribute("href", "http://www.flickr.com/photos/" + photo.owner + "/" + photo.id);
   }
   else{
-    document.querySelector(".userTemperature").style.backgroundImage = "url('https://fourtonfish.com/tutorials/weather-web-app/images/default.jpg')";
+    document.querySelector("#userWeather").style.backgroundImage = "url('https://fourtonfish.com/tutorials/weather-web-app/images/default.jpg')";
     document.querySelector("#image-source").setAttribute("href", "https://www.flickr.com/photos/superfamous/310185523/sizes/o/");
   }
 }
