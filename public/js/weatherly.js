@@ -78,7 +78,8 @@
       if (data.photos.pages > 0){
         var randomPhotoId = parseInt(data.photos.total);
         var photo = data.photos.photo[Math.floor(Math.random()*parseInt(data.photos.photo.length))];
-        document.querySelector("#userWeather").style.backgroundImage = "url('" + photo.url_l + "')";
+        // commented out until I figure out how to render this background image to fit the section better and if I want to try to render this within the small 'section' element.
+        //document.querySelector("#userWeather").style.backgroundImage = "url('" + photo.url_l + "')";
         document.querySelector("#image-source").setAttribute("href", "http://www.flickr.com/photos/" + photo.owner + "/" + photo.id);
       }
       else{
