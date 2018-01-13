@@ -3,7 +3,7 @@
 var weatherData = {
   city: document.querySelector ("#userCity"),
   state: document.querySelector ("#userState"), 
-  weather: document.querySelector ("#userWeather"),
+  //weather: document.querySelector ("#userWeather"),
   temperature: document.querySelector("#userTemperature"),
   temperatureValue: 0,
   units: "°C"
@@ -44,14 +44,14 @@ function getLocationAndWeather(){
       var cityName = response.city;
 
       var weatherSimpleDescription = response.weather.simple;
-      var weatherDescription = response.weather.description;
+      //var weatherDescription = response.weather.description;
       var weatherTemperature = roundTemperature(response.weather.temperature);
 
       weatherData.temperatureValue = weatherTemperature;
 
-      loadBackground(position.latitude, position.longitude, weatherSimpleDescription);
+      loadBackground(position.latitude, position.longitude);
       weatherData.city.innerHTML = cityName;
-      weatherData.weather.innerHTML =  ", " + weatherDescription;
+      //weatherData.weather.innerHTML =  ", " + weatherDescription;
       weatherData.temperature.innerHTML = weatherTemperature + weatherData.units;
     }, false);
 
