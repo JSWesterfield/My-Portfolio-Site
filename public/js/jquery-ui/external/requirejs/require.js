@@ -2055,8 +2055,10 @@ var requirejs, require, define;
         (context ? context.defQueue : globalDefQueue).push([name, deps, callback]);
     };
 
+
+    //require.js 'no conflict mode' for jQuery defaults to true, set to false to use jQuery w/in my module
     define.amd = {
-        jQuery: true
+        jQuery: false
     };
 
 

@@ -59,7 +59,8 @@ h2 {
   text-transform: uppercase;
   margin-top: 8px;
 }
-#contact h2 {
+
+.contact h2 {
   color: #ffffff;
 }
 
@@ -118,13 +119,13 @@ a:focus {
 
 /* All Section styles */
 /*To change the size of the contact section */
-#contact {
+.contact {
   color: #656565;
   padding-top: 10px;
   padding-bottom: 5px;
 }
 
-#contact {
+.contact {
   text-align: center;
 }
 
@@ -133,7 +134,7 @@ a:focus {
   padding-bottom: 20px;
 }
 
-#contact .section-title {
+.contact .section-title {
   color: #f0f0f0;
 }
 
@@ -252,7 +253,7 @@ a.project-text {
 
 
 /* Contact section  */
-#contact {
+.contact {
   background: url('../images/weatherly6.jpg') 50% 0 repeat-y fixed;
   -webkit-background-size: cover;
   background-size: cover;
@@ -266,7 +267,7 @@ a.project-text {
   background-color: rgb(238, 238, 238);
 }
 
-#contact .overlay {
+.contact .overlay {
   background: rgba(0,0,0,0.7);
   width: 100%;
   height: 100%;
@@ -274,7 +275,7 @@ a.project-text {
   top: 0;
 }
 
-#contact .form-control {
+.contact .form-control {
   background: transparent;
   border: none;
   border-bottom: 1px solid #666;
@@ -286,13 +287,13 @@ a.project-text {
   transition: all 0.4s ease-in-out;
 }
 
-#contact .form-control:hover {
+.contact .form-control:hover {
   border-color: #ddd;
 }
 
-#contact input {height: 45px;}
+.contact input {height: 45px;}
 
-#contact input[type='submit'] {
+.contact input[type='submit'] {
   background: #ffffff;
   border-radius: 4px;
   color: #757575;
@@ -305,7 +306,7 @@ a.project-text {
   text-shadow: 0 0 13px #000;
 
 }
-#contact input[type='submit']:hover {
+.contact input[type='submit']:hover {
   border-color: transparent;
   color: #ffffff;
   background: goldenrod; /* For browsers that do not support gradients */
@@ -455,7 +456,7 @@ footer strong {
     font-size: 30px;
   }
 
-  #contact {
+  .contact {
     padding-top: 80px;
     padding-bottom: 80px;
   }
@@ -586,7 +587,7 @@ h2.city, h4.state-country, h2#userCity, h4#day-date-time, .day-date-time {
 }
  
 h4.state-country {
-  margin-right: 5px;
+  margin-right: 20px;
 }
 
 h1.title {
@@ -611,8 +612,12 @@ h1.title {
   position: absolute;
 }
 
-
 /* END of Test Drag and Drop section */
+
+
+/* Change color in child node of DOM, test */
+
+/* End of color change test*/
 
 /*!
  * jQuery UI Sortable 1.12.1
@@ -633,21 +638,3 @@ h1.title {
   border: 3px solid green;
 }
 
-/*#sortable { 
-    list-style-type: none; 
-    margin: 0; 
-    padding: 0; 
-    width: 60%; 
-}
-
-#sortable li span { 
-    position: absolute; 
-}
-
-#sortable li { 
-    margin: 0 3px 3px 3px; 
-    padding: 0.4em; 
-    padding-left: 1.5em; 
-    font-size: 1.4em; 
-    height: 25px; 
-}*/

@@ -1,5 +1,4 @@
 $( document ).ready(function() {
-    console.log('ready! to play with strings');
 
         //Added Canvas here, w/ MouseOver functionality
         var canvasDots = function() {
