@@ -1,32 +1,29 @@
 
-$( document ).ready(function() {
-  
     var weatherData = {
       city: document.querySelector ("#userCity"),
       state: document.querySelector ("#userState"), 
-      //weather: document.querySelector ("#userWeather"),
+      weather: document.querySelector ("#userWeather"),
       temperature: document.querySelector("#userTemperature"),
       temperatureValue: 0,
       units: "°F",
-      //icon: document.querySelector ('#userWeatherIcon')
+      icon: document.querySelector ('#userWeatherIcon')
     };
 
     function roundTemperature(temperature){
           temperature = temperature.toFixed(1);
           return temperature;
-        }
+    }
 
-    function switchUnits (){
-      
+    function switchUnits () {
       if (weatherData.units == "°C") {
         weatherData.temperatureValue = roundTemperature(weatherData.temperatureValue * 9/5 + 32);
         weatherData.units = "°F";
       
-    } else {
-      weatherData.temperatureValue = roundTemperature ((weatherData.temperatureValue -32) * 5/9);
-        weatherData.units = "°C";  
-    }
-      weatherData.temperature.innerHTML = weatherData.temperatureValue + weatherData.units + " ";
+      } else {
+        weatherData.temperatureValue = roundTemperature ((weatherData.temperatureValue -32) * 5/9);
+          weatherData.units = "°C";  
+      }
+        weatherData.temperature.innerHTML = weatherData.temperatureValue + weatherData.units + " ";
     }
 
     function getLocationAndWeather(){
@@ -45,15 +42,15 @@ $( document ).ready(function() {
           var weatherSimpleDescription = response.weather.simple;
           var weatherDescription = response.weather.description;
           var weatherTemperature = (roundTemperature((response.weather.temperature) * 9/5 + 32));
-          //var userWeatherIcon = response.weather.icon;
+          var userWeatherIcon = response.weather.icon;
 
           weatherData.temperatureValue = weatherTemperature;
 
           loadBackground(position.latitude, position.longitude, weatherSimpleDescription);
           weatherData.city.innerHTML = cityName;
           weatherData.temperature.innerHTML = weatherTemperature + weatherData.units;
-          //weatherData.icon.innerHTML = userWeatherIcon;
-          //weatherData.weather.innerHTML = weatherDescription;
+          weatherData.icon.innerHTML = userWeatherIcon;
+          weatherData.weather.innerHTML = weatherDescription;
         }, false);
 
         xhr.addEventListener("error", function(err){
@@ -92,11 +89,6 @@ $( document ).ready(function() {
 
     getLocationAndWeather();
 
-    function setAlternateOverlay() {
-      console.log("I changed the color! and added a missing class attribute to the userCity section");
-    }
 
 
-/* End of Document.ready*/
-})
 
