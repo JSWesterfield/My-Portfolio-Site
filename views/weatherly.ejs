@@ -61,18 +61,19 @@
       </div>
     </section>
 
-            
+
     <!-- START of Drag container -->
       <!-- User Moment-->
         <section class="contact" class="parallax-section">
           <div class="overlay"></div>
             <div class="container">
             <!-- commented out the userWeather or the displayed weather from the Flickr API for this app until I figure out how to render this picture to the appropriate size(smaller? Mid full lenght page for partial cityscape?)-->
+            <!--<div class="container" id="userWeather">-->
               <div class="row">
 
                 <div class="col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10">
                       <div class="wow fadeInUp section-title" data-wow-delay="0.3s">
-                          <h2 class="" id="userCity">Current City</h2>
+                          <h2 class="city" id="userCity">Current City</h2>
                           <img src="images/weathericons/02d.png" class="weather-image" id="userWeatherIcon" alt="weather">
                           <!-- shows temperature in celsius, switchUnits() function used to convert and toggle between Celsius and Fahrenheit --> 
                           <h1 class="temperature" id="userTemperature" onclick="switchUnits(); return false;">
@@ -93,7 +94,8 @@
           </div>
         </section>
 
-      <!-- Miami section -->
+
+        <!-- San Jose section -->
         <section class="contact" class="parallax-section">
           <div class="overlay2"></div>
             <div class="container">
@@ -101,14 +103,14 @@
 
                 <div class="col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10">
                       <div class="wow fadeInUp section-title" data-wow-delay="0.3s">
-                          <h2 class="city">Miami</h2>
-                          <img src="images/weathericons/01d.png" class="weather-image" alt="weather">                          
-                          <h1 class="temperature" id="temperatureMIA" onclick="switchUnits(); return false;">
-                            <a id="weatherMIA" class="degree">73°F</a>
+                          <h2 class="city">San Jose</h2>
+                          <img src="images/weathericons/01d.png" class="weather-image" alt="weather">
+                          <h1 class="temperature" id="temperatureSJC" onclick="switchUnits(); return false;">
+                            <a id="weatherSJC" class="degree">70°F</a>
                           </h1>
-                          <h4 class="state-country">Florida, United States</h4>
-                          <!--City Airport Codes used in conjuction w/ display momentID-->
-                          <h4 class="day-date-time" id="displayMIAMoment">Thu, December 28th 10:14 PM</h4>
+
+                          <h4 class="state-country">California, United States</h4>
+                          <h4 class="day-date-time" id="displaySJCMoment">Thu, December 28th 10:14 PM</h4>
 
                       </div>
                   <div class="contact-form wow fadeInUp" data-wow-delay="0.7s">
@@ -120,7 +122,6 @@
         </section>
 
 
-      
         <!-- Los Angeles section -->
         <section class="contact" class="parallax-section">
           <div class="overlay"></div>
@@ -146,10 +147,247 @@
           </div>
         </section>
 
-     
-        <!-- Raleigh section -->
+        <!-- San Francisco section -->
         <section class="contact" class="parallax-section">
           <div class="overlay2"></div>
+            <div class="container">
+              <div class="row">
+
+                <div class="col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10">
+                      <div class="wow fadeInUp section-title" data-wow-delay="0.3s">
+                          <h2 class="city">San Francisco</h2>
+                          <img src="images/weathericons/10d.png" class="weather-image" alt="weather">
+                          <h1 class="temperature" id="temperatureSFO" onclick="switchUnits(); return false;">
+                            <a id="weatherSFO" class="degree">64°F</a>
+                          </h1>
+                         
+                          <h4 class="state-country">California, United States</h4>
+                          <h4 class="day-date-time" id="displaySFOMoment">Thu, December 28th 10:14 PM</h4>
+
+                      </div>
+                  <div class="contact-form wow fadeInUp" data-wow-delay="0.7s">
+                  </div>
+                </div>
+
+              </div>
+          </div>
+        </section>
+
+
+        <!-- Miami section -->
+        <section class="contact" class="parallax-section">
+          <div class="overlay"></div>
+            <div class="container">
+              <div class="row">
+
+                <div class="col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10">
+                      <div class="wow fadeInUp section-title" data-wow-delay="0.3s">
+                          <h2 class="city">Miami</h2>
+                          <img src="images/weathericons/01d.png" class="weather-image" alt="weather">                          
+                          <h1 class="temperature" id="temperatureMIA" onclick="switchUnits(); return false;">
+                            <a id="weatherMIA" class="degree">62°F</a>
+                          </h1>
+                          <h4 class="state-country">Florida, United States</h4>
+                          <!--City Airport Codes used in conjuction w/ display momentID-->
+                          <h4 class="day-date-time" id="displayMIAMoment">Thu, December 28th 10:14 PM</h4>
+
+                      </div>
+                  <div class="contact-form wow fadeInUp" data-wow-delay="0.7s">
+                  </div>
+                </div>
+
+              </div>
+          </div>
+        </section>
+
+        <!-- Austin section -->
+        <section class="contact" class="parallax-section">
+          <div class="overlay2"></div>
+            <div class="container">
+              <div class="row">
+
+                <div class="col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10">
+                      <div class="wow fadeInUp section-title" data-wow-delay="0.3s">
+                          <h2 class="city">Austin</h2>
+                          <img src="images/weathericons/03d.png" class="weather-image" alt="weather">                   
+                          <h1 class="temperature" id="temperatureAUS" onclick="switchUnits(); return false;">
+                            <a id="weatherAUS" class="degree">58°F</a>                 
+                          </h1>
+
+                          <h4 class="state-country">Texas, United States</h4>
+                          <h4 class="day-date-time" id="displayAUSMoment">Thu, December 28th 10:14 PM</h4>
+
+                      </div>
+                  <div class="contact-form wow fadeInUp" data-wow-delay="0.7s">
+                  </div>
+                </div>
+
+              </div>
+          </div>
+        </section>
+
+
+        <!-- Dallas section -->
+        <section class="contact" class="parallax-section">
+          <div class="overlay"></div>
+            <div class="container">
+              <div class="row">
+
+                <div class="col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10">
+                      <div class="wow fadeInUp section-title" data-wow-delay="0.3s">
+                          <h2 class="city">Dallas</h2>
+                          <img src="images/weathericons/03d.png" class="weather-image" alt="weather">
+                          <h1 class="temperature" id="temperatureDFW" onclick="switchUnits(); return false;">
+                            <a id="weatherDFW" class="degree">57°F</a>
+                          </h1>
+
+                          <h4 class="state-country">Texas, United States</h4>
+                          <h4 class="day-date-time" id="displayDFWMoment">Thu, December 28th 10:14 PM</h4>
+
+                      </div>
+                  <div class="contact-form wow fadeInUp" data-wow-delay="0.7s">
+                  </div>
+                </div>
+
+              </div>
+          </div>
+        </section>
+
+
+        <!-- Denver section -->
+        <section class="contact" class="parallax-section">
+          <div class="overlay2"></div>
+            <div class="container">
+              <div class="row">
+
+                <div class="col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10">
+                      <div class="wow fadeInUp section-title" data-wow-delay="0.3s">
+                          <h2 class="city">Denver</h2>
+                          <img src="images/weathericons/01d.png" class="weather-image" alt="weather">
+                          <h1 class="temperature" id="temperatureDEN" onclick="switchUnits(); return false;">
+                            <a id="weatherDEN" class="degree">56°F</a>
+                          </h1>
+
+                          <h4 class="state-country">Colorado, United States</h4>
+                          <h4 class="day-date-time" id="displayDENMoment">Thu, December 28th 10:14 PM</h4>
+
+                      </div>
+                  <div class="contact-form wow fadeInUp" data-wow-delay="0.7s">
+                  </div>
+                </div>
+
+              </div>
+          </div>
+        </section>
+
+
+        <!-- Seattle section -->
+        <section class="contact" class="parallax-section">
+          <div class="overlay"></div>
+            <div class="container">
+              <div class="row">
+
+                <div class="col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10">
+                      <div class="wow fadeInUp section-title" data-wow-delay="0.3s">
+                          <h2 class="city">Seattle</h2>
+                          <img src="images/weathericons/09n.png" class="weather-image" alt="weather">
+                          <h1 class="temperature" id="temperatureSEA" onclick="switchUnits(); return false;">
+                            <a id="weatherSEA" class="degree">54°F</a>
+                          </h1>
+
+                          <h4 class="state-country">Washington, United States</h4>
+                          <h4 class="day-date-time" id="displaySEAMoment">Thu, December 28th 10:14 PM</h4>
+
+                      </div>
+                  <div class="contact-form wow fadeInUp" data-wow-delay="0.7s">
+                  </div>
+                </div>
+
+              </div>
+          </div>
+        </section>
+
+
+        <!-- Houston section -->
+        <section class="contact" class="parallax-section">
+          <div class="overlay2"></div>
+            <div class="container">
+              <div class="row">
+
+                <div class="col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10">
+                      <div class="wow fadeInUp section-title" data-wow-delay="0.3s">
+                          <h2 class="city">Houston</h2>
+                          <img src="images/weathericons/02d.png" class="weather-image" alt="weather">
+                          <h1 class="temperature" id="temperatureHOU" onclick="switchUnits(); return false;">
+                            <a id="weatherHOU" class="degree">54°F</a>  
+                          </h1>
+                          <h4 class="state-country">Texas, United States</h4>
+                          <h4 class="day-date-time" id="displayHOUMoment">Thu, December 28th 10:14 PM</h4>
+
+                      </div>
+                  <div class="contact-form wow fadeInUp" data-wow-delay="0.7s">
+                  </div>
+                </div>
+
+              </div>
+          </div>
+        </section>
+
+        <!-- Atlanta section -->
+        <section class="contact" class="parallax-section">
+          <div class="overlay"></div>
+            <div class="container">
+              <div class="row">
+
+                <div class="col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10">
+                      <div class="wow fadeInUp section-title" data-wow-delay="0.3s">
+                          <h2 class="city">Atlanta</h2>
+                          <img src="images/weathericons/04n.png" class="weather-image" alt="weather">
+                          <h1 class="temperature" id="temperatureATL" onclick="switchUnits(); return false;">
+                            <a id="weatherATL" class="degree">42°F</a>
+                          </h1>
+
+                          <h4 class="state-country">Georgia, United States</h4>
+                          <h4 class="day-date-time" id="displayATLMoment">Thu, December 28th 10:14 PM</h4>
+
+                      </div>
+                  <div class="contact-form wow fadeInUp" data-wow-delay="0.7s">
+                  </div>
+                </div>
+
+              </div>
+          </div>
+        </section>
+
+        <!-- Charlotte section -->
+        <section class="contact" class="parallax-section">
+          <div class="overlay2"></div>
+            <div class="container">
+              <div class="row">
+
+                <div class="col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10">
+                      <div class="wow fadeInUp section-title" data-wow-delay="0.3s">
+                          <h2 class="city">Charlotte</h2>
+                          <img src="images/weathericons/04n.png" class="weather-image" alt="weather">
+                          <h1 class="temperature" id="temperatureCLT" onclick="switchUnits(); return false;">
+                            <a id="weatherCLT" class="degree">41°F</a>
+                          </h1>
+
+                          <h4 class="state-country">North Carolina, United States</h4>
+                          <h4 class="day-date-time" id="displayCLTMoment">Thu, December 28th 10:14 PM</h4>
+
+                      </div>
+                  <div class="contact-form wow fadeInUp" data-wow-delay="0.7s">
+                  </div>
+                </div>
+
+              </div>
+          </div>
+        </section>
+
+        <!-- Raleigh section -->
+        <section class="contact" class="parallax-section">
+          <div class="overlay"></div>
             <div class="container">
               <div class="row">
 
@@ -158,7 +396,7 @@
                           <h2 class="city">Raleigh</h2>
                           <img src="images/weathericons/04n.png" class="weather-image" alt="weather">
                           <h1 class="temperature" id="temperatureRDV" onclick="switchUnits(); return false;">
-                            <a id="weatherRDV" class="degree">67°F</a>
+                            <a id="weatherRDV" class="degree">39°F</a>
                           </h1>
                           
                           <h4 class="state-country">North Carolina, United States</h4>
@@ -176,7 +414,7 @@
 
         <!-- Washington, D.C. section -->
         <section class="contact" class="parallax-section">
-          <div class="overlay" id=""></div>
+          <div class="overlay2" id=""></div>
             <div class="container">
               <div class="row">
 
@@ -185,7 +423,7 @@
                           <h2 class="city">Washington, D.C.</h2>
                           <img src="images/weathericons/04n.png" class="weather-image" alt="weather">
                           <h1 class="temperature" id="temperatureWAS" onclick="switchUnits(); return false;">
-                            <a id="weatherWAS" class="degree">63°F</a>
+                            <a id="weatherWAS" class="degree">29°F</a>
                           </h1>
                           <h4 class="state-country">United States</h4>
                           <h4 class="day-date-time" id="displayWASMoment">Thu, December 28th 10:14 PM</h4>
@@ -199,62 +437,10 @@
           </div>
         </section>
 
-        <!-- Dallas section -->
-        <section class="contact" class="parallax-section">
-          <div class="overlay2"></div>
-            <div class="container">
-              <div class="row">
-
-                <div class="col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10">
-                      <div class="wow fadeInUp section-title" data-wow-delay="0.3s">
-                          <h2 class="city">Dallas</h2>
-                          <img src="images/weathericons/03d.png" class="weather-image" alt="weather">
-                          <h1 class="temperature" id="temperatureDFW" onclick="switchUnits(); return false;">
-                            <a id="weatherDFW" class="degree">59°F</a>
-                          </h1>
-
-                          <h4 class="state-country">Texas, United States</h4>
-                          <h4 class="day-date-time" id="displayDFWMoment">Thu, December 28th 10:14 PM</h4>
-
-                      </div>
-                  <div class="contact-form wow fadeInUp" data-wow-delay="0.7s">
-                  </div>
-                </div>
-
-              </div>
-          </div>
-        </section>
-
-
-        <!-- San Jose section -->
-        <section class="contact" class="parallax-section">
-          <div class="overlay"></div>
-            <div class="container">
-              <div class="row">
-
-                <div class="col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10">
-                      <div class="wow fadeInUp section-title" data-wow-delay="0.3s">
-                          <h2 class="city">San Jose</h2>
-                          <img src="images/weathericons/01d.png" class="weather-image" alt="weather">
-                          <h1 class="temperature" id="temperatureSJC" onclick="switchUnits(); return false;">
-                            <a id="weatherSJC" class="degree">58°F</a>
-                          </h1>
-
-                          <h4 class="state-country">California, United States</h4>
-                          <h4 class="day-date-time" id="displaySJCMoment">Thu, December 28th 10:14 PM</h4>
-
-                      </div>
-                  <div class="contact-form wow fadeInUp" data-wow-delay="0.7s">
-                  </div>
-                </div>
-
-              </div>
-          </div>
-        </section>
 
         <!-- Baltimore section -->
         <section class="contact" class="parallax-section">
-          <div class="overlay2"></div>
+          <div class="overlay"></div>
             <div class="container">
               <div class="row">
 
@@ -263,7 +449,7 @@
                           <h2 class="city">Baltimore</h2>
                           <img src="images/weathericons/03d.png" class="weather-image" alt="weather">
                           <h1 class="temperature" id="temperatureBWI" onclick="switchUnits(); return false;">
-                            <a id="weatherBWI" class="degree">58°F</a>
+                            <a id="weatherBWI" class="degree">29°F</a>
                           </h1>
 
                           <h4 class="state-country">Maryland, United States</h4>
@@ -278,189 +464,6 @@
           </div>
         </section>
 
-        <!-- Charlotte section -->
-        <section class="contact" class="parallax-section">
-          <div class="overlay"></div>
-            <div class="container">
-              <div class="row">
-
-                <div class="col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10">
-                      <div class="wow fadeInUp section-title" data-wow-delay="0.3s">
-                          <h2 class="city">Charlotte</h2>
-                          <img src="images/weathericons/04n.png" class="weather-image" alt="weather">
-                          <h1 class="temperature" id="temperatureCLT" onclick="switchUnits(); return false;">
-                            <a id="weatherCLT" class="degree">56°F</a>
-                          </h1>
-
-                          <h4 class="state-country">North Carolina, United States</h4>
-                          <h4 class="day-date-time" id="displayCLTMoment">Thu, December 28th 10:14 PM</h4>
-
-                      </div>
-                  <div class="contact-form wow fadeInUp" data-wow-delay="0.7s">
-                  </div>
-                </div>
-
-              </div>
-          </div>
-        </section>
-
-        <!-- Seattle section -->
-        <section class="contact" class="parallax-section">
-          <div class="overlay2"></div>
-            <div class="container">
-              <div class="row">
-
-                <div class="col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10">
-                      <div class="wow fadeInUp section-title" data-wow-delay="0.3s">
-                          <h2 class="city">Seattle</h2>
-                          <img src="images/weathericons/09n.png" class="weather-image" alt="weather">
-                          <h1 class="temperature" id="temperatureSEA" onclick="switchUnits(); return false;">
-                            <a id="weatherSEA" class="degree">55°F</a>
-                          </h1>
-
-                          <h4 class="state-country">Washington, United States</h4>
-                          <h4 class="day-date-time" id="displaySEAMoment">Thu, December 28th 10:14 PM</h4>
-
-                      </div>
-                  <div class="contact-form wow fadeInUp" data-wow-delay="0.7s">
-                  </div>
-                </div>
-
-              </div>
-          </div>
-        </section>
-
-        <!-- San Francisco section -->
-        <section class="contact" class="parallax-section">
-          <div class="overlay"></div>
-            <div class="container">
-              <div class="row">
-
-                <div class="col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10">
-                      <div class="wow fadeInUp section-title" data-wow-delay="0.3s">
-                          <h2 class="city">San Francisco</h2>
-                          <img src="images/weathericons/10d.png" class="weather-image" alt="weather">
-                          <h1 class="temperature" id="temperatureSFO" onclick="switchUnits(); return false;">
-                            <a id="weatherSFO" class="degree">52°F</a>
-                          </h1>
-                         
-                          <h4 class="state-country">California, United States</h4>
-                          <h4 class="day-date-time" id="displaySFOMoment">Thu, December 28th 10:14 PM</h4>
-
-                      </div>
-                  <div class="contact-form wow fadeInUp" data-wow-delay="0.7s">
-                  </div>
-                </div>
-
-              </div>
-          </div>
-        </section>
-
-
-        <!-- Austin section -->
-        <section class="contact" class="parallax-section">
-          <div class="overlay2"></div>
-            <div class="container">
-              <div class="row">
-
-                <div class="col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10">
-                      <div class="wow fadeInUp section-title" data-wow-delay="0.3s">
-                          <h2 class="city">Austin</h2>
-                          <img src="images/weathericons/03d.png" class="weather-image" alt="weather">                   
-                          <h1 class="temperature" id="temperatureAUS" onclick="switchUnits(); return false;">
-                            <a id="weatherAUS" class="degree">50°F</a>                 
-                          </h1>
-
-                          <h4 class="state-country">Texas, United States</h4>
-                          <h4 class="day-date-time" id="displayAUSMoment">Thu, December 28th 10:14 PM</h4>
-
-                      </div>
-                  <div class="contact-form wow fadeInUp" data-wow-delay="0.7s">
-                  </div>
-                </div>
-
-              </div>
-          </div>
-        </section>
-
-        <!-- Houston section -->
-        <section class="contact" class="parallax-section">
-          <div class="overlay"></div>
-            <div class="container">
-              <div class="row">
-
-                <div class="col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10">
-                      <div class="wow fadeInUp section-title" data-wow-delay="0.3s">
-                          <h2 class="city">Houston</h2>
-                          <img src="images/weathericons/02d.png" class="weather-image" alt="weather">
-                          <h1 class="temperature" id="temperatureHOU" onclick="switchUnits(); return false;">
-                            <a id="weatherHOU" class="degree">46°F</a>  
-                          </h1>
-                          <h4 class="state-country">Texas, United States</h4>
-                          <h4 class="day-date-time" id="displayHOUMoment">Thu, December 28th 10:14 PM</h4>
-
-                      </div>
-                  <div class="contact-form wow fadeInUp" data-wow-delay="0.7s">
-                  </div>
-                </div>
-
-              </div>
-          </div>
-        </section>
-
-
-        <!-- Atlanta section -->
-        <section class="contact" class="parallax-section">
-          <div class="overlay2"></div>
-            <div class="container">
-              <div class="row">
-
-                <div class="col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10">
-                      <div class="wow fadeInUp section-title" data-wow-delay="0.3s">
-                          <h2 class="city">Atlanta</h2>
-                          <img src="images/weathericons/04n.png" class="weather-image" alt="weather">
-                          <h1 class="temperature" id="temperatureATL" onclick="switchUnits(); return false;">
-                            <a id="weatherATL" class="degree">38°F</a>
-                          </h1>
-
-                          <h4 class="state-country">Georgia, United States</h4>
-                          <h4 class="day-date-time" id="displayATLMoment">Thu, December 28th 10:14 PM</h4>
-
-                      </div>
-                  <div class="contact-form wow fadeInUp" data-wow-delay="0.7s">
-                  </div>
-                </div>
-
-              </div>
-          </div>
-        </section>
-
-
-        <!-- Denver section -->
-        <section class="contact" class="parallax-section">
-          <div class="overlay"></div>
-            <div class="container">
-              <div class="row">
-
-                <div class="col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10">
-                      <div class="wow fadeInUp section-title" data-wow-delay="0.3s">
-                          <h2 class="city">Denver</h2>
-                          <img src="images/weathericons/01d.png" class="weather-image" alt="weather">
-                          <h1 class="temperature" id="temperatureDEN" onclick="switchUnits(); return false;">
-                            <a id="weatherDEN" class="degree">35°F</a>
-                          </h1>
-
-                          <h4 class="state-country">Colorado, United States</h4>
-                          <h4 class="day-date-time" id="displayDENMoment">Thu, December 28th 10:14 PM</h4>
-
-                      </div>
-                  <div class="contact-form wow fadeInUp" data-wow-delay="0.7s">
-                  </div>
-                </div>
-
-              </div>
-          </div>
-        </section>
 
         <!-- Chicago section -->
         <section class="contact" class="parallax-section">
@@ -473,7 +476,7 @@
                           <h2 class="city">Chicago</h2>
                           <img src="images/weathericons/13d.png" class="weather-image" alt="weather">
                           <h1 class="temperature" id="temperatureCHI" onclick="switchUnits(); return false;">
-                            <a id="weatherCHI" class="degree">22°F</a>
+                            <a id="weatherCHI" class="degree">23°F</a>
                           </h1>
 
                           <h4 class="state-country">Illinois, United States</h4>
@@ -487,7 +490,6 @@
               </div>
           </div>
         </section>
-
     <!-- END of Drag Container--> 
 
     <!-- Add a new city button-->
@@ -546,6 +548,8 @@
 <script src="js/jquery-ui/ui/scroll-parent.js"></script>
 <script src="js/jquery-ui/ui/widgets/mouse.js"></script>-->
 
+<script type='text/javascript' src='js/config/config.js'></script>
+
 <script src="js/bootstrap.min.js" data-modules="disable-selection">
 		$( "#sortable" ).sortable();
 		$( "#sortable" ).disableSelection();
@@ -574,9 +578,12 @@
 <!--Jake.js object -->
 <script src="js/jake.js"></script>
 
-
 <!--Weatherly JS-->
 <script src="js/weatherly.js"></script>
+
+<!-- SweetAlerts(SWAL) for aesthetically pleasing notifications. -->
+<!-- CDN to test setting up notifications-->
+<!--<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>-->
 
 <!-- Drag N Drop functionality -->
 <!--<script src="js/dragNdrops.js"></script>-->
@@ -603,6 +610,9 @@
     };
 
   };
+
+  // declaring variables that point to keys in the config file.
+  var owa_key = config.OWA_KEY;
 
   // instantiate a moment object
   var NowMoment = moment();
@@ -790,3 +800,4 @@
       //   setInterval(update, 1000);
   // })();-->
 <!--</script>-->
+
