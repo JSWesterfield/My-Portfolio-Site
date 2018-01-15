@@ -53,7 +53,13 @@
               var weatherTemperature = (roundTemperature((response.main.temp) * 9/5 + 32));
               //verification, delete later if you see this.
               console.log('Your current weather for your location is: ' + weatherTemperature);
-              var userWeatherIcon = response.weather.icon;
+              
+              var userWeatherIcon = "<img src='http://openweathermap.org/img/w/" + response.weather[0].icon + ".png' alt='Icon depicting current weather.'>";
+              console.log('Your current weather icon code for your location: ' + response.weather[0].icon);
+
+              var iconUrl = "http://openweathermap.org/img/w/" + userWeatherIcon + ".png";
+              $("#weatherIconSJC").html("<img src='" + iconUrl  + "'>");
+              $("#weatherIconLAX").html("<img src='http://openweathermap.org/img/w/" + response.weather[0].icon + ".png' alt='Icon depicting current weather.'>");
 
               weatherData.temperatureValue = weatherTemperature;
 

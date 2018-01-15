@@ -47,7 +47,6 @@ h1,h2,h3, .btn {
 }
 
 h1 {
-  font-weight: bold;
   font-size: 40px;
   margin-top: 0px;
 }
@@ -118,16 +117,6 @@ a:focus {
 
 
 /* All Section styles */
-/*To change the size of the contact section */
-.contact {
-  color: #656565;
-  padding-top: 10px;
-  padding-bottom: 5px;
-}
-
-.contact {
-  text-align: center;
-}
 
 /* section title */
 .section-title {
@@ -137,7 +126,6 @@ a:focus {
 .contact .section-title {
   color: #f0f0f0;
 }
-
 
 /* Preloader section  */
 .preloader {
@@ -251,7 +239,6 @@ a.project-text {
     display: block;
 }
 
-
 /* Contact section  */
 .contact {
   background: url('../images/weatherly6.jpg') 50% 0 repeat-y fixed;
@@ -263,6 +250,7 @@ a.project-text {
   border: black 1px solid;
   padding: 1px;
   cursor: pointer;
+  text-align: center;
   font-family: verdana, tahoma, arial;
   background-color: rgb(238, 238, 238);
 }
@@ -456,11 +444,6 @@ footer strong {
     font-size: 30px;
   }
 
-  .contact {
-    padding-top: 80px;
-    padding-bottom: 80px;
-  }
-
   #menu .media-object img {
     width: 100%;
     padding-bottom: 14px;
@@ -486,8 +469,6 @@ footer strong {
   font-family: 'Montserrat', sans-serif;
   font-weight: 100;
 }
-
-
 
 /* Add a hover effect if you want */
 .fa:hover {
@@ -576,10 +557,13 @@ canvas {
 }
 
 .weather-image {
+  text-shadow: 0 0 10px green;
+  width: 50px !important;
+  height:50px !important;
+  position: relative !important;
   size: 5px;
-  width: 50px;
-  height:50px;
-  float: right;  
+  float: right;
+  
 }
 
 h2.city, h4.state-country, h2#userCity, h4#day-date-time, .day-date-time {
@@ -612,12 +596,8 @@ h1.title {
   position: absolute;
 }
 
+
 /* END of Test Drag and Drop section */
-
-
-/* Change color in child node of DOM, test */
-
-/* End of color change test*/
 
 /*!
  * jQuery UI Sortable 1.12.1
@@ -633,8 +613,9 @@ h1.title {
 }
 
 #center-sortable {
-  margin-top: 8px;  
-  width: 100%;
-  border: 3px solid green;
+    margin-top: 8px;  
+    width: 100%;  
+    border: 3px solid green;
 }
 
+/* SkyCon Weather Icons  */

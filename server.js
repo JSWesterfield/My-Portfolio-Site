@@ -1,13 +1,17 @@
 
-//adding this node.js express 'module', using the require function/method
+// adding this node.js express 'module', using the require function/method
 var express = require('express');
 
-//declare and initialize an 'app' variable to use the new 'express' method.
+// declare and initialize an 'app' variable to use the new 'express' method.
 var app = express();
 // var port = 3000;
 
-//Moment.JS for time/date keeping
+// Moment.JS for time/date keeping
 var moment = require('moment');
+
+// jQuery in code
+var $ = require('jquery');
+
 
 /**
  * install body-parser first.
