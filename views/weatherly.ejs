@@ -32,7 +32,7 @@
     <!--<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>-->
     <!--<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,600' rel='stylesheet' type='text/css'>-->
     <style>
-      	
+
     </style>
   </head>
 
@@ -52,6 +52,8 @@
             <div class="col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10">
                   <div class="wow fadeInUp section-title" data-wow-delay="0.3s">
                       <h1 class="title">Weatherly Web App</12>
+                                
+                      <!--<img src="images/weathericons/open-weather-icons/10d.svg" class="weather-image" alt="weather">-->
                   </div>
               <div class="contact-form wow fadeInUp" data-wow-delay="0.7s">
               </div>
@@ -64,7 +66,7 @@
     <!-- START of Drag container -->
       <!-- User Moment-->
         <section class="contact" class="parallax-section">
-          <div class="overlay"></div>
+          <div class="overlay" id="overlayUser"></div>
             <div class="container">
             <!-- commented out the userWeather or the displayed weather from the Flickr API for this app until I figure out how to render this picture to the appropriate size(smaller? Mid full lenght page for partial cityscape?)-->
               <div class="row">
@@ -73,8 +75,11 @@
                       <div class="wow fadeInUp section-title" data-wow-delay="0.3s">
                           <h2 class="city" id="userCity">Current City</h2>
                           <!--<canvas id="userWeatherIcon" width="128" height="128"></canvas>-->
+                          <figure class="icons">
+                                <canvas class="weather-image" id="clear-day" width="64" height="64" alt="weather"></canvas>
+                          </figure>
                           
-                          <img src="images/weathericons/open-weather-icons/02d.svg" class="weather-image" alt="weather">
+                          <!--<img src="images/weathericons/open-weather-icons/02d.svg" class="weather-image" alt="weather">-->
                           <!-- shows temperature in celsius, switchUnits() function used to convert and toggle between Celsius and Fahrenheit --> 
                           <h1 class="temperature" id="userTemperature" onclick="switchUnits(); return false;">
                             <!--Turned this into a a tag so it keeps its shape, and inherits from the class temperature.-->   
@@ -96,15 +101,18 @@
 
         <!-- San Jose section -->
         <section class="contact" class="parallax-section">
-          <div class="overlay2"></div>
+          <div class="overlay2" id="overlaySJC"></div>
             <div class="container">
               <div class="row">
 
                 <div class="col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10">
                       <div class="wow fadeInUp section-title" data-wow-delay="0.3s">
                           <h2 class="city">San Jose</h2>
-                          <img src="images/weathericons/open-weather-icons/01d.svg" class="weather-image" id="weatherIconLAX" alt="weather">
-                          <h1 class="temperature" id="temperatureSJC" onclick="switchUnits(); return false;">
+                          <figure class="icons">
+                            <canvas class="weather-image" id="clear-day2" width="64" height="64" alt="weather"></canvas>
+                          </figure>
+                          <!--<img src="images/weathericons/open-weather-icons/01d.svg" class="weather-image" id="weatherIconLAX" alt="weather">-->
+                          <h1 class="temperature" id="temperatureSJC">
                             <a id="weatherSJC" class="degree">70°F</a>
                           </h1>
 
@@ -123,14 +131,16 @@
         <!-- Los Angeles section -->
         <section class="contact" class="parallax-section">
           <div class="overlay"></div>
-            <div class="container">
+            <div class="container" id="overlayLAX">
               <div class="row">
-
                 <div class="col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10">
                       <div class="wow fadeInUp section-title" data-wow-delay="0.3s">
                           <h2 class="city">Los Angeles</h2>
-                          <img src="images/weathericons/open-weather-icons/02d.svg" class="weather-image" id="weatherIconLAX" alt="weather">                          
-                          <h1 class="temperature" id="temperatureLAX" onclick="switchUnits(); return false;">
+                          <figure class="icons">
+                                    <canvas class="weather-image" id="partly-cloudy-day" width="64" height="64" alt="weather"></canvas>
+                          </figure>
+                          <!--<img src="images/weathericons/open-weather-icons/02d.svg" class="weather-image" id="weatherIconLAX" alt="weather">                          -->
+                          <h1 class="temperature" id="temperatureLAX">
                             <a id="weatherLAX" class="degree">67°F</a>
                           </h1>
                           <h4 class="state-country">California, United States</h4>
@@ -147,15 +157,18 @@
 
         <!-- San Francisco section -->
         <section class="contact" class="parallax-section">
-          <div class="overlay2"></div>
+          <div class="overlay2" id="overSFO"></div>
             <div class="container">
               <div class="row">
 
                 <div class="col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10">
                       <div class="wow fadeInUp section-title" data-wow-delay="0.3s">
                           <h2 class="city">San Francisco</h2>
-                          <img src="images/weathericons/open-weather-icons/10d.svg" class="weather-image" alt="weather">
-                          <h1 class="temperature" id="temperatureSFO" onclick="switchUnits(); return false;">
+                          <figure class="icons">
+                                <canvas class="weather-image" id="rain" width="64" height="64" alt="weather"></canvas>
+                          </figure>
+                          <!--<img src="images/weathericons/open-weather-icons/10d.svg" class="weather-image" alt="weather">-->
+                          <h1 class="temperature" id="temperatureSFO">
                             <a id="weatherSFO" class="degree">64°F</a>
                           </h1>
                          
@@ -173,15 +186,18 @@
 
         <!-- Miami section -->
         <section class="contact" class="parallax-section">
-          <div class="overlay"></div>
+          <div class="overlay" id="overlayMIA"></div>
             <div class="container">
               <div class="row">
 
                 <div class="col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10">
                       <div class="wow fadeInUp section-title" data-wow-delay="0.3s">
                           <h2 class="city">Miami</h2>
-                          <img src="images/weathericons/open-weather-icons/01d.svg" class="weather-image" alt="weather">                          
-                          <h1 class="temperature" id="temperatureMIA" onclick="switchUnits(); return false;">
+                          <figure class="icons">
+                                    <canvas class="weather-image" id="clear-day3" width="64" height="64" alt="weather"></canvas>
+                          </figure>
+                          <!--<img src="images/weathericons/open-weather-icons/01d.svg" class="weather-image" alt="weather">                          -->
+                          <h1 class="temperature" id="temperatureMIA">
                             <a id="weatherMIA" class="degree">62°F</a>
                           </h1>
                           <h4 class="state-country">Florida, United States</h4>
@@ -199,15 +215,18 @@
 
         <!-- Austin section -->
         <section class="contact" class="parallax-section">
-          <div class="overlay2"></div>
+          <div class="overlay2" id="overlayAUS"></div>
             <div class="container">
               <div class="row">
 
                 <div class="col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10">
                       <div class="wow fadeInUp section-title" data-wow-delay="0.3s">
                           <h2 class="city">Austin</h2>
-                          <img src="images/weathericons/open-weather-icons/03d.svg" class="weather-image" alt="weather">                   
-                          <h1 class="temperature" id="temperatureAUS" onclick="switchUnits(); return false;">
+                          <figure class="icons">
+                            <canvas class="weather-image" id="cloudy" width="64" height="64" alt="weather"></canvas>
+                          </figure>
+                          <!--<img src="images/weathericons/open-weather-icons/03d.svg" class="weather-image" alt="weather">                   -->
+                          <h1 class="temperature" id="temperatureAUS">
                             <a id="weatherAUS" class="degree">58°F</a>                 
                           </h1>
 
@@ -225,15 +244,18 @@
 
         <!-- Dallas section -->
         <section class="contact" class="parallax-section">
-          <div class="overlay"></div>
+          <div class="overlay" id="overlayDFW"></div>
             <div class="container">
               <div class="row">
 
                 <div class="col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10">
                       <div class="wow fadeInUp section-title" data-wow-delay="0.3s">
                           <h2 class="city">Dallas</h2>
-                          <img src="images/weathericons/open-weather-icons/03d.svg" class="weather-image" alt="weather">
-                          <h1 class="temperature" id="temperatureDFW" onclick="switchUnits(); return false;">
+                          <figure class="icons">
+                            <canvas class="weather-image" id="fog2" width="64" height="64" alt="weather"></canvas>
+                          </figure>
+                          <!--<img src="images/weathericons/open-weather-icons/03d.svg" class="weather-image" alt="weather">-->
+                          <h1 class="temperature" id="temperatureDFW">
                             <a id="weatherDFW" class="degree">57°F</a>
                           </h1>
 
@@ -249,17 +271,21 @@
           </div>
         </section>
 
+
         <!-- Denver section -->
         <section class="contact" class="parallax-section">
-          <div class="overlay2"></div>
+          <div class="overlay2" id="overlayDEN"></div>
             <div class="container">
               <div class="row">
 
                 <div class="col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10">
                       <div class="wow fadeInUp section-title" data-wow-delay="0.3s">
                           <h2 class="city">Denver</h2>
-                          <img src="images/weathericons/open-weather-icons/01d.svg" class="weather-image" alt="weather">
-                          <h1 class="temperature" id="temperatureDEN" onclick="switchUnits(); return false;">
+                          <figure class="icons">
+                            <canvas class="weather-image" id="clear-day4" width="64" height="64" alt="weather"></canvas>
+                          </figure>
+                          <!--<img src="images/weathericons/open-weather-icons/01d.svg" class="weather-image" alt="weather">-->
+                          <h1 class="temperature" id="temperatureDEN">
                             <a id="weatherDEN" class="degree">56°F</a>
                           </h1>
 
@@ -277,15 +303,18 @@
 
         <!-- Seattle section -->
         <section class="contact" class="parallax-section">
-          <div class="overlay"></div>
+          <div class="overlay" id="overlaySEA"></div>
             <div class="container">
               <div class="row">
 
                 <div class="col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10">
                       <div class="wow fadeInUp section-title" data-wow-delay="0.3s">
                           <h2 class="city">Seattle</h2>
-                          <img src="images/weathericons/open-weather-icons/09n.svg" class="weather-image" alt="weather">
-                          <h1 class="temperature" id="temperatureSEA" onclick="switchUnits(); return false;">
+                          <figure class="icons">
+                            <canvas class="weather-image" id="rain2" width="64" height="64" alt="weather"></canvas>
+                          </figure>
+                          <!--<img src="images/weathericons/open-weather-icons/09n.svg" class="weather-image" alt="weather">-->
+                          <h1 class="temperature" id="temperatureSEA">
                             <a id="weatherSEA" class="degree">54°F</a>
                           </h1>
 
@@ -303,15 +332,18 @@
 
         <!-- Houston section -->
         <section class="contact" class="parallax-section">
-          <div class="overlay2"></div>
+          <div class="overlay2" id="overlayHOU"></div>
             <div class="container">
               <div class="row">
 
                 <div class="col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10">
                       <div class="wow fadeInUp section-title" data-wow-delay="0.3s">
-                          <h2 class="city">Houston</h2>
-                          <img src="images/weathericons/open-weather-icons/02d.svg" class="weather-image" alt="weather">
-                          <h1 class="temperature" id="temperatureHOU" onclick="switchUnits(); return false;">
+                          <h2 class="city">Houston</h2>         
+                          <figure class="icons">
+                                <canvas class="weather-image" id="partly-cloudy-day2" width="64" height="64" alt="weather"></canvas>
+                          </figure>
+                          <!--<img src="images/weathericons/open-weather-icons/02d.svg" class="weather-image" alt="weather">-->
+                          <h1 class="temperature" id="temperatureHOU">
                             <a id="weatherHOU" class="degree">54°F</a>  
                           </h1>
                           <h4 class="state-country">Texas, United States</h4>
@@ -328,15 +360,18 @@
 
         <!-- Atlanta section -->
         <section class="contact" class="parallax-section">
-          <div class="overlay"></div>
+          <div class="overlay" id="overlayATL"></div>
             <div class="container">
               <div class="row">
 
                 <div class="col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10">
                       <div class="wow fadeInUp section-title" data-wow-delay="0.3s">
                           <h2 class="city">Atlanta</h2>
-                          <img src="images/weathericons/open-weather-icons/04n.svg" class="weather-image" alt="weather">
-                          <h1 class="temperature" id="temperatureATL" onclick="switchUnits(); return false;">
+                          <figure class="icons">
+                                <canvas class="weather-image" id="cloudy3" width="64" height="64" alt="weather"></canvas>
+                          </figure>
+                          <!--<img src="images/weathericons/open-weather-icons/04n.svg" class="weather-image" alt="weather">-->
+                          <h1 class="temperature" id="temperatureATL">
                             <a id="weatherATL" class="degree">42°F</a>
                           </h1>
 
@@ -354,15 +389,18 @@
 
         <!-- Charlotte section -->
         <section class="contact" class="parallax-section">
-          <div class="overlay2"></div>
+          <div class="overlay2" id="overlayCLT"></div>
             <div class="container">
               <div class="row">
 
                 <div class="col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10">
                       <div class="wow fadeInUp section-title" data-wow-delay="0.3s">
                           <h2 class="city">Charlotte</h2>
-                          <img src="images/weathericons/open-weather-icons/04n.svg" class="weather-image" alt="weather">
-                          <h1 class="temperature" id="temperatureCLT" onclick="switchUnits(); return false;">
+                          <figure class="icons">
+                                <canvas class="weather-image" id="cloudy4" width="64" height="64" alt="weather"></canvas>
+                          </figure>
+                          <!--<img src="images/weathericons/open-weather-icons/04n.svg" class="weather-image" alt="weather">-->
+                          <h1 class="temperature" id="temperatureCLT">
                             <a id="weatherCLT" class="degree">41°F</a>
                           </h1>
 
@@ -380,15 +418,18 @@
 
         <!-- Raleigh section -->
         <section class="contact" class="parallax-section">
-          <div class="overlay"></div>
+          <div class="overlay" id="overlayRDV"></div>
             <div class="container">
               <div class="row">
 
                 <div class="col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10">
                       <div class="wow fadeInUp section-title" data-wow-delay="0.3s">
                           <h2 class="city">Raleigh</h2>
-                          <img src="images/weathericons/open-weather-icons/04n.svg" class="weather-image" alt="weather">
-                          <h1 class="temperature" id="temperatureRDV" onclick="switchUnits(); return false;">
+                          <figure class="icons">
+                                <canvas class="weather-image" id="partly-cloudy-day3" width="64" height="64" alt="weather"></canvas>
+                          </figure>
+                          <!--<img src="images/weathericons/open-weather-icons/02d.svg" class="weather-image" alt="weather">   -->
+                          <h1 class="temperature" id="temperatureRDV">
                             <a id="weatherRDV" class="degree">39°F</a>
                           </h1>
                           
@@ -406,15 +447,18 @@
 
         <!-- Washington, D.C. section -->
         <section class="contact" class="parallax-section">
-          <div class="overlay2" id=""></div>
+          <div class="overlay2" id="overlayWAS"></div>
             <div class="container">
               <div class="row">
 
                 <div class="col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10">
                       <div class="wow fadeInUp section-title" data-wow-delay="0.3s">
                           <h2 class="city">Washington, D.C.</h2>
-                          <img src="images/weathericons/open-weather-icons/04n.svg" class="weather-image" alt="weather">
-                          <h1 class="temperature" id="temperatureWAS" onclick="switchUnits(); return false;">
+                          <figure class="icons">
+                                <canvas class="weather-image" id="sleet" width="64" height="64" alt="weather"></canvas>
+                          </figure>
+                          <!--<img src="images/weathericons/open-weather-icons/04n.svg" class="weather-image" alt="weather">-->
+                          <h1 class="temperature" id="temperatureWAS">
                             <a id="weatherWAS" class="degree">29°F</a>
                           </h1>
                           <h4 class="state-country">United States</h4>
@@ -431,15 +475,18 @@
 
         <!-- Baltimore section -->
         <section class="contact" class="parallax-section">
-          <div class="overlay"></div>
+          <div class="overlay" id="overlayBWI"></div>
             <div class="container">
               <div class="row">
 
                 <div class="col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10">
                       <div class="wow fadeInUp section-title" data-wow-delay="0.3s">
                           <h2 class="city">Baltimore</h2>
-                          <img src="images/weathericons/open-weather-icons/03d.svg" class="weather-image" alt="weather">
-                          <h1 class="temperature" id="temperatureBWI" onclick="switchUnits(); return false;">
+                          <figure class="icons">
+                                <canvas class="weather-image" id="fog" width="64" height="64" alt="weather"></canvas>
+                          </figure>
+                          <!--<img src="images/weathericons/open-weather-icons/03d.svg" class="weather-image" alt="weather">-->
+                          <h1 class="temperature" id="temperatureBWI">
                             <a id="weatherBWI" class="degree">29°F</a>
                           </h1>
 
@@ -457,15 +504,18 @@
 
         <!-- Chicago section -->
         <section class="contact" class="parallax-section">
-          <div class="overlay2"></div>
+          <div class="overlay2" id="overlayCHI"></div>
             <div class="container">
               <div class="row">
 
                 <div class="col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10">
                       <div class="wow fadeInUp section-title" data-wow-delay="0.3s">
                           <h2 class="city">Chicago</h2>
-                          <img src="images/weathericons/open-weather-icons/13d.svg" class="weather-image" alt="weather">
-                          <h1 class="temperature" id="temperatureCHI" onclick="switchUnits(); return false;">
+                          <figure class="icons">
+                                <canvas class="weather-image" id="snow" width="64" height="64" alt="weather"></canvas>
+                          </figure>
+                          <!--<img src="images/weathericons/open-weather-icons/13d.svg" class="weather-image" alt="weather">-->
+                          <h1 class="temperature" id="temperatureCHI">
                             <a id="weatherCHI" class="degree">23°F</a>
                           </h1>
 
@@ -514,7 +564,10 @@
               <a href="https://www.linkedin.com/in/jakewesterfield1/" target="_blank" class="fa fa-linkedin"></a>
               <a href="https://github.com/JSWesterfield" target="_blank" class="fa fa-github"></a>
               <br/> Powered by 
-                <a href="http://flickr.com/services/api/">Flickr</a> and 
+                <a href="http://flickr.com/services/api/">Flickr</a>, 
+                <a href="https://rawgithub.com/darkskyapp/skycons/master/skycons.js">SkyCons</a>, 
+                <a href="http://www.momentjs.com/">MomentJS</a>, 
+                <a href="http://ip-api.net">IP-API</a>, and 
                 <a href="http://openweathermap.org">Openweathermap.org</a>
                 <a id="image-source" href="#">Image source</a>
             </p>
@@ -572,9 +625,6 @@
 <!-- CDN to test setting up notifications-->
 <!--<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>-->
 
-<!-- Drag N Drop functionality -->
-<!--<script src="js/dragNdrops.js"></script>-->
-
 
 <!--Moment.JS for displaying current time-->
 <!--<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.7.0/moment.min.js" type="text/javascript"></script>-->
@@ -586,8 +636,9 @@
 <script src="js/moment-timezone-with-data-2010-2020/index.js" type="text/javascript">
 </script>
 
+<script src="js/weatherlyIcons.js" ></script>
 
-<script type="text/javascript" >
+<script type="text/javascript">
   //on page load run script
   jake.page.startUp = function() {
     
@@ -768,26 +819,4 @@
 
 
 
-<!--Moment.JS script for the page-->
-<!--<script type="text/javascript">-->
-  <!--// (function()
-  //   {
-  //     // instantiate a moment object
-  //     var NowMoment = moment();
-      
-  //     // instantiate a JavaScript Date object
-  //     var NowDate = new Date();
-      
-  //     // display value of moment object in #displayMoment div
-  //     var eDisplayMoment = document.getElementById('displayMoment');
-  //     eDisplayMoment.innerHTML = NowMoment;
-      
-      //created a genius update function, that's an IIFE, invokes immediately, to help up date my time, in 1 second intervals.
-      // var update;
-      //   (update = function() {
-      //     document.getElementById('displayMoment').innerHTML = moment().format('MMMM Do YYYY, h:mm:ss a');
-      //   })();
-      //   setInterval(update, 1000);
-  // })();-->
-<!--</script>-->
 
