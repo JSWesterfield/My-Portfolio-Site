@@ -548,7 +548,7 @@
                 </div>
             <div class="contact-form wow fadeInUp" data-wow-delay="0.8s">
               <form id="addCity" method="post" action="">
-                <input type="submit" class="form-control submit" onclick="inputFunction()" id="submitBtn" value="Add a New City +">
+                <input type="submit" class="form-control submit" onclick="underConstruction()" id="submitBtn" value="Add a New City +">
                 <input name="city-input" type="text" class="form-control" id="city-input" placeholder="Enter City" required>
               </form>
             </div>
@@ -626,11 +626,6 @@
 <!--Weatherly JS-->
 <script src="js/weatherly.js"></script>
 
-<!-- SweetAlerts(SWAL) for aesthetically pleasing notifications. -->
-<!-- CDN to test setting up notifications-->
-<!--<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>-->
-
-
 <!--Moment.JS for displaying current time-->
 <!--<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.7.0/moment.min.js" type="text/javascript"></script>-->
 <script src="js/moment/moment.js" type="text/javascript">
@@ -640,20 +635,29 @@
 <!-- Added w/ NPM: npm install moment-timezone-with-data-2010-2020 dashdashsave -->
 <script src="js/moment-timezone-with-data-2010-2020/index.js" type="text/javascript">
 </script>
-<script src="https://rawgithub.com/darkskyapp/skycons/master/skycons.js"></script>
+<!--<script src="https://rawgithub.com/darkskyapp/skycons/master/skycons.js"></script>-->
 
 <script src="js/weatherlyIcons.js" ></script>
+
+<!-- SweetAlerts(SWAL) for aesthetically pleasing notifications. -->
+<!-- CDN to test setting up notifications-->
+<!--<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>-->
+<script src="js/sweetalert/dist/sweetalert.min.js"></script>
+
 
 <script type="text/javascript">
   //on page load run script
   jake.page.startUp = function() {
     
     console.log("I am currently executing the page start up");
-    function hideInputFunction() {
+    var hideInputFunction = function() {
         var input = document.getElementById("city-input");
         var hidden = input.syle.display == "none";
     };
+  };
 
+  var underConstruction = function() {
+      swal("Oops!", "Sorry, this feature is still currently under construction", "error");
   };
     
   // declaring variables that point to keys in the config file.

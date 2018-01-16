@@ -1,4 +1,4 @@
-
+    
     var weatherData = {
       city: document.querySelector ("#userCity"),
       state: document.querySelector ("#userState"), 
@@ -32,11 +32,17 @@
     // get weather data from Open Weather API, use geolocation 
     var openWeatherMap = 'http://api.openweathermap.org/data/2.5/weather'
     $.getJSON(getIP).done(function(location) {
+        if(!location) {
+          //error, couldn't find location, execute sweetalert 'error' function
+          swal("Oops!", "Something went wrong on the page!", "error");
+        }
+        else { 
         //show location object in console, to pull out 'regionName' or the state for rendering in html
         console.log(location);
         console.log("Your region/state name is: " + location.regionName);
           var regionName = location.regionName;
           weatherData.state.innerHTML = regionName + ", ";
+        } 
         $.getJSON(openWeatherMap, {
             lat: location.lat,
             lon: location.lon,
@@ -65,12 +71,11 @@
               $("#weatherIconLAX").html("<img src='http://openweathermap.org/img/w/" + response.weather[0].icon + ".png' alt='Icon depicting current weather.'>");
 
               weatherData.temperatureValue = weatherTemperature;
-
               // took out weatherSimpleDescription in the loadBackground function parameter, replaced weatherDescription
-              //loadBackground(position.latitude, position.longitude, weatherDescription);
+              // loadBackground(position.latitude, position.longitude, weatherDescription);
+              // weatherData.icon.innerHTML = userWeatherIcon;
               weatherData.city.innerHTML = cityName;
               weatherData.temperature.innerHTML = weatherTemperature + weatherData.units;
-              //weatherData.icon.innerHTML = userWeatherIcon;
               weatherData.weather.innerHTML = weatherDescription;
             }, false);
 

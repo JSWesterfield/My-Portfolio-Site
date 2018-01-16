@@ -31,7 +31,7 @@ http://www.tooplate.com/view/2083-steak-house
 <link rel="stylesheet" href="css/animate.min.css">
 <link rel="stylesheet" href="css/font-awesome.min.css">
 <!-- Add icon library -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">-->
 
 
 <link rel="stylesheet" href="css/nivo-lightbox.css">
@@ -42,8 +42,8 @@ http://www.tooplate.com/view/2083-steak-house
 
 <link rel="stylesheet" href="css/style.css">
 
-<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
-<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,600' rel='stylesheet' type='text/css'>
+<!--<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,600' rel='stylesheet' type='text/css'>-->
 
 </head>
 <body id="top" data-spy="scroll" data-target=".navbar-collapse" data-offset="50" class="parallax-section">
@@ -473,7 +473,7 @@ http://www.tooplate.com/view/2083-steak-house
                                 </div>
                             </a>
                           </div>
-                          <h3>VideoChat App</h3> <!--Replace with ArtFind link-->
+                          <h3>VideoChat App</h3> 
                         </div>
 
 
@@ -528,13 +528,14 @@ http://www.tooplate.com/view/2083-steak-house
                 <h2>Say hello</h2>
                 <h4>Always ready to serve you!</h4>
             </div>
+
 				<div class="contact-form wow fadeInUp" data-wow-delay="0.7s">
           <!--form will do a post call to the /addMessage endpoint-->
-					<form id="comment-form" method="post" action="/addMessage">
+					<form id="comment-form" method="post">
 						<input name="name" type="text" class="form-control" id="formName" placeholder="Your Name" required>
 						<input name="email" type="email" class="form-control" id="formEmail" placeholder="Your Email" required>
 						<textarea name="message" class="form-control" id="formContent" placeholder="Message" rows="5" required></textarea>
-						<input type="submit" class="form-control submit" id="submitBtn"  value="SEND MESSAGE">
+						<input type="submit" class="form-control submit" id="submitBtn" onclick="underConstruction()" value="SEND MESSAGE">
 					</form>
 				</div>
 			</div>
@@ -552,7 +553,7 @@ http://www.tooplate.com/view/2083-steak-house
               <div class="wow fadeInUp col-md-4 col-sm-4" data-wow-delay="1.3s">
                 <!--<img width="320" src="images/googlemaps.jpg"" alt="Google_Map_Of_Denver, CO">-->
                 <!--Add a function here that executes when http exists but if not connection is made it will then display a .jpg image of the same map.-->
-                <script src='https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyDBpbYW2whIMMv3fu5oML-gSpPSCZxKt4I'>
+                <!--<script src='https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyDBpbYW2whIMMv3fu5oML-gSpPSCZxKt4I'>-->
                 </script>
                   <div style='overflow:hidden;height:300px;width:320px;'>
                     <div id='gmap_canvas' style='height:300px;width:320px;'>
@@ -590,7 +591,7 @@ http://www.tooplate.com/view/2083-steak-house
                             //infowindow.open(map,marker);
                         }
                           
-                        google.maps.event.addDomListener(window, 'load', init_map);
+                        // google.maps.event.addDomListener(window, 'load', init_map);
                       
                     </script>
               </div>
@@ -659,11 +660,10 @@ http://www.tooplate.com/view/2083-steak-house
 <script src="js/wow.min.js"></script> 
 
 <!--<script src="js/validate.js"> Add this js library later for validation-->
-
+<script src="js/sweetalert/dist/sweetalert.min.js"></script>
 <script src="js/siteCanvas.js"></script>
 <script src="js/custom.js"></script>
 <script src="js/jake.js"></script>
-
 
 </body>
 </html>
@@ -672,32 +672,26 @@ http://www.tooplate.com/view/2083-steak-house
 //Onpage load, show console message
 $( document ).ready(function() {
     console.log( "ready!" );
-        
-        //initiate shooter game
-        jake.page.handlers.initGame = function() {      
-              console.log('game initiated!');
-              //execute html script                                
-        }
-});
 
+    //initiate shooter game
+    jake.page.handlers.initGame = function() {      
+          console.log('game initiated!');                               
+    }
+
+});
 </script>
 
 <script type="text/javascript">
     //on page load run script
     jake.page.startUp = function() {
-      
       console.log("I am currently executing the page start up");
-      //Failed to figure out what the config.item object was. Need more detailed information on how to create a config.item object on Google.
-    //   if(jake.page.config.item){
-    //     jake.page.commentId = jake.page.config.item;
-    //     jake.services.comments.selectCommentById(jake.page.commentId, jake.page.handlers.tempResponseHold);
-    //   }
-    //   $("#submitBtn").on('click', jake.page.handlers.commentsCreate);
-    //   //$("#resetBtn").on('click', jake.page.handlers.resetForm); create reset button later, possibly
-    //   jake.page.clientSideValidation(); //initialize validation on form
-
-
     };
+
+    //error message
+    var underConstruction = function() {
+      swal("Oops!", "Sorry, this feature is still currently under construction", "error");
+    };
+
     //create comment function
     jake.page.handlers.commentsCreate = function(event) {
         event.preventDefault();

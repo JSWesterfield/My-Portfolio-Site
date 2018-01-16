@@ -6,104 +6,9 @@ var express = require('express');
 var app = express();
 // var port = 3000;
 
-// Moment.JS for time/date keeping
-var moment = require('moment');
-
-// jQuery in code
-var $ = require('jquery');
-
-// node-amd-loader adds the capability to load unmodified 
-// AMD (Asynchronous Module DefinitionAsynchronous Module Definition) from node.js applications
-var amdloader = require('amd-loader');
-
-/**
- * install body-parser first.
- *npm install body-parser --save
- * then uncomment bodyParser variable, this configuration will allow us to pass data for firstname and lastName in the body to the server.
- * mongoose will take a JSON obj & store it in the db. 
- * Our body-parser middleware, will convert the user's input into JSON format for us. 
- */
-//install body-parser first.
-//npm install body-parser --save
-// then uncomment bodyParser variable, this configuration will allow us to pass data for firstname and lastName in the body to the server.
-// var bodyParser = require('body-parser');
-// app.use(bodyParser.json());
-// app.use(bodyParser.urlencoded({ extended: true }));
-
-//update: added { useMongoClient: true}
-// var mongoose = require("mongoose");
-// mongoose.Promise = global.Promise;mongoose.createConnection("mongodb://localhost:27017/heroku-node", { useMongoClient: true});
-
-// app.post("/addname", (req, res) => {
-//     var myData = new User(req.body);
-//     //verify the req.body content.
-//     //console.log(JSON.stringify(req.body));
-//     //console.log('req.body.name', req.body['name']);
-//     myData.save()
-//     //on success
-//     .then(item => {
-//         res.send("item saved to the database");
-//     })
-//     //on failure
-//     .catch(err => {
-//         res.status(400).send("unable to save to database");
-//     });
-// });
-
-// // app.get("/", (req, res) => {
-// //     res.send("Hello World");
-// // });
-
-// app.use("/", (req, res) => {
-//  res.sendFile(__dirname + "/index.html");
-// });
-
-// app.listen(port, () => {
-//     console.log("Server listening on port " + port);
-// });
-// //var mongo = require('mongodb').MongoClient;
-
-// //Mongoose is a MongoDB object modeling tool(ORM) designed to work in an asynchronous environment.
-// //MongoDB, by default, runs on port 27017
-// //var mongoose = require("mongoose");
-// //mongoose.Promise = global.Promise;mongoose.connect("mongodb://localhost:27017/Portfolio-Site"); //changed to custom endpoint
-// //global.Promise;mongoose.connect("mongodb://localhost:27017/node-demo"); //original endpoint
-
-// //the content data of the form input fields in this format.
-// var Scheme;
-
-// var nameSchema = new mongoose.Schema({
-//     userName: String,
-//     userEmail: String,
-//     userMessage: String,
-//     //messageId: Schema.Types.ObjectId
-//  //firstName: String,
-//  //lastName: String,
-//  //messageId used for specific instances of a model in the database
-//  //messageId: Schema.Types.ObjectId
-// }); 
-
-// //model for our data, we'll call this model "DataInput"
-// var User = mongoose.model("User", nameSchema);
-
-
-// when I uncomment mongoDB will not render page via heroku.
-// var mongoDB = 'mongodb://insert_your_database_url_here';
-// mongoose.connect(mongoDB, {
-//     useMongoClient: true
-//  });
-//  var db = mongoose.connection;
-//  db.on('error', console.error.bind(console, 'MongoDB connection error:'));
-
-//require the routes on the page from routes.js
-// var routes = require('/routes')(app);
-// var routes = require('./routes')(app);
-// app.use('/routes', routes);
-
-
 // set the port of our application
 // process.env.PORT lets the port be set by Heroku
-var port = process.env.PORT || 8080;
+app.set('port', process.env.PORT || 8080);
 
 // set the view engine to ejs
 app.set('view engine', 'ejs');
@@ -111,13 +16,9 @@ app.set('view engine', 'ejs');
 // make express look in the public directory for assets (css/js/img)
 app.use(express.static(__dirname + '/public'));
 
-// make express look in my node_modules for kendo-ui css files
-app.use('/scripts', express.static(__dirname + '/node_modules/kendo-ui-core/'));
-
-
 // set the home page route
 app.get('/', function(req, res) {
- 
+    
    //ejs render automatically looks in the views folder
     res.render('index'); //actual portfolio page I want to render
 });
@@ -163,33 +64,23 @@ app.get('/test', function(req, res) {
     res.render('test');
 });
 
-app.listen(port, function() {
-    console.log('Our app is running on http://localhost:' + port);
+app.listen(app.get('port'), function() {
+    console.log('Our Express/Node app is running on http://localhost:' + 
+    app.get('port') + '; press Ctrl+C to terminate.');
 });
 
-//Future add Event Loop/Event-Driven observer within server.js.
-//Import events module
-//var events = require('events');
+// Custom 404 page
+app.use(function(req, res){
+        res.type('text/plain');
+        res.status(404);
+        res.send('404 - Not Found');
+});
 
-//Create an eventEmitter object 
-//var eventEmitter = new events.EventEmitter();
-
-// Create an event handler as follows
-//var connectHandler = function connect() {
-//  console.log('connection successful');
-
-//  //Fire the data_received event
-//  eventEmitter.emit('data_received');
-//}
-
-//Example event binding, but where do we place this? Looks like this goes within our regular JS file as a callback function
-//Bind event and even handler as follows
-//eventEmitter.on('click', connectHandler);
-
-
-
-//we can fire an event programmatically as follows: 
-//eventEmitter.emit('eventName');
-
-//'eventName' will be the the 'click'
+// Custom 500 page
+app.use(function(err, req, res, next){
+        console.error(err.stack);
+        res.type('text/plain');
+        res.status(500);
+        res.send('500 - Server Error');
+});
 
