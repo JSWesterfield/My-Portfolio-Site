@@ -12,6 +12,9 @@ var moment = require('moment');
 // jQuery in code
 var $ = require('jquery');
 
+// node-amd-loader adds the capability to load unmodified 
+// AMD (Asynchronous Module DefinitionAsynchronous Module Definition) from node.js applications
+var amdloader = require('amd-loader');
 
 /**
  * install body-parser first.
