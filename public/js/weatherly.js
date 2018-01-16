@@ -34,6 +34,9 @@
     $.getJSON(getIP).done(function(location) {
         //show location object in console, to pull out 'regionName' or the state for rendering in html
         console.log(location);
+        console.log("Your region/state name is: " + location.regionName);
+          var regionName = location.regionName;
+          weatherData.state.innerHTML = regionName + ", ";
         $.getJSON(openWeatherMap, {
             lat: location.lat,
             lon: location.lon,
@@ -67,7 +70,7 @@
               //loadBackground(position.latitude, position.longitude, weatherDescription);
               weatherData.city.innerHTML = cityName;
               weatherData.temperature.innerHTML = weatherTemperature + weatherData.units;
-              weatherData.icon.innerHTML = userWeatherIcon;
+              //weatherData.icon.innerHTML = userWeatherIcon;
               weatherData.weather.innerHTML = weatherDescription;
             }, false);
 
