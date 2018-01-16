@@ -79,6 +79,7 @@ app.use(function(req, res){
 // Custom 500 page
 app.use(function(err, req, res, next){
         console.error(err.stack);
+        console.log('unhandled error detected: ' + err.message);
         res.type('text/plain');
         res.status(500);
         res.send('500 - Server Error');
