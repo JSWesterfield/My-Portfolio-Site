@@ -23,7 +23,8 @@
     "mongodb": "3.0.0-rc0",
     "mongoose": "^4.13.6",
     "open-weather-icons": "0.0.7",
-    "skycons": "1.0.0"
+    "skycons": "1.0.0",
+    "sweetalert": "2.1.0"
   },
   "devDependencies": {}
 }
