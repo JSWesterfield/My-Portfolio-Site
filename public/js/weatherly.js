@@ -1,4 +1,8 @@
+var userWeatherData = {
 
+
+  
+}
     var weatherData = {
       city: document.querySelector ("#userCity"),
       state: document.querySelector ("#userState"), 
@@ -34,13 +38,7 @@
     //https://api.darksky.net/forecast/845ff6b003aba8bd1a9434ab040ef79c/37.8267,-122.4233
     // get geolocation data from ip via ip-api.com
     var getIP = 'http://ip-api.com/json/';
-    //Dark Sky API key: 845ff6b003aba8bd1a9434ab040ef79c
-    //OpenWeatherMap API key: 
-    // get weather data from Open Weather API, use geolocation 
-    // var openWeatherMap = 'http://api.openweathermap.org/data/2.5/weather'
-    // var darkSkyAPI = 'https://api.darksky.net/forecast/'
-    // var CORS = 'https://cors-anywhere.herokuapp.com/'
-    // var apiKey = '845ff6b003aba8bd1a9434ab040ef79c/'
+    //Dark Sky API key: 845ff6b003aba8bd1a9434ab040ef79c 
     $.getJSON(getIP).done(function(location) {
         //show location object in console, to pull out 'regionName' or the state for rendering in html
         console.log(location);
@@ -54,36 +52,25 @@
           var corsProxy = 'https://cors-anywhere.herokuapp.com/' //can I pass in a mode: 'no-cors' object in place of this proxy?
           var apiKey = '845ff6b003aba8bd1a9434ab040ef79c/' 
           var units = '/?units=si'
-          // will locationData be a string? location.lat object + string + location.lat object == String??  
-          // OR is locationData = (response object + string object + response object) ??
-          var locationData = location.lat + "," + location.lon; //should I use ( ) to wrap these 3 objects together?
+          var locationData = location.lat + "," + location.lon; 
           var requestObject = corsProxy + darkSkyURL + apiKey + locationData + units;
           //start Ajax call pass in the above data, in order:
           // CORS + DarkSky API URL + API KEY + locationData
           $.getJSON(requestObject).done(function(response) {
                 console.log(response);
-                //why do I need this positon object? 
-                var position = {
-                  latitude: response.latitude,
-                  longitude: response.longitude
-                };
                 var weatherDescription = response.currently.summary;
                 //set our initial temperature to Fahrenheit due to the response data return the unit of celsius as the response data
                 var weatherTemperature = (roundTemperature((response.currently.temperature) * 9/5 + 32));
-                //verification, delete later if you see this.
-                console.log('The current weather for your location is: ' + weatherTemperature);
-                
+
                 var userWeatherIcon = response.currently.icon;
-                console.log('Your current weather icon code for your location: ' + userWeatherIcon);
+                /* Set icons to the value of specific Skycons functions*/
+                var icons = new Skycons({"color": "white"});
+                icons.add(document.getElementById('userWeatherIcon'), userWeatherIcon);
+                icons.play();
                 
                 weatherData.temperatureValue = weatherTemperature;
-                /* took out weatherSimpleDescription in the loadBackground function parameter, replaced weatherDescription
-                   We dont want to set the icon to the actual string 'rain', but the 'rain' icon. 
-                   We should probably set our icons below this ajax call      */
-                //weatherData.icon.innerHTML = userWeatherIcon;
                 weatherData.city.innerHTML = cityName;
                 weatherData.temperature.innerHTML = weatherTemperature + weatherData.units;
-                weatherData.weather.innerHTML = weatherDescription;
           }, false);
     });        
 
@@ -193,45 +180,8 @@
 //call for the weatherData hinder each other? Log Updates below.
 // UPDATES: 
 // UPDATES:
-// (function() {
-//     if(!Skycons) {
-//         //error, couldn't find location, execute sweetalert 'error' function
-//         swal("Oops!", "Something went wrong on the page! Couldn't find your Skycons!", "error");
-//     }  
-//     else {
-//          /* Set icons to the value of specific Skycons functions*/
-//         var icons = new Skycons({"color": "white"});
+  
 
-//         icons.set("clear-day", Skycons.CLEAR_DAY); // User City
-//         icons.set("clear-night", Skycons.CLEAR_NIGHT); 
-//         icons.set("partly-cloudy-day", Skycons.PARTLY_CLOUDY_DAY);
-//         icons.set("partly-cloudy-night", Skycons.PARTLY_CLOUDY_NIGHT);
-//         icons.set("cloudy", Skycons.CLOUDY);    // Austin
-//         icons.set("rain", Skycons.RAIN);    //Seattle
-//         icons.set("sleet", Skycons.SLEET);  // Washington, D.C.
-//         icons.set("snow", Skycons.SNOW);
-//         icons.set("wind", Skycons.WIND);    
-//         icons.set("fog", Skycons.FOG);   //Baltimore
-
-//         // Icon Duplicates for weather
-//         icons.set("clear-day2", Skycons.CLEAR_DAY); //San Jose
-//         icons.set("clear-day3", Skycons.CLEAR_DAY);
-//         icons.set("clear-day4", Skycons.CLEAR_DAY); //Denver
-
-//         icons.set("rain2", Skycons.RAIN);   //Seattle
-//         icons.set("fog2", Skycons.FOG);   //Baltimore 
-
-//         icons.set("partly-cloudy-day2", Skycons.PARTLY_CLOUDY_DAY);  // Houston
-//         icons.set("partly-cloudy-day3", Skycons.PARTLY_CLOUDY_DAY);  // Raleigh
-
-//         icons.set("cloudy3", Skycons.CLOUDY); // Atlanta
-//         icons.set("cloudy4", Skycons.CLOUDY); // Charlotte
-//         icons.set("cloudy5", Skycons.CLOUDY); 
-
-//         icons.play();
-
-//     }
-// })
 
 
 

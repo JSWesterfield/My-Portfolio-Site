@@ -76,20 +76,13 @@
                           <h2 class="city" id="userCity">Current City</h2>
                           <!--<canvas id="userWeatherIcon" id="clear-day" width="128" height="128"></canvas>-->
                           <figure class="icons">
-                              <canvas class="weather-image" id="clear-day" width="64" height="64" alt="weather">
-                                  <!-- replace <a> tag and id inside canvas its within, this is just a test to see 
-                                  if it will render in the a tag, which it may or may not because its within a 
-                                  canvas object, but not necessarily inside the canvas tag, also, to see if it
-                                  will overwrite the image of the other weatherIcon currently in place
-                                  -->
-                                  <a class="weather-image" id="weatherIconMIA" width="64" height="64" alt="weather">
-                                  </a>
+                              <canvas class="weather-image" id="userWeatherIcon" width="64" height="64" alt="weather">
                               </canvas>
                           </figure>
                           
                           <!--<img src="images/weathericons/open-weather-icons/02d.svg" class="weather-image" alt="weather">-->
                           <!-- shows temperature in celsius, switchUnits() function used to convert and toggle between Celsius and Fahrenheit --> 
-                          <h1 class="temperature" id="userTemperature" onclick="switchUnits(); return false;">
+                          <h1 class="temperature" id="userTemperature" onclick="userWeatherData.switchUnits; return false;">
                             <!--Turned this into a a tag so it keeps its shape, and inherits from the class temperature.-->   
                             <a id="userWeather" class="degree">44°F</a>    
                           </h1>
@@ -119,7 +112,6 @@
                           <h2 class="city" id="cityMIA">Miami</h2>
                           <figure class="icons">
                                 <canvas id="clear-day3" class="weather-image" width="64" height="64" alt="weather">
-                                    <a id="weatherIconMIA" class="weather-image" width="64" height="64" alt="weather"></a>
                                 </canvas>
                           </figure>
                           <!--<img src="images/weathericons/open-weather-icons/01d.svg" class="weather-image" alt="weather">                          -->
@@ -645,15 +637,16 @@
 <!-- Added w/ NPM: npm install moment-timezone-with-data-2010-2020 dashdashsave -->
 <script src="js/moment-timezone-with-data-2010-2020/index.js" type="text/javascript">
 </script>
-<!--<script src="https://rawgithub.com/darkskyapp/skycons/master/skycons.js"></script>-->
-
-<script src="js/weatherlyIcons.js" ></script>
 
 <!-- SweetAlerts(SWAL) for aesthetically pleasing notifications. -->
 <!-- CDN to test setting up notifications-->
-<!--<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>-->
-<script src="js/sweetalert/dist/sweetalert.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<!-- Local sweetalerts js file here for testing locally-->
+<!--<script src="js/sweetalert/dist/sweetalert.min.js"></script>-->
 
+<!-- 1st script tag Defines Skycons, 2nd defines the css selectors on my page-->
+<script src="https://rawgithub.com/darkskyapp/skycons/master/skycons.js"></script>
+<script src="js/weatherlyIcons.js"></script>
 
 <script type="text/javascript">
   //on page load run script
