@@ -76,7 +76,15 @@
                           <h2 class="city" id="userCity">Current City</h2>
                           <!--<canvas id="userWeatherIcon" id="clear-day" width="128" height="128"></canvas>-->
                           <figure class="icons">
-                                <canvas class="weather-image" id="clear-day" width="64" height="64" alt="weather"></canvas>
+                              <canvas class="weather-image" id="clear-day" width="64" height="64" alt="weather">
+                                  <!-- replace <a> tag and id inside canvas its within, this is just a test to see 
+                                  if it will render in the a tag, which it may or may not because its within a 
+                                  canvas object, but not necessarily inside the canvas tag, also, to see if it
+                                  will overwrite the image of the other weatherIcon currently in place
+                                  -->
+                                  <a class="weather-image" id="weatherIconMIA" width="64" height="64" alt="weather">
+                                  </a>
+                              </canvas>
                           </figure>
                           
                           <!--<img src="images/weathericons/open-weather-icons/02d.svg" class="weather-image" alt="weather">-->
@@ -108,15 +116,17 @@
 
                 <div class="col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10">
                       <div class="wow fadeInUp section-title" data-wow-delay="0.3s">
-                          <h2 class="city">Miami</h2>
+                          <h2 class="city" id="cityMIA">Miami</h2>
                           <figure class="icons">
-                                    <canvas class="weather-image" id="clear-day3" width="64" height="64" alt="weather"></canvas>
+                                <canvas id="clear-day3" class="weather-image" width="64" height="64" alt="weather">
+                                    <a id="weatherIconMIA" class="weather-image" width="64" height="64" alt="weather"></a>
+                                </canvas>
                           </figure>
                           <!--<img src="images/weathericons/open-weather-icons/01d.svg" class="weather-image" alt="weather">                          -->
                           <h1 class="temperature" id="temperatureMIA">
                             <a id="weatherMIA" class="degree">74°F</a>
                           </h1>
-                          <h4 class="state-country">Florida, United States</h4>
+                          <h4 class="state-country" id="stateMIA">Florida, United States</h4>
                           <!--City Airport Codes used in conjuction w/ display momentID-->
                           <h4 class="day-date-time" id="displayMIAMoment">Thu, December 28th 10:14 PM</h4>
 
@@ -659,9 +669,9 @@
   var underConstruction = function() {
       swal("Oops!", "Sorry, this feature is still currently under construction", "error");
   };
-    
+  
   // declaring variables that point to keys in the config file.
-  var owa_key = config.OWA_KEY;
+  var darkSky = config.darkSky;
 
   // instantiate a moment object
   var NowMoment = moment();
