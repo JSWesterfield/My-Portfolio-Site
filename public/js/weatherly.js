@@ -47,11 +47,11 @@ var userWeatherData = {
           weatherData.state.innerHTML = regionName + ", ";
           var cityName = location.city;
           //Now that we have the location data we can pass this within our DarkSky Ajax call
-          var darkSkyURL = 'https://api.darksky.net/forecast/'
+          var darkSkyURL = 'https://api.darksky.net/forecast/';
           // To bypass the Cross Domain Error, can I pass in an object of mode: 'no-cors' as my proxy variable?
-          var corsProxy = 'https://cors-anywhere.herokuapp.com/' //can I pass in a mode: 'no-cors' object in place of this proxy?
-          var apiKey = '845ff6b003aba8bd1a9434ab040ef79c/' 
-          var units = '/?units=si'
+          var corsProxy = 'https://cors-anywhere.herokuapp.com/'; //can I pass in a mode: 'no-cors' object in place of this proxy?
+          var apiKey = '845ff6b003aba8bd1a9434ab040ef79c/'; 
+          var units = '/?units=si';
           var locationData = location.lat + "," + location.lon; 
           var requestObject = corsProxy + darkSkyURL + apiKey + locationData + units;
           //start Ajax call pass in the above data, in order:
