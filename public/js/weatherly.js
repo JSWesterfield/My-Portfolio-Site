@@ -75,7 +75,7 @@ var userWeatherData = {
     });        
 
 
-/**
+/**s
  *  MIAMI SECTION, first attempt at trying to render multiple sections, means double the amount of API calls.
  * will this reduce me rendering time? If so how do I increase the speed? 
  */

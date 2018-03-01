@@ -64,6 +64,12 @@ app.get('/test', function(req, res) {
     res.render('test');
 });
 
+app.get('/resume', function(req, res) {
+    // ejs render automatically looks in this view folder for the resume view
+    console.log('ready to send POST request for /resume');
+    res.render('resume');
+});
+
 app.listen(app.get('port'), function() {
     console.log('Our Express/Node app is running on http://localhost:' + 
     app.get('port') + '; press Ctrl+C to terminate.');
