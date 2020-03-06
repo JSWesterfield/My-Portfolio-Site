@@ -1,5 +1,7 @@
 /* eslint-disable max-len */
 /* eslint-disable require-jsdoc */
+var app = module.exports = express();
+
 const weatherData = {
   city: document.querySelector('#userCity'),
   state: document.querySelector('#userState'),
@@ -9,8 +11,6 @@ const weatherData = {
   temperatureValue: 0,
   units: '°F',
 };
-
-const darkSkyAPIKey = darkSky_ApiKey; 
 
 // Might want to refactor code to make this a global function
 // so that multiple
@@ -24,6 +24,12 @@ function roundTemperature(temperature) {
   return temperature;
 }
 
+// const darkSkyAPIKey = '845ff6b003aba8bd1a9434ab040ef79c/';
+// console.log('darkSkyAPIKey defined within the weatherly.js file is: ' + darkSkyAPIKey);
+
+//const darkSkyAPI_Key_localVar = '845ff6b003aba8bd1a9434ab040ef79c/'
+//console.log('darkSkyAPIKey defined within the weatherly file is: ' + darkSkyAPI_Key_localVar)
+
 // function switchUnits() {
 //   if (weatherData.units == '°C') {
 //     weatherData.temperatureValue = roundTemperature(weatherData.temperatureValue * 9/5 + 32);
@@ -35,13 +41,17 @@ function roundTemperature(temperature) {
 //   weatherData.temperature.innerHTML = weatherData.temperatureValue + weatherData.units + ' ';
 // }
 
-// https://api.darksky.net/forecast/845ff6b003aba8bd1a9434ab040ef79c/37.8267,-122.4233
+// https://api.darksky.net/forecast/845ff6b003aba8bd1a9434ab040ef79c/37.8267,-122.4233/?units=si
 // get geolocation data from ip via ip-api.com
 const getIP = 'http://ip-api.com/json/';
-// Dark Sky API key: 845ff6b003aba8bd1a9434ab040ef79c
+// const darkSkyAPIKey = '845ff6b003aba8bd1a9434ab040ef79c/'
+
+const darkSkyAPIKey = res.locals.apiKey;
+
 $.getJSON(getIP).done(function(location) {
   // show location object in console, to pull out 'regionName' or the state for rendering in html
   console.log(location);
+  console.log(darkSkyAPIKey);
   console.log('Your region/state name is: ' + location.regionName);
   const regionName = location.regionName;
   weatherData.state.innerHTML = regionName + ', ';
@@ -50,17 +60,12 @@ $.getJSON(getIP).done(function(location) {
   const darkSkyURL = 'https://api.darksky.net/forecast/';
   // To bypass the Cross Domain Error, can I pass in an object of mode: 'no-cors' as my proxy variable?
   const corsProxy = 'https://cors-anywhere.herokuapp.com/'; // can I pass in a mode: 'no-cors' object in place of this proxy?
-  // const apiKey = '845ff6b003aba8bd1a9434ab040ef79c/';
-  console.log('Our darkSkyApiKey from Config/dev.json: ' + darkSkyAPIKey);
-  const apiKey = darkSkyAPIKey;
-  // console.log('Our apiKey const set to app.local.darkSkyApiKey(should be same as darkSkyApiKey console above): ' + ''+ apiKey);
-
+  //const apiKey = '845ff6b003aba8bd1a9434ab040ef79c/';
+  const apiKey = darkSkyAPIKey;  
   const units = '/?units=si';
   const locationData = location.lat + ',' + location.lon;
   const requestObject = corsProxy + darkSkyURL + apiKey + locationData + units;
   
-  // start Ajax call pass in the above data, in order:
-  // CORS + DarkSky API URL + API KEY + locationData
   $.getJSON(requestObject).done(function(response) {
     console.log(response);
     // set our initial temperature to Fahrenheit due to the response data return the unit of celsius as the response data
