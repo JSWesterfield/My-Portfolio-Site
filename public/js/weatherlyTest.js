@@ -1,5 +1,6 @@
 //Will call itself upon page being called
 (function() {
+    
     // //define global function variables and 
     // var roundTemperature = function(temperature) {
     //             temperature = temperature.toFixed(1);
@@ -127,6 +128,10 @@
    
     // Global Scope now, so that I can use global variables locally within this refactored function
     var userWeatherData = function() {
+        const config = require('../../config');  // go within the config file and use these credentials
+        const darkSky_APIKEY = config.darkSky_APIKEY;
+        console.log('Our darkSky_APIKEY at the start of function() is: ' + darkSky_APIKEY);
+
         //intitially just local scope, threw this within its own global function
         var weatherData = {
             city: document.querySelector ("#userCity"),
@@ -149,10 +154,13 @@
         // var darkSkyAPI = 'https://api.darksky.net/forecast/'
         // var CORS = 'https://cors-anywhere.herokuapp.com/'
         // var apiKey = '845ff6b003aba8bd1a9434ab040ef79c/'
-        $.getJSON(getIP).done(function(location) {
+        // Config files credentials
+        
+
+        $.getJSON(getIP).done(function(location, darkSky_APIKEY) {
             //show location object in console, to pull out 'regionName' or the state for rendering in html
-            console.log(location);
-            console.log("Your region/state name is: " + location.regionName);
+            console.log('Our new Location!!!: ' + location);
+            console.log("Your cool region/state name is: " + location.regionName);
                 var regionName = location.regionName;
                 weatherData.state.innerHTML = regionName + ", ";
                 //Now that we have the location data we can pass this within our DarkSky Ajax call
@@ -165,15 +173,17 @@
                 //        fetch(apiLinkDS, { 
                 //              mode: 'no-cors' 
                 //           })
-                //
                 var corsProxy = 'https://cors-anywhere.herokuapp.com/' //can I pass in a mode: 'no-cors' object in place of this proxy?
-                var apiKey = '845ff6b003aba8bd1a9434ab040ef79c/' 
+                //var apiKey = '845ff6b003aba8bd1a9434ab040ef79c/' 
+                var apiKey = darkSky_APIKEY;
+                console.log('Our apiKey var is: ' + apiKey + '' + ' and our config.darkSky_APIKEY is: ' + config.darkSky_APIKEY);
                 // will locationData be a string? location.lat object + string + location.lat object == String??  
                 // OR is locationData = (response object + string object + response object) ??
                 var locationData = location.lat + "," + location.lon; //should I use ( ) to wrap these 3 objects together?
                 var requestObject = corsProxy + darkSkyURL + apiKey + locationData;
                 //start Ajax call pass in the above data, in order:
                 // CORS + DarkSky API URL + API KEY + locationData
+
                 $.getJSON(requestObject).done(function(response) {
                     console.log(response);
                     //why do I need this positon object? 
