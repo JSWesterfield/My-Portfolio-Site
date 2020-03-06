@@ -63,3 +63,8 @@ app.get('/strManipulator', function(req, res) {
 //         //do stuff
 //     });
 // };
+
+exports.index = function(req, res){
+    var config = req.app.get('config');
+    // config is now available
+}

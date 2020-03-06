@@ -3,7 +3,8 @@
 // Will call itself upon page being called
 const logger = require('winston'),
 const expressWinston = require('express-winston');
-const config = require('../../config'); // go within the config file and use these credentials
+// const config = require('../../config/dev.json'); // go within the config file and use these credentials
+const config = require('config');
 
 const logLevel = config.logLevel ? config.logLevel : 'debug';
 

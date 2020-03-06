@@ -1,15 +1,18 @@
 
 // adding this node.js express 'module', using the require function/method
 const express = require('express');
-// const logger = require('winston'),
-expressWinston = require('express-winston');
-const config = require('../../config'); // go within the config file and use these credentials
+const config = require('config'); // go within the config file and use these credentials
+const winston = require('winston'),
+    expressWinston = require('express-winston');
 
 // declare and initialize an 'app' variable to use the new 'express' method.
 const app = express();
 // var port = 3000;
 
-const logLevel = config.logLevel ? config.logLevel : 'debug';
+const logLevel = config.get('logLevel') ? config.logLevel : 'debug';
+console.log('Our logLevel is: ' + logLevel);
+const darkSkyApiKey = config.darkSkyApiKey ? config.darkSkyApiKey : 'null';
+console.log('Our darkSkyApiKey is: ' + logLevel);
 
 // configure logger
 const logger = winston.createLogger({
@@ -25,6 +28,10 @@ const logger = winston.createLogger({
       ),
   ),
   transports: [new winston.transports.Console()],
+});
+
+app.configure(function() {
+  app.set('config', config); 
 });
 
 // set the port of our application
@@ -71,6 +78,7 @@ app.get('/strManipulator', function(req, res) {
 app.get('/weatherly', function(req, res) {
   // ejs render automatically looks in the view folder
   console.log('ready to send POST request for /weatherly');
+  var darkSky_ApiKey = darkSkyApiKey; 
   res.render('weatherly');
 });
 
@@ -91,6 +99,10 @@ app.listen(app.get('port'), function() {
     app.get('port') + '; press Ctrl+C to terminate.');
 });
 
+// Expose Server variables to all EJS templates
+// app.locals.config = config; // used to expose config/dev.json JSON credential prop values to (EJS) weatherly.js template
+// app.locals.logLevel = logLevel; // used to expose config/dev.json/logLevel prop value to (EJS) template weatherly.js template
+
 // Custom 404 page
 app.use(function(req, res) {
   res.type('text/plain');
@@ -106,4 +118,3 @@ app.use(function(err, req, res, next) {
   res.status(500);
   res.send('500 - Server Error');
 });
-
