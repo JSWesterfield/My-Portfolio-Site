@@ -1,6 +1,28 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable max-len */
 // Will call itself upon page being called
+const logger = require('winston'),
+const expressWinston = require('express-winston');
+const config = require('../../config'); // go within the config file and use these credentials
+
+const logLevel = config.logLevel ? config.logLevel : 'debug';
+
+// configure logger
+const logger = winston.createLogger({
+  level: 'debug',
+  format: winston.format.combine(
+      winston.format.timestamp(),
+      winston.format.simple(),
+      winston.format.printf((msg) =>
+        colorizer.colorize(
+            msg.level,
+            `${msg.timestamp} - ${msg.level}: ${msg.message}`,
+        ),
+      ),
+  ),
+  transports: [new winston.transports.Console()],
+});
+
 (function() {
   // //define global function variables and
   // var roundTemperature = function(temperature) {
@@ -129,7 +151,7 @@
 
   // Global Scope now, so that I can use global variables locally within this refactored function
   const userWeatherData = function() {
-    const config = require('../../config'); // go within the config file and use these credentials
+    // const config = require('../../config'); // go within the config file and use these credentials
     const darkSkyAPIKEY = config.darkSkyAPIKEY;
     console.log('Our darkSky_APIKEY at the start of function() is: ' + darkSkyAPIKEY);
 

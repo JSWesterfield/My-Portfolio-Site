@@ -1,9 +1,10 @@
 /* eslint-disable max-len */
 /* eslint-disable require-jsdoc */
+const config = require('../../config'); // go within the config file and use these credentials
+
 const userWeatherData = {
-
-
 };
+
 const weatherData = {
   city: document.querySelector('#userCity'),
   state: document.querySelector('#userState'),

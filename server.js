@@ -1,10 +1,31 @@
 
 // adding this node.js express 'module', using the require function/method
 const express = require('express');
+// const logger = require('winston'),
+expressWinston = require('express-winston');
+const config = require('../../config'); // go within the config file and use these credentials
 
 // declare and initialize an 'app' variable to use the new 'express' method.
 const app = express();
 // var port = 3000;
+
+const logLevel = config.logLevel ? config.logLevel : 'debug';
+
+// configure logger
+const logger = winston.createLogger({
+  level: 'debug',
+  format: winston.format.combine(
+      winston.format.timestamp(),
+      winston.format.simple(),
+      winston.format.printf((msg) =>
+        colorizer.colorize(
+            msg.level,
+            `${msg.timestamp} - ${msg.level}: ${msg.message}`,
+        ),
+      ),
+  ),
+  transports: [new winston.transports.Console()],
+});
 
 // set the port of our application
 // process.env.PORT lets the port be set by Heroku
