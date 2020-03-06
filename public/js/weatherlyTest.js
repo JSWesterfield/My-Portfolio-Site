@@ -259,5 +259,3 @@
   }); // End of
 // eslint-disable-next-line max-len
 })(); // End of self invoking function, that will execute itself upon being called
-
-
