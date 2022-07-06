@@ -17,7 +17,7 @@
     "jquery.cookie": "1.4.1",
     "jshint": "2.9.5",
     "kendo-ui-core": "2017.3.1206",
-    "moment": "^2.19.2",
+    "moment": "^2.29.4",
     "moment-timezone": "0.5.14",
     "moment-timezone-with-data-2010-2020": "0.4.0",
     "mongodb": "3.0.0-rc0",
