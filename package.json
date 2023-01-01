@@ -28,7 +28,7 @@
     "winston": "^3.2.1"
   },
   "devDependencies": {
-    "config": "^3.3.0",
+    "config": "^3.3.8",
     "eslint": "^6.8.0"
   }
 }
